@@ -1,0 +1,10 @@
+# git bundle（手元へ持ち出す用の一時ファイル）
+*.bundle
+
+# RTL のビルド生成物
+rtl-journey/build/
+*.vcd
+*.vvp
+
+# macOS
+.DS_Store
