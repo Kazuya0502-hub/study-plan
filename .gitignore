@@ -8,3 +8,6 @@ rtl-journey/build/
 
 # macOS
 .DS_Store
+
+# 個人フォルダ（ワークスペースに同期されるがリポジトリには入れない）
+Documents/
