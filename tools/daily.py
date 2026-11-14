@@ -39,7 +39,7 @@ DEFAULT = {
 }
 
 HDR = re.compile(r"^##\s+(\d{4}-\d{2}-\d{2})\s*(.*)$")
-ITEM = re.compile(r"^(must|task|min|note|log)\s*:\s*(.*)$")
+ITEM = re.compile(r"^(?:\[([ xX])\]\s*)?(must|task|min|note|log)\s*:\s*(.*)$")
 
 
 def load():
@@ -58,8 +58,9 @@ def load():
             if cur is None:
                 continue
             m = ITEM.match(line.strip())
-            if m and m.group(1) in ("must", "task", "min"):
-                days[cur]["items"].append((m.group(1), m.group(2).strip()))
+            if m and m.group(2) in ("must", "task", "min"):
+                done = bool(m.group(1)) and m.group(1).lower() == "x"
+                days[cur]["items"].append((m.group(2), m.group(3).strip(), done))
     return days
 
 
@@ -69,21 +70,25 @@ def fmt(d, info=None):
     if head.startswith(WD[date.weekday()]):
         head = head[1:].strip()
     print(f"\n# {d}（{WD[date.weekday()]}）{head}")
-    items = info["items"] if info and info["items"] else DEFAULT[date.weekday()]
+    raw = info["items"] if info and info["items"] else DEFAULT[date.weekday()]
+    # 行の書式は `must: ...` と `[x] must: ...` の両方を受ける
+    items = [(it[0], it[1], it[2] if len(it) > 2 else False) for it in raw]
     if not info:
         print("  ※ この日の予定ファイルがないため、曜日の既定テンプレートを表示")
     n = 0
-    for kind, text in items:
+    for kind, text, done in items:
+        mark = "x" if done else " "
         if kind == "must":
-            print(f"  [ ] ★  {text}")
+            print(f"  [{mark}] ★  {text}")
         elif kind == "task":
             n += 1
-            print(f"  [ ] {n}.   {text}")
-    mins = [t for k, t in items if k == "min"]
+            print(f"  [{mark}] {n}.   {text}")
+    mins = [(t, d) for k, t, d in items if k == "min"]
     if mins:
         print("  --- 落ちた日用 ---")
-        for t in mins:
-            print(f"  [ ] m.   {t}")
+        for t, d in mins:
+            mark = "x" if d else " "
+            print(f"  [{mark}] m.   {t}")
     print(f'  記録: python3 tools/daily.py log "must: 達成 / 02:10 / 詰まった: ..."')
 
 
