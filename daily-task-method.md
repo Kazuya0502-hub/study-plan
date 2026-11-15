@@ -68,6 +68,23 @@ Each weekday has a **fixed kind of slot**, so filling it in decides the day.
 
 ---
 
+## 4.5 Worksheets: where they fit
+
+Every 6.004 unit ships a worksheet with worked examples and solutions. They are the highest-value item in the course, but one sheet takes 1-2 hours, so **never do all of them**.
+
+| When | What |
+|---|---|
+| A unit is being reviewed this week | Do **the first 3-4 problems** of that unit's worksheet (20-25 min) as the `task`. Not the whole sheet |
+| A weekly test or mock exam got a unit wrong | That unit's worksheet becomes next week's `task`, 30 min. This **replaces re-reading the slides** |
+| A unit was never studied | Read the slides first, then only the problems that test what you cannot yet demonstrate |
+| Already solid (blank-paper recall works) | **Skip the worksheet.** The blank page is the test |
+
+**Why this beats re-reading**: the roadmap's principle is to replace review with "write it and check it". A worksheet is decidable (problem 3 is finished or it is not), which is exactly what the `task` layer needs.
+
+**Recording**: one card per wrong problem, and log the problem number (`12.3 Q2`), not just "worksheet".
+
+---
+
 ## 5. Granularity rules
 
 - **Each item must finish in 15-90 minutes.** "Implement RV32I" is not a task (it is a two-month project).
