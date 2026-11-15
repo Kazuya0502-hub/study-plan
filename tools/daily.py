@@ -72,7 +72,7 @@ def fmt(d, info=None):
         head = head[len(wd):].strip()
     print(f"\n# {d} ({wd}) {head}")
     raw = info["items"] if info and info["items"] else DEFAULT[date.weekday()]
-    # 行の書式は `must: ...` と `[x] must: ...` の両方を受ける
+    # Accept both `must: ...` and `[x] must: ...`
     items = [(it[0], it[1], it[2] if len(it) > 2 else False) for it in raw]
     if not info:
         print("  (no plan file for this day; showing the weekday default template)")
