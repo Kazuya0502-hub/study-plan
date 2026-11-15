@@ -43,7 +43,7 @@ ITEM = re.compile(r"^(?:\[([ xX])\]\s*)?(must|task|min|note|log)\s*:\s*(.*)$")
 
 
 def load():
-    """plan/*.md を読み、{date: {"head": str, "items": [(kind, text)]}} を返す"""
+    """Read plan/*.md and return {date: {"head": str, "items": [(kind, text, done)], "src": str}}"""
     days = {}
     if not PLAN.is_dir():
         return days
