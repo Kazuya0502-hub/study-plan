@@ -1,17 +1,17 @@
-// adder4.v — 4bit リプルキャリー加算器（W1 11/14）
+// adder4.v - 4-bit ripple-carry adder (W1, 11/14)
 //
-// 仕様
+// Spec
 //   a[3:0], b[3:0], cin  ->  sum[3:0], cout
-//   cout は「最上位からあふれた桁」。15 + 15 + 1 = 31 なので 5bit で受ける。
+//   cout is the bit that overflowed the top. 15 + 15 + 1 = 31, so the result needs 5 bits.
 //
-// 書く順番（この順で、1つずつシミュレーションを通す）
-//   1) half_adder : sum = a ^ b,  cout = a & b   ← 完了
-//   2) full_adder : half_adder 2個 + OR（cin を含める）
-//   3) adder4     : full_adder 4段のリプルキャリー
+// Build order (one stage at a time, simulating after each)
+//   1) half_adder : sum = a ^ b,  cout = a & b
+//   2) full_adder : two half adders + OR (including cin)
+//   3) adder4     : four full adders in a ripple-carry chain
 //
-// 禁止: + 演算子（構造で組むのが今日の目的）
+// Forbidden: the + operator. Building the structure is the point of the exercise.
 
-// ---- 1) half_adder : 1bit + 1bit（繰り上がり入力なし） ----
+// ---- 1) half_adder : 1 bit + 1 bit (no carry in) ----
 module half_adder (
     input  wire a,
     input  wire b,
@@ -23,7 +23,7 @@ module half_adder (
 endmodule
 
 // ---- 2) full_adder : a + b + cin ----
-//   フラットな論理式で書いた版（half_adder 2個で組む版と等価）
+//   Written as a flat boolean expression (equivalent to two half adders)
 module full_adder (
     input  wire a,
     input  wire b,
@@ -35,8 +35,8 @@ module full_adder (
     assign cout = (a & b) | (a & cin) | (b & cin);
 endmodule
 
-// ---- 3) TODO: adder4 : 4bit のトップ ----
-//   full_adder を4段たてに繋ぎ、下位の cout を上位の cin に入れる
+// ---- 3) adder4 : the 4-bit top level ----
+//   Stack four full adders and feed each carry out into the next carry in
 module adder4 (
   input wire [3:0]a,
   input wire [3:0]b,

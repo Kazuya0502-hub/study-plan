@@ -1,6 +1,6 @@
-# RTL 作業用 Makefile
-# 使い方: make sim TOP=adder4 / make lint TOP=adder4 / make syn TOP=adder4
-# ツールが無い環境では動きません（README 参照）
+# Makefile for RTL work
+# Usage: make sim TOP=adder4 / make lint TOP=adder4 / make syn TOP=adder4
+# Needs iverilog, verilator, yosys, gtkwave (see README)
 
 TOP  ?= adder4
 RTL  := $(wildcard rtl/*.v)
@@ -12,28 +12,28 @@ SIM  := $(BUILD)/$(TOP).vvp
 
 all: help
 
-sim:            ## コンパイル＋シミュレーション
+sim:            ## compile and simulate
 	@mkdir -p $(BUILD)
 	iverilog -g2012 -Wall -o $(SIM) $(RTL) $(TB)
 	vvp $(SIM)
 
-lint:           ## lint（verilator -Wall）
+lint:           ## lint with verilator -Wall
 	verilator --lint-only -Wall -Wno-fatal --top-module $(TOP) $(RTL)
 
-syn:            ## 合成＋セル数・論理段数
+syn:            ## synthesize; report cell count and logic depth
 	@mkdir -p $(BUILD)
 	yosys -p "read_verilog $(RTL); hierarchy -top $(TOP); proc; opt; fsm; opt; memory; opt; techmap; opt; stat" \
 	      -l $(BUILD)/$(TOP)_syn.log
-	@echo "--- レポート: $(BUILD)/$(TOP)_syn.log"
+	@echo "--- report: $(BUILD)/$(TOP)_syn.log"
 
-wave:           ## 波形（gtkwave）
+wave:           ## waveform in gtkwave
 	@mkdir -p $(BUILD)
 	iverilog -g2012 -o $(SIM) $(RTL) $(TB)
 	(cd $(BUILD) && vvp $(notdir $(SIM)))
 	gtkwave $(BUILD)/$(TOP).vcd &
 
-clean:          ## 生成物を削除
+clean:          ## remove build artifacts
 	rm -rf $(BUILD)
 
-help:           ## このヘルプ
+help:           ## this help
 	@grep -E '^[a-z]+:.*##' $(MAKEFILE_LIST) | sed 's/:.*##/\t/' | column -t -s "$$(printf '\t')"

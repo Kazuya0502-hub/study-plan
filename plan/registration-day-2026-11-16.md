@@ -1,46 +1,46 @@
-# 登録当日の1枚（2026-11-16 月）
+# Registration day, one page (Monday 2026-11-16)
 
-印刷して持っていく。上から順に押さえる。**迷ったら上を優先**。
+Print this and bring it. Work from the top down. **If in doubt, the higher row wins.**
 
 ---
 
-## 登録順（この順番で）
+## Registration order
 
-| # | 科目 | セクション | 曜日・時刻 | 場所 | 単位 | 理由 |
+| # | Course | Section | Days and times | Location | Units | Why |
 |---|---|---|---|---|---|---|
-| 1 | **MATH 220** Calculus II | **7411** | TTh 9:35–11:25 | Pittsburg MA2-206 | 4 | 最も埋まりやすい。対面でなければ F-1 の枠が崩れる |
-| 2 | **CHEM 025** Gen College Chem 1 | **7480** | MW 12:45–14:10（講義）／MW 14:20–17:30（実験） | SC2-227／SC2-234 | 5 | 実験枠が少ない。**通らなければ CHEM 006 へ** |
-| 3 | **ENGL C1000** Academic Reading & Writing | **0312** | W 11:10–12:35 | CC2-291（ハイブリッド） | 3 | UC-E は絶対要件。C1000→C1001 の順序がある |
-| 4 | **COMSC 122** Programming Concepts I | **6944** | TTh 12:45–14:10 | Zoom（ライブ） | 3 | 私立志望（Penn/Cornell/Dartmouth）用。オンライン枠はここで使う |
-| 5 | **GE 3単位（UC-B か UC-H・対面）** | 空いているもの | — | — | 3 | 夏までに30単位の壁を越えるため |
+| 1 | **MATH 220** Calculus II | **7411** | TTh 9:35-11:25 | Pittsburg MA2-206 | 4 | Fills first. It must be in person or the F-1 online limit breaks |
+| 2 | **CHEM 025** General College Chemistry 1 | **7480** | MW 12:45-14:10 (lecture) / MW 14:20-17:30 (lab) | SC2-227 / SC2-234 | 5 | Few lab seats. **If not cleared, switch to CHEM 006** |
+| 3 | **ENGL C1000** Academic Reading and Writing | **0312** | W 11:10-12:35 | CC2-291 (hybrid) | 3 | UC-E is an absolute requirement; C1000 comes before C1001 |
+| 4 | **COMSC 122** Programming Concepts I | **6944** | TTh 12:45-14:10 | Zoom (live) | 3 | For private schools (Penn/Cornell/Dartmouth). This is the one online slot |
+| 5 | **GE, 3 units (UC-B or UC-H, in person)** | whatever fits | - | - | 3 | Clears the 30-unit wall |
 | | | | | | **18** | |
 
-## 詰まったときの代替
+## If a section is full
 
-| 科目 | 代替 | 注意 |
+| Course | Fallback | Watch out |
 |---|---|---|
-| MATH 220 7411 が満員 | 9575／9605（Brentwood、対面） | 移動時間を確認 |
-| MATH 220 が対面で取れない | 7407（完全オンライン） | **オンライン枠を1つ使うので COMSC 122 は 6940（非同期）でも可**。ただしオンライン2科目は F-1 違反 |
-| CHEM 025 7480 が満員 | 7472（実験が MW 7:55 開始） | 早起きできるかの判断 |
-| CHEM 025 の前提が通らない | **CHEM 006 9524（Brentwood）** | 曜日・時刻を窓口で確認。`PHYS 015`（金 11:10–14:20）と重ならないこと |
-| ENGL C1000 0312 が満員 | 0290、0315／0320／0343（完全オンライン） | オンライン枠を消費する点に注意 |
-| COMSC 122 6944 が満員 | 6940（非同期） | 締切管理が自分持ちになる |
+| MATH 220 7411 full | 9575 / 9605 (Brentwood, in person) | Check travel time |
+| MATH 220 has no in-person seat | 7407 (fully online) | **This uses the online slot, so COMSC 122 must then be 6940 (async)**. Two online courses violates F-1 |
+| CHEM 025 7480 full | 7472 (lab starts MW 7:55) | Decide whether you can do early mornings |
+| CHEM 025 prerequisite not cleared | **CHEM 006 9524 (Brentwood)** | Confirm days and times at the counter. It must not clash with PHYS 015 (F 11:10-14:20) |
+| ENGL C1000 0312 full | 0290, 0315 / 0320 / 0343 (fully online) | Consumes the online slot |
+| COMSC 122 6944 full | 6940 (async) | You own the deadlines |
 
-## 押さえた後の確認（4つ）
+## Four checks after you register
 
-- [ ] 合計 **18単位**（5科目）
-- [ ] **対面が15単位以上**（MATH 220 4 ＋ CHEM 025 5 ＋ ENGL 3 ＋ GE 3 ＝ 15）
-- [ ] **オンラインは1科目だけ**（COMSC 122 の3単位）
-- [ ] **CHEM 025 か CHEM 006 か**が確定している（仮のまま持ち越さない）
+- [ ] **18 units** total (5 courses)
+- [ ] **At least 15 units in person** (MATH 220 4 + CHEM 025 5 + ENGL 3 + GE 3 = 15)
+- [ ] **Exactly one online course** (COMSC 122, 3 units)
+- [ ] **CHEM 025 or CHEM 006 is settled** (do not carry a provisional choice into the week)
 
-## その日にやる事務
+## Paperwork that day
 
-- [ ] **ASSIST の「EEC 007／PHY 009D：No Course Articulated」画面をスクショ保存**（waiver の証拠）
-- [ ] Davis のアドバイザーへ waiver の書面確認を送る（`plan/week-2026-11-16.md` の 11/22 分）
-- [ ] 時間割のスクショを保存（後で「あの時こうだった」を防ぐ）
-- [ ] `python3 tools/daily.py log "登録: ..."` で記録
+- [ ] **Screenshot the ASSIST "EEC 007 / PHY 009D: No Course Articulated" page** (evidence for the waiver)
+- [ ] Send Davis the written waiver confirmation (11/22 task in `plan/week-2026-11-16.md`)
+- [ ] Save a screenshot of your schedule (so you can prove what it looked like)
+- [ ] Record it: `python3 tools/daily.py log "registration: ..."`
 
-## 朝いちばんに決めること
+## Decide this first thing in the morning
 
-**「CHEM 025 の前提が通るか」が未確定なら、CHEM 025 を先に取る。**
-通らなければ同じ日のうちに CHEM 006 に差し替える。**仮のまま1週間放置するのが最悪**（実験枠は埋まる）。
+**If the CHEM 025 prerequisite is still unsettled, register for CHEM 025 first.**
+If it does not clear, switch to CHEM 006 the same day. **Leaving it provisional for a week is the worst case**; lab seats disappear.

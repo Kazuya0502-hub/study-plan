@@ -1,45 +1,55 @@
-# rtl-journey（作業用）
+# rtl-journey (working directory)
 
-RTL 学習のコードを書く場所。**計画文書（親ディレクトリ）とは分けてあります。**
+Where the RTL study code lives. **Kept separate from the planning documents in the parent directory.**
 
-## 構成
+## Layout
 
 ```
 rtl-journey/
-  rtl/     設計（.v）— 1モジュール1ファイル
-  tb/      テストベンチ（tb_<module>.v）— 自己検査にする
-  syn/     合成スクリプト・レポート
-  docs/    仕様書（1〜2ページ。入出力表・非目標・タイミング）
-  notes/   学習ログ、カード、誤り集、env.md
+  rtl/     design (.v) - one file per module
+  tb/      testbenches (tb_<module>.v) - always self-checking
+  syn/     synthesis scripts and reports
+  docs/    specs (1-2 pages: I/O table, non-goals, timing)
+  notes/   study log, cards, error log, env.md
 ```
 
-## 書き方の規約
+## Conventions
 
-- ファイル名 = モジュール名（`rtl/adder4.v` → `module adder4`）
-- 1コミット = 1つの「動く単位」（仕様＋TB＋実装をまとめて）
-- コミットメッセージ: `add: 4bit ripple-carry adder (tb 256/256 pass)`
-- `notes/env.md` にツールの版数を記録（11/12 に実施済みならそれを移す）
+- File name = module name (`rtl/adder4.v` -> `module adder4`)
+- One commit = one working unit (spec + testbench + implementation together)
+- Commit message: `add: 4-bit ripple-carry adder (tb 512/512 pass)`
+- Record tool versions in `notes/env.md`
 
-## コマンド（ツールが入っている PC で実行）
+## Commands (run on a PC with the tools installed)
 
 ```bash
-make sim   TOP=adder4   # コンパイル＋シミュレーション（iverilog）
-make lint  TOP=adder4   # lint（verilator -Wall）
-make syn   TOP=adder4   # 合成＋セル数（yosys）
-make wave  TOP=adder4   # gtkwave で波形
+make sim   TOP=adder4   # compile and simulate (iverilog)
+make lint  TOP=adder4   # lint (verilator -Wall)
+make syn   TOP=adder4   # synthesize and report cell count (yosys)
+make wave  TOP=adder4   # open the waveform in gtkwave
 make clean
 ```
 
-## ツールの導入（PC 側）
+`make` is not installed on Windows by default. Either install it, or run the tools directly:
 
-| OS | コマンド |
+```powershell
+cd C:\Users\<you>\Downloads\study-plan\rtl-journey
+New-Item -ItemType Directory -Force build
+iverilog -o build\adder4.vvp tb\tb_adder4.v rtl\adder4.v
+vvp build\adder4.vvp
+yosys -p "read_verilog rtl/adder4.v; synth; stat"
+```
+
+## Installing the tools (on your PC)
+
+| OS | Command |
 |---|---|
 | macOS | `brew install icarus-verilog verilator yosys gtkwave` |
 | Ubuntu/Debian | `sudo apt install iverilog verilator yosys gtkwave` |
-| Windows | [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases)（インストーラ不要、展開して PATH を通す） |
+| Windows | [OSS CAD Suite](https://github.com/YosysHQ/oss-cad-suite-build/releases) (no installer; unzip and add `bin` to PATH) |
 
-ツールを入れたくない日は [EdaPlayground](https://www.edaplayground.com/)（ブラウザで iverilog が動く）でも可。
+If you do not want to install anything, [EdaPlayground](https://www.edaplayground.com/) runs iverilog in the browser.
 
-## このVMについて
+## About this VM
 
-このワークスペース（クラウド）には **iverilog / verilator / yosys が入っていません**。root 権限が無いため追加もできません。**ファイルの作成・レビューはここで、実行は PC で**行います。
+This cloud workspace has **no iverilog, verilator, or yosys**, and there is no root access to add them. **Author and review files here; run them on your PC.**

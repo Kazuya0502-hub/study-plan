@@ -1,61 +1,61 @@
-# adder4 — 4bit ripple-carry adder
+# adder4 - 4-bit ripple-carry adder
 
-W1（2026-11-14）の成果物。仕様 → 実装 → 検証 → 合成までを1本で通した最初の回路。
+The W1 artifact (2026-11-14). The first circuit taken from spec through implementation, verification, and synthesis in one pass.
 
-## 目的
+## Goal
 
-4bit の2数を、加算器の構造（半加算器・全加算器の連鎖）で足す。`+` 演算子は使わない。
+Add two 4-bit numbers structurally, from half adders and full adders in a chain. No `+` operator.
 
-## 入出力
+## Ports
 
-| 信号 | 幅 | 向き | 意味 |
+| Signal | Width | Dir | Meaning |
 |---|---|---|---|
-| `a` | 4 | in | 被加数（0〜15） |
-| `b` | 4 | in | 加数（0〜15） |
-| `cin` | 1 | in | 最下位への繰り上がり入力 |
-| `sum` | 4 | out | 加算結果の下位4bit |
-| `cout` | 1 | out | 最上位からの繰り上がり（`{cout,sum}` で5bit、0〜31） |
+| `a` | 4 | in | Addend (0-15) |
+| `b` | 4 | in | Augend (0-15) |
+| `cin` | 1 | in | Carry into the least significant bit |
+| `sum` | 4 | out | Low 4 bits of the result |
+| `cout` | 1 | out | Carry out of the top bit (`{cout,sum}` is 5 bits, 0-31) |
 
-## 構成
+## Structure
 
 ```
-full_adder fa0..fa3 を4段
-  cin → fa0 → c1 → fa1 → c2 → fa2 → c3 → fa3 → cout
+four full adders, fa0..fa3
+  cin -> fa0 -> c1 -> fa1 -> c2 -> fa2 -> c3 -> fa3 -> cout
 ```
 
-- `half_adder` : `sum = a ^ b`, `cout = a & b`
-- `full_adder` : `sum = a ^ b ^ cin`, `cout = (a&b) | (a&cin) | (b&cin)`
-- `adder4` : `full_adder` 4段。下位の `cout` を上位の `cin` へ
+- `half_adder`: `sum = a ^ b`, `cout = a & b`
+- `full_adder`: `sum = a ^ b ^ cin`, `cout = (a&b) | (a&cin) | (b&cin)`
+- `adder4`: four `full_adder` stages, feeding each carry out into the next carry in
 
-## 非目標（やらないこと）
+## Non-goals
 
-- 8bit 以上への拡張（パラメータ化は W2 以降）
-- 減算・比較・オーバーフローフラグ
-- 桁上げ高速化（キャリールックアヘッド）
+- 8 bits or wider (parameterization comes in W2 and later)
+- Subtraction, comparison, overflow flags
+- Faster carry structures (carry-lookahead)
 
-## 検証
+## Verification
 
-自己検査テストベンチ `tb/tb_adder4.v`。`a` 0〜15 × `b` 0〜15 × `cin` 0〜1 の**全512通り**。
+Self-checking testbench `tb/tb_adder4.v`. **All 512 combinations**: `a` 0-15 x `b` 0-15 x `cin` 0-1.
 
-- 期待値は TB 側で計算（`expected = a + b + cin`）
-- 出力は `{cout, sum}` の5bitで比較
-- `!==` を使うので `x`（未接続）も不一致として検出
+- The expected value is computed in the testbench (`expected = a + b + cin`)
+- The 5-bit outputs `{cout, sum}` are compared
+- `!==` is used so an `x` (unconnected) also counts as a mismatch
 
-**結果：512/512 一致。**
+**Result: 512/512 match.**
 
-> 途中で `fa3` の `cout` を繋ぎ忘れ、256通りが不一致になった。合成でも lint でも警告は出ず、テストベンチの比較だけで見つかった。
+> Along the way, `fa3`'s `cout` was left unconnected and 256 patterns failed. Neither lint nor synthesis warned about it; only the testbench comparison found it.
 
-## 合成
+## Synthesis
 
 ```bash
 make syn TOP=adder4
 ```
 
-| 指標 | 値 |
+| Metric | Value |
 |---|---|
-| セル数 | （実行して記入） |
-| 論理段数 | （実行して記入） |
-| ラッチ推論 | 0 であること |
+| Cell count | (fill in after running) |
+| Logic depth | (fill in after running) |
+| Inferred latches | must be 0 |
 
 ## English summary
 
