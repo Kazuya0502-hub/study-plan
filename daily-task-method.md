@@ -1,168 +1,168 @@
-# 毎日のタスクを「毎日考えずに」出す方法
+# How to get each day's tasks without thinking about them every day
 
-## 0. なぜ「毎日リストを作る」は失敗するか
+## 0. Why "make a list every day" fails
 
-毎朝「今日は何をやろう」と考える方式は、**意思決定のコストを毎日払う**ことになります。疲れている日ほど判断が甘くなり、簡単なタスク（カードの見直し）だけを並べて、重いタスク（仕様書を書く）が消えます。学期中に週13時間しかない状態では、この散発的な自己管理が一番の敵になります。
+Deciding every morning what to do today means **paying the cost of a decision every single day**. On tired days the judgment gets weak, and you fill the list with easy items (reviewing cards) while the heavy one (writing the spec) disappears. With only 13 hours a week during term, that scattered self-management is the main enemy.
 
-**逆にする**のが正解です。
+**Invert it.**
 
-> **週に1回（日曜15分）だけ決める。日次は「展開」するだけで、選ばない。**
+> **Decide once a week (15 minutes on Sunday). Every day you only "expand" the plan; you do not choose.**
 
 ---
 
-## 1. 原則5つ
+## 1. Five principles
 
-| # | 原則 | 理由 |
+| # | Principle | Why |
 |---|---|---|
-| 1 | **週次で決める、日次では決めない** | 判断は週1回に集約。日次は「実行」だけ |
-| 2 | **1日1つ「★これだけは」を先に決める** | 崩れた日でも1つは残る。0点の日を作らない |
-| 3 | **時間ではなく成果物で書く** | 「理論2h」ではなく「単元15のパイプライン図をA4に1枚」。終わったかどうかが判定できる |
-| 4 | **落ちた日用の「最小版」を最初から用意する** | 当日に縮小を考えると、縮小の判断自体が負担になる |
-| 5 | **繰り越しは2回まで。3回目は捨てる** | 3回繰り越すタスクは、今の生活に入らないタスク。捨てて週次で組み直す |
+| 1 | **Decide weekly, never daily** | All judgment collapses into one session a week. The daily layer only executes |
+| 2 | **Fix one "this one thing" per day first** | Even a broken day keeps one item. No zero days |
+| 3 | **Write deliverables, not hours** | Not "2h of theory" but "one A4 page of the unit 15 pipeline diagram". You can tell whether it is done |
+| 4 | **Prepare the bad-day minimum up front** | Deciding to scale down on the day is itself a burden |
+| 5 | **Carry a task over twice at most. On the third time, drop it** | A task carried three times does not fit your current life. Drop it and rebuild the week |
 
 ---
 
-## 2. 1日の構造は3層だけ
+## 2. A day has only three layers
 
 ```
-★ must : これだけは（1個だけ。60〜90分）
-  task : 通常タスク（1〜3個。15〜45分）
-  min  : 落ちた日用の最小版（1個。5〜15分）
+★ must : the one thing (exactly one, 60-90 min)
+  task : normal tasks (1-3, 15-45 min)
+  min  : the bad-day minimum (1, 5-15 min)
 ```
 
-**must は1個**に固定します。2個にすると「どっちも中途半端」になります。
+**Fix must at one item.** Two items means both end up half-done.
 
-**min の例**：「要約1枚を書く」→「要約の見出しだけ書く」。**ゼロにはしない**ための逃げ道で、これがあるから毎日が続きます。
+**Example min**: "write one page of summary" -> "write only the summary headings". It is the escape hatch that keeps the number from reaching zero, and that is why the streak survives.
 
 ---
 
-## 3. 日曜15分の週次プランニング（5ステップ）
+## 3. Sunday planning in 15 minutes (5 steps)
 
-| 手順 | 時間 | やること |
+| Step | Time | What |
 |---|---|---|
-| 1 | 2分 | 先週の記録を見て、**達成率**を出す（できた must ÷ 7） |
-| 2 | 3分 | 週次テストの誤答を**4分類**（知識不足／不注意／設計ミス／検証漏れ）に振る |
-| 3 | 3分 | 来週の**ゲート**を確認（どの到達基準に近づく週か） |
-| 4 | 5分 | 7日分の `must` を決める（下の変換表に従う） |
-| 5 | 2分 | 学期カレンダーを見て、**軽量週に切り替えるか**を決める（中間・期末・レポート週） |
+| 1 | 2 min | Look at last week's log and compute the **completion rate** (musts done / 7) |
+| 2 | 3 min | Sort the weekly test's wrong answers into **four buckets** (missing knowledge / carelessness / design error / missed verification) |
+| 3 | 3 min | Check next week's **gate** (which milestone is this week approaching?) |
+| 4 | 5 min | Set the seven `must`s, using the mapping table below |
+| 5 | 2 min | Look at the term calendar and decide whether to **switch to a light week** (midterm, final, paper due) |
 
-達成率が70%未満の週が2回続いたら、**翌週はタスクを3割減らす**（計画書の方針と同じ）。減らすのは `task` から。`must` は残します。
+If the completion rate stays under 70% for two weeks in a row, **cut the next week's tasks by 30%** (same rule as the roadmap). Cut from `task`. Keep the `must`.
 
 ---
 
-## 4. 変換表：週の枠 → 日次タスクの書き方
+## 4. Mapping table: weekday slot -> how to write the task
 
-曜日ごとに**枠の種類が固定**されているので、当てはめるだけで日次が決まります。
+Each weekday has a **fixed kind of slot**, so filling it in decides the day.
 
-| 曜日 | 枠 | must の書き方（例） | task の例 | min の例 |
+| Day | Slot | How to write the must (example) | Task examples | Min example |
 |---|---|---|---|---|
-| 月 | 理論 | 単元15の前半を見て、**パイプライン図を白紙で1枚** | 用語を3つカード化／該当スライドの再読 | 動画を1本だけ見る（15分） |
-| 火 | 実装ドリル | **MUX とデコーダを7問**（HDLBits） | 各問にカード1枚／コミット1本 | 2問だけ解く |
-| 水 | 検証 | **自己検査テストベンチを1本書いて通す** | Verilator `-Wall` を0にする／波形を1行メモ | lint を回すだけ |
-| 木 | プロジェクト | **仕様書の「非目標」を書く** | 入出力表／状態遷移図 | 見出しだけ書く |
-| 金 | 復習 | **白紙再現30分**（先週の回路） | カード +1/+3/+7 の見直し／誤り集1件 | カードだけ見る |
-| 土 | 長時間＋課外 | **プロジェクト3時間**（仕様→実装→デバッグ） | 課外2時間＋活動ログ1行／Yosys で面積測定 | 90分だけやる |
-| 日 | 週次テスト | **45分テスト6問**（今週3＋2〜4週前3） | 誤り集30分／来週の計画15分／編入準備1時間 | カードと計画だけ |
+| Mon | Theory | Watch the first half of unit 15, then **draw the pipeline diagram on blank paper** | Turn three terms into cards / reread the relevant slides | Watch one video only (15 min) |
+| Tue | Implementation drill | **7 MUX and decoder problems** (HDLBits) | One card per problem / one commit | Solve 2 problems |
+| Wed | Verification | **Write and pass one self-checking testbench** | Get verilator `-Wall` to zero / one-line waveform note | Just run the linter |
+| Thu | Project | **Write the "non-goals" section of the spec** | I/O table / state diagram | Write the headings only |
+| Fri | Review | **30 minutes of blank-paper recall** (last week's circuit) | Review cards +1/+3/+7 / one error-log entry | Just look at the cards |
+| Sat | Long block + extracurricular | **3 hours on the project** (spec -> implementation -> debug) | 2h extracurricular + one activity-log line / measure area with Yosys | Do 90 minutes |
+| Sun | Weekly test | **45-minute test, 6 problems** (3 from this week + 3 from 2-4 weeks ago) | 30 min error log / 15 min next week's plan / 1 hour transfer work | Cards and the plan only |
 
-**学期中と休暇の切替**：学期中はこの表の**技術枠を6〜8時間/週**に縮めます（火・水・木を各1時間に）。長期休暇は土を8時間に増やし、`must` を「プロジェクトの1機能」単位にします。
-
----
-
-## 5. 粒度のルール
-
-- **15〜90分で終わる単位**にする。「RV32I を実装する」はタスクではない（それは2か月のプロジェクト）。
-- **動詞で始める**（書く／測る／通す／説明する／比べる）。「〜を理解する」はタスクにしない。
-- **判定できる形**にする（「テストが通る」「図が1枚ある」「表が埋まっている」）。
-- **1日に task は3個まで**。4個以上は、どれも浅くなります。
+**Term vs break**: during term, shrink the technical slots in this table to **6-8 hours a week** (Tue, Wed, Thu to one hour each). On long breaks, grow Saturday to 8 hours and make each `must` one feature of the project.
 
 ---
 
-## 6. 崩れた日・繰り越しのルール
+## 5. Granularity rules
 
-| 状況 | やること |
+- **Each item must finish in 15-90 minutes.** "Implement RV32I" is not a task (it is a two-month project).
+- **Start with a verb** (write / measure / pass / explain / compare). "Understand X" is not a task.
+- **Make it decidable** ("the test passes", "there is one diagram", "the table is filled in").
+- **At most 3 tasks a day.** With 4 or more, all of them get shallow.
+
+---
+
+## 6. Broken days and carry-overs
+
+| Situation | What to do |
 |---|---|
-| 22時になって何もできていない | `min` だけやる（5〜15分）。**0にしない** |
-| must が終わらなかった | 翌日の `task` を1つ落として must を先頭に置く |
-| 同じタスクを3回繰り越した | **捨てる**。週次で「なぜ入らないか」を考え、分割するか諦める |
-| 授業の課題が48時間以内に締切 | その日は技術タスクを全部捨てる（振替しない） |
-| 体調不良 | 軽量モード（カードのみ）に切替。復帰日に must を1個だけ |
+| It is 22:00 and nothing is done | Do only the `min` (5-15 min). **Do not let it reach zero** |
+| The must did not finish | Drop one of tomorrow's `task`s and put the must first |
+| The same task slipped three times | **Drop it.** Ask in the weekly review why it does not fit, then split it or let it go |
+| A class assignment is due within 48 hours | Drop every technical task that day (do not reschedule them) |
+| You feel unwell | Switch to light mode (cards only). On the day you come back, one must only |
 
 ---
 
-## 7. 記録は1日3行
+## 7. Three lines of log a day
 
 ```
-2026-11-16 月  / must: 達成 / 02:10 / 詰まった: 図のステージ間レジスタの位置
-2026-11-17 火  / must: 未達（7問中3問） / 00:40 / 理由: 授業の課題が長引いた
-2026-11-18 水  / must: 達成（TB が通った） / 02:00 / 気づき: 期待値の初期化漏れ
+2026-11-16 Mon  / must: done / 02:10 / stuck: where the pipeline registers go
+2026-11-17 Tue  / must: missed (3 of 7 problems) / 00:40 / why: a class assignment ran long
+2026-11-18 Wed  / must: done (testbench passes) / 02:00 / learned: forgot to initialize the expected value
 ```
 
-この3行があると、**日曜の週次レビューが5分で終わります**。記録がないと、毎週ゼロから思い出すことになります。
+With these three lines, **the Sunday review takes five minutes**. Without them you reconstruct the week from scratch every time.
 
 ---
 
-## 8. 仕組み（3択。どれでも成立する）
+## 8. Tooling (three options, all work)
 
-| 方式 | 向いている人 | 手間 |
+| Method | Good for | Effort |
 |---|---|---|
-| **スクリプト＋Markdown**（このリポジトリに用意） | ターミナルを毎日開く人 | 週1回ファイルを書くだけ |
-| 紙のカード（1日1枚） | 画面を見たくない日がある人 | 週1回7枚書く |
-| Notion / Todoist のテンプレート | スマホで見たい人 | 週1回コピーする |
+| **Script + Markdown** (included in this repo) | People who open a terminal daily | Write one file a week |
+| Paper cards (one a day) | People who need screen-free days | Write 7 cards a week |
+| Notion / Todoist template | People who want it on a phone | Copy once a week |
 
-**このリポジトリには1番目を用意しました。** 週次ファイルを1つ書けば、あとは `today` で今日の分が出ます。
+**This repo ships the first one.** Write one weekly file and `today` prints the rest.
 
 ```bash
-# 今週分（11/16〜11/22）はすでに用意済み
+# This week (11/16-11/22) is already prepared
 python3 tools/daily.py today
 python3 tools/daily.py week
 
-# 来週の雛形を作る（日曜にやって、must を書き換える）
+# Create next week's template (do this on Sunday, then rewrite the musts)
 python3 tools/daily.py new 2026-11-23
 
-# 記録（1日3行のうち1行）
-python3 tools/daily.py log "must: 達成 / 02:10 / 詰まった: ステージ間レジスタの位置"
+# Log one of the three lines
+python3 tools/daily.py log "must: done / 02:10 / stuck: pipeline register placement"
 ```
 
-**ポイント**：`today` は**今日の日付のブロックを探すだけ**で、何も考えません。ブロックが無ければ、曜日の既定テンプレートを出します。だから「書き忘れた日」も止まりません。
+**The point**: `today` only **looks up the block for today's date**. It decides nothing. If the block is missing it prints the weekday default template, so a forgotten day does not stop the streak.
 
 ---
 
-## 9. 週次・月次・四半期の接続
+## 9. How daily, weekly, monthly, and quarterly connect
 
 ```
-日次（3行の記録）
-  ↓ 7日分をまとめる
-週次（日曜15分：達成率・誤り分類・来週の must 7個）
-  ↓ 4週分をまとめる
-月次（30分：月末レビュー、成果を GitHub に、英語3文）
-  ↓ 3か月分
-四半期（60分：ゲート判定 G1〜G6、求人票20件のサンプル）
+Daily (three log lines)
+  -> 7 days roll up
+Weekly (Sunday, 15 min: completion rate, error buckets, next week's 7 musts)
+  -> 4 weeks roll up
+Monthly (30 min: month review, push the artifact to GitHub, three English sentences)
+  -> 3 months
+Quarterly (60 min: gate check G1-G6, a sample of 20 job postings)
 ```
 
-**上の階層ほど「判断」、下の階層ほど「実行」**。日次で判断しないのがコツです。
+**The higher the layer, the more judgment; the lower, the more execution.** The trick is not to judge at the daily layer.
 
 ---
 
-## 10. 私（Buffy）との運用
+## 10. Working with me (Buffy)
 
-| タイミング | あなたがやること | 私がやること |
+| When | You | Me |
 |---|---|---|
-| 日曜 | 7日分の記録を貼る | 達成率を出し、誤りを4分類し、来週の `must` 7個を提案する |
-| 日曜 | 週次テストの答案を貼る | 採点（説明が成立しているか）と、弱点の特定 |
-| 月末 | 成果物のリンクを貼る | README の英語3文を添削し、活動ログを英訳する |
-| 随時 | Verilog を貼る | lint・シミュレーション・合成を回して指摘する |
+| Sunday | Paste the seven days of log | Compute the completion rate, sort the errors into four buckets, propose next week's 7 `must`s |
+| Sunday | Paste the weekly test answers | Grade them (is the reasoning sound) and name the weak units |
+| End of month | Paste links to the artifacts | Edit the three README sentences and translate the activity log into English |
+| Any time | Paste Verilog | Run lint, simulation, synthesis and comment |
 
-**私から催促はできません**（通知の仕組みがないため）。だから日次リストは**あなたの手元で勝手に出る形**にしました。これが「伴奏」の現実的な形です。
+**I cannot remind you** (there is no notification channel). That is why the daily list is **generated on your own machine without me**. That is what "accompaniment" realistically looks like.
 
 ---
 
-## 11. 最初の1週間は用意済み
+## 11. The first week is ready
 
-`plan/week-2026-11-16.md` に **W2（11/16〜11/22）の7日分**を、計画書の内容（組み合わせ回路ドリル25問、単元1〜6の弱点復習、日曜の30分テスト、白紙再現）から展開して置いてあります。
+`plan/week-2026-11-16.md` holds **all seven days of W2 (11/16-11/22)**, expanded from the roadmap: 25 combinational-logic drills, review of weak spots in units 1-6, the 30-minute Sunday test, and blank-paper recall.
 
 ```bash
-python3 tools/daily.py week     # 7日分をまとめて見る
-python3 tools/daily.py today    # 今日の分だけ
+python3 tools/daily.py week     # all seven days at once
+python3 tools/daily.py today    # just today
 ```
 
-日曜（11/22）に、この方式で W3（11/23〜11/29、11/29 に診断模試#1）を組み直してください。
+On Sunday 11/22, rebuild W3 (11/23-11/29, with diagnostic mock #1 on 11/29) the same way.
