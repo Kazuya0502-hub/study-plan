@@ -1,318 +1,325 @@
-# Davis TAG の維持・7科目パターン・ドリーム校の条件（v4）
+# Keeping the Davis TAG, the 7-course pattern, and the dream-school requirements (v4)
 
-更新：2026年11月13日
+Updated 2026-11-13.
 
----
-
-## 0. 結論（5つ）
-
-1. **Davis の TAG は維持できます。** `EEC 007` と `PHY 009D` は ASSIST に「No Course Articulated」と表示されているため、**UC Davis 自身の規定で入学要件および TAG の要件が免除（waiver）され、編入後に Davis で履修**します。
-2. **ただし、その waiver 文言は UC Davis の転入ブローシュア（F25版）にしか載っていません。** 現行の F26／F27 版と公式ページには見当たりません。**書面での確認が必須**です（§1.2）。
-
-> **2026秋の実績**：登録済みは MATH 210・PHIL 100・POLS 043・ECE 010 の**13単位**。**ECON C1000・COMSC 122 は取っていない**ため、§5 のプランはそれを前提に入れ直しています。
-3. **7科目パターンは LMC の科目だけで全部揃います。** `ENGL C1000`＋`ENGL C1001`（どちらも UC-E）、`MATH 210`（UC-M）、`PHYS 040/041/042`（UC-S×3）、UC-B か UC-H を1科目。
-4. **ドリーム校は「専攻科目」より「SAT/ACT」と「在籍2年の上限」が本当の壁**です。Princeton・Harvard・Yale・MIT は **2028年秋入学から SAT/ACT が必須**。一方、コース要件は本計画でほぼ充足します（MIT だけ生物1科目が不足）。
-5. **3学期プラン（v5）は 13／18／16／18単位・総計65単位**（2026秋は実際の登録済み4科目）。Davis の waiver 前提の専攻準備、7科目パターン（**2027秋で完成**）、「夏までに30単位」（**31**）、ドリーム校のコース要件を同時に満たします。2027春の登録票は **`plan/spring-2027-registration.md`**。
+> **Update 2026-11-16**: the CHEM 025 prerequisite could not be cleared, so the spring term now carries **CHEM 006 (4 units)** and **Summer 2027 carries CHEM 025 (5 units)**. Everything below still holds; the unit totals in section 5 become **13 / 17 / 5 / 16 / 18 = 69**. See `master-course-plan.md`.
 
 ---
 
-## 1. Davis の waiver 規定（TAG を維持できる根拠）
+## 0. Five conclusions
 
-### 1.1 公式の文言
+1. **The Davis TAG can be kept.** ASSIST shows `EEC 007` and `PHY 009D` as "No Course Articulated", so **UC Davis's own rule waives them for admission and for TAG, and they are taken at Davis after transfer**.
+2. **But that waiver wording appears only in the Fall 2025 transfer brochure.** It is absent from the current F26/F27 versions and the live pages, so **written confirmation is mandatory** (section 1.2).
+
+> **Fall 2026 facts**: registered are MATH 210, PHIL 100, POLS 043, and ECE 010, **13 units**. **ECON C1000 and COMSC 122 were not taken**, and the plan in section 5 is rebuilt around that.
+3. **The 7-course pattern can be filled entirely with LMC courses.** `ENGL C1000` + `ENGL C1001` (both UC-E), `MATH 210` (UC-M), `PHYS 040/041/042` (UC-S x3), and one UC-B or UC-H.
+4. **For dream schools the real walls are SAT/ACT and the two-year enrollment limit, not the course list.** Princeton, Harvard, Yale, and MIT **require SAT/ACT from Fall 2028 entry**. The course requirements are almost met by this plan (only MIT's biology is missing).
+5. **The three-term plan (v5) was 13/18/16/18 units, 65 total.** It met the Davis major preparation (with the waivers), the 7-course pattern (**done in Fall 2027**), "30 units by summer" (**31**), and the dream-school course requirements at the same time. The Spring 2027 registration sheet is **`plan/spring-2027-registration.md`**.
+
+---
+
+## 1. Davis's waiver rule (why TAG survives)
+
+### 1.1 The official wording
 
 > "Students are expected to take courses comparable to the UC Davis course requirements as long as they are offered at the California Community College (CCC) they currently attend. **When the ASSIST website at assist.org indicates 'no comparable course' or 'no course articulated,' the selective major course requirement will be waived for UC Davis admission and TAG but must be completed after enrolling at UC Davis.**"
-> — UC Davis Transfer Admissions Brochure (F25) <https://www.ucdavis.edu/sites/default/files/media/documents/F25-Transfer-Admissions-Brochure.pdf>
+> — UC Davis Transfer Admissions Brochure (F25), <https://www.ucdavis.edu/sites/default/files/media/documents/F25-Transfer-Admissions-Brochure.pdf>
 
-UC Davis の TAG 質問票にも、より詳しい表現があります。
+The Davis TAG questionnaire states it more fully:
 
 > "You must take courses equivalent to UC Davis courses if they are offered at [your CCC]. **Courses not offered at [your CCC] must be completed after enrolling at UC Davis.** When assist.org states that there is 'NO COMPARABLE COURSE' or 'NO COURSE ARTICULATED' **UC Davis will waive that course requirement for the TAG.** If a course is not offered at [your CCC], UC Davis encourages you to seek comparable courses at another CCC when possible and **to include comments in the TAG Application when unable to enroll in required courses.**"
-> — UC Davis TAG questionnaire（De Anza 掲載）<https://www.deanza.edu/articulation/documents/tag-questionnaire-dac-ucd.pdf>
+> — UC Davis TAG questionnaire (hosted by De Anza), <https://www.deanza.edu/articulation/documents/tag-questionnaire-dac-ucd.pdf>
 
-### 1.2 注意点（ここが肝心）
+### 1.2 The catch
 
-- この waiver 文言は **F25 版のブローシュア**にはありますが、**F26・F27 版**と現行の「Selective major requirements」「College of Engineering」ページには**見当たりません**。
-- したがって「規定がある」と「今年のサイクルで適用される」は別問題です。**UC Davis の転入アドバイザー（Transfer Opportunity Program、530-752-2971）に書面で確認**してください。
+- The waiver wording is in the **F25 brochure**, but it is **missing from F26/F27** and from the current "Selective major requirements" and "College of Engineering" pages.
+- So "the rule exists" and "the rule applies to this cycle" are different questions. **Get it in writing from a Davis transfer advisor** (Transfer Opportunity Program, 530-752-2971).
 
-### 1.3 やるべき手順（順序が大事）
+### 1.3 Procedure (order matters)
 
-| # | やること | 目的 |
+| # | Do this | Why |
 |---|---|---|
-| 1 | **ASSIST の画面をスクリーンショットで保存**（`EEC 007`・`PHY 009D` が「No Course Articulated」の行） | waiver の根拠。年度が変わると表示も変わるので、取得年度を記録 |
-| 2 | **TAG 申請（2027年9月）のコメント欄に明記**：「EEC 007 と PHY 009D は LMC に該当科目がなく、ASSIST で No Course Articulated。Davis で編入後に履修する予定」 | 黙っていると「計画漏れ」に見える |
-| 3 | **UC 出願（2027年11月）と TAU（2028年1月）でも同じ注記** | 一貫性 |
-| 4 | **2027年6月までにアドバイザーの書面（メール可）を取得** | 直前に覆ると志望校が消える |
-| 5 | 代替候補（他コミカレ）を**取得可能かだけ**調べておく（§1.4） | waiver が却下された場合の保険 |
+| 1 | **Screenshot ASSIST** (the `EEC 007` and `PHY 009D` "No Course Articulated" rows) | Evidence for the waiver. Save the year too, since the display changes |
+| 2 | **State it in the TAG application comments (September 2027)**: "EEC 007 and PHY 009D have no LMC equivalent and show No Course Articulated on ASSIST. I will complete them at Davis after transfer." | Silence looks like an omission |
+| 3 | **Repeat the note in the UC application (November 2027) and the TAU (January 2028)** | Consistency |
+| 4 | **Get the advisor's written answer (email is fine) by June 2027** | If it flips at the last minute, the target school disappears |
+| 5 | Check **whether** the alternatives (another CCC) are actually available (section 1.4) | Insurance if the waiver is denied |
 
-### 1.4 保険：他コミカレで取る場合の現実性
+### 1.4 Insurance: how realistic is taking it elsewhere
 
-| 科目 | 取れるコミカレ | 開講・形態 | 現実性 |
+| Course | Where | Offering | Realistic? |
 |---|---|---|---|
-| **EEC 007 相当** | **Bakersfield ENGR B19C**（C++ for Engineers） | Fall 2026 に**完全オンライン（時間指定なし）**のセクションあり | **最有力**。ただし F-1 は CVC Exchange 利用不可（下記） |
-| | Cabrillo CS 11M | Fall 2026 にオンライン/ハイフレックス、**Spring 2027 は開講なし**の見込み | 時期的に不可 |
-| | Evergreen Valley ENGR 050 | Fall・Spring 開講（+050L が必要か要確認） | 通学が現実的か次第 |
-| | Glendale ENGR 125 | **Spring 2027・対面のみ**（約350マイル） | 不可 |
-| **PHY 009D 相当** | **De Anza PHYS 4D** | **Spring 2027 にハイブリッド1クラス**（朝4日/週、約60マイル） | 通学可能なら最有力 |
-| | Cabrillo PHYS 4D | **秋のみ・偶数年**（次回 Fall 2028） | 不可 |
-| | Butte PHYS 43 | 対面（約180マイル） | 不可 |
+| **EEC 007 equivalent** | **Bakersfield ENGR B19C** (C++ for Engineers) | Fall 2026 has a **fully online, asynchronous** section | **Best option**, but F-1 students cannot use the CVC Exchange (below) |
+| | Cabrillo CS 11M | Fall 2026 online/hyflex; **no Spring 2027 section expected** | Too late |
+| | Evergreen Valley ENGR 050 | Fall and Spring (check whether +050L is needed) | Depends on whether commuting works |
+| | Glendale ENGR 125 | **Spring 2027, in person only** (~350 miles) | No |
+| **PHY 009D equivalent** | **De Anza PHYS 4D** | **One hybrid section in Spring 2027** (four mornings a week, ~60 miles) | Best option if commuting is possible |
+| | Cabrillo PHYS 4D | **Fall only, even years** (next Fall 2028) | No |
+| | Butte PHYS 43 | In person (~180 miles) | No |
 
-**F-1 の制約（重要）**：CVC Exchange（カリフォルニアのオンライン相互履修）は **F-1 ビザ保持者は利用禁止**（利用すると履修取消し・在留資格に影響）。オンライン科目を取る場合は **Bakersfield 等へ直接出願し、非居住者学費を払い、LMC の DSO の事前承認（Concurrent Enrollment）**を取る必要があります。**12単位以上・うち対面3単位以上を LMC で維持**すること。
+**The F-1 constraint (important)**: the CVC Exchange (California's online cross-enrollment) is **not available to F-1 students**; using it risks cancellation of enrollment and status problems. To take an online course elsewhere you must **apply directly to that college, pay non-resident tuition, and get prior Concurrent Enrollment approval from the LMC DSO**. **Keep at least 12 units at LMC, including at least 3 in person.**
 
 ---
 
-## 2. waiver されるもの／されないもの
+## 2. What is waived and what is not
 
-| Davis の入学要件 | LMC | 扱い |
+| Davis admission requirement | LMC | Treatment |
 |---|---|---|
-| CHE 002A | **CHEM 025 ＋ CHEM 026**（系列・同一機関） | **必要**（LMC で取る） |
-| ENG 017 | ENGIN 045 | 必要（取る） |
-| **EEC 007** | **なし** | **waiver → 編入後に Davis で履修** |
-| MAT 021A/B/C/D | MATH 210／220／230 | 必要（取る） |
-| MAT 022A/B | MATH 250／240 | 必要（取る） |
-| PHY 009A/B/C | PHYS 040／042（9B）／041（9C） | 必要（取る） |
-| **PHY 009D** | **なし** | **waiver → 編入後に Davis で履修** |
+| CHE 002A | **CHEM 025 + CHEM 026** (series, same institution) | **Required** (take at LMC) |
+| ENG 017 | ENGIN 045 | Required |
+| **EEC 007** | **none** | **Waived -> take at Davis after transfer** |
+| MAT 021A/B/C/D | MATH 210 / 220 / 230 | Required |
+| MAT 022A/B | MATH 250 / 240 | Required |
+| PHY 009A/B/C | PHYS 040 / 042 (9B) / 041 (9C) | Required |
+| **PHY 009D** | **none** | **Waived -> take at Davis after transfer** |
 
-**編入後に Davis で取ることになる科目**：`EEC 007`（4）、`EEC 010`（4）、`EEC 018`（5）、`ECS 036B`（4）＝**17単位**。Davis の ECE は126単位で、編入時に最大66単位認定＋Davis で60単位以上なので、**4学期（各15単位）で入る余地はあります**が、**下位科目を4学期に詰めることになるため、5学期になる可能性は十分あります**。卒業時期は2030年6月を目標にしつつ、2030年12月を許容してください。
+**Courses left to take at Davis**: `EEC 007` (4), `EEC 010` (4), `EEC 018` (5), `ECS 036B` (4) = **17 units**. Davis ECE is 126 units, with up to 66 transferable on entry and at least 60 at Davis, so **there is room to finish in four terms (15 units each)**, but **because lower-division courses are packed into those terms, five terms is entirely possible**. Target June 2030 and allow December 2030.
 
 ---
 
-## 3. 7科目パターン（LMC の科目で充足）
+## 3. The 7-course pattern (covered by LMC courses)
 
-### 3.1 ルール（UC 公式ページの原文で確認済み）
+### 3.1 The rule (verified in the original UC page)
 
 > "Complete the following 7-course pattern by the end of the spring term prior to fall enrollment at UC.
 > - Two transferable courses in English composition (**UC-E**)
 > - One transferable course in mathematical concepts and quantitative reasoning (**UC-M**)
-> - Four transferable college courses chosen from at least two of the following subject areas: arts and humanities (**UC-H**)／social and behavioral sciences (**UC-B**)／**physical and biological sciences (UC-S)**"
+> - Four transferable college courses chosen from at least two of the following subject areas: arts and humanities (**UC-H**) / social and behavioral sciences (**UC-B**) / **physical and biological sciences (UC-S)**"
 > — <https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/preparing-to-transfer/basic-requirements.html>
 
-- **2科目の UC-E＋1科目の UC-M＋4科目（UC-H／UC-B／**UC-S**のうち2エリア以上）**。**エリアは3つ**（人文・社会・理科）。
-- **4科目の内訳は自由**。公式の例は「社会学3＋生物1」「歴史2＋物理1＋音楽史1」「生物1＋文学3」——つまり**3：1でもよい**（2エリアあれば足りる）。
-- 各科目 **3 semester units 以上**、**C 以上（または C 相当の P）**、**編入前の春学期末まで**
-- 全体で **60 semester units 以上**（うち P は14単位まで）、**GPA 2.4以上（非居住者は 2.8）**
-- **専攻準備の科目と重複計上できる**（同じ科目を専攻準備と7科目の両方に使える）
-- **AP は 3/4/5 で使えるが、英語2科目のうち1科目まで**
-- 同じ科目で2つの枠は埋められない
-- ※「3単位以上」の明記は Basic requirements ページではなく、UC のカウンセラー向けページにある
+- **2 UC-E + 1 UC-M + 4 courses from at least two of UC-H / UC-B / UC-S.** That means **three areas** are available and only two are needed.
+- **The split of the four is free.** UC's own examples are "3 sociology + 1 biology", "2 history + 1 physics + 1 music history", "1 biology + 3 literature", so **3:1 is fine** as long as two areas are represented.
+- Each course **3 semester units or more**, grade **C or better** (or a C-equivalent P), **by the end of the spring term before transfer**.
+- **60 semester units or more** overall (at most 14 of them P), **GPA 2.4 (2.8 for non-residents)**.
+- **Major preparation courses count twice** (the same course can satisfy both major prep and the 7-course pattern).
+- **AP scores of 3/4/5 count, but for at most one of the two English courses.**
+- One course cannot fill two slots.
+- Note: the "3 units or more" wording is on UC's counselor-facing page, not the Basic requirements page.
 
-### 3.2 LMC の科目（UC エリア付き）
+### 3.2 LMC courses with their UC areas
 
-| エリア | LMC の科目（例） | 単位 |
+| Area | LMC courses (examples) | Units |
 |---|---|---|
-| **UC-E** | **ENGL C1000**（Academic Reading and Writing）、**ENGL C1001**（Critical Thinking and Writing）、ENGL 230、PHIL 110 | 3 |
-| **UC-M** | **MATH 210**（ほか MATH 220/230/240/250、STAT C1000） | 4 |
-| **UC-S** | **PHYS 040／041／042**、CHEM 025／026、BIOSC 010／020／021、ASTRO 010 | 3〜5 |
-| **UC-H** | ART 005（The Visual Arts）、MUSIC 012（Popular Music）、PHIL 100（Intro to Philosophy）、HUMAN 021、DRAMA 016 など | 3 |
-| **UC-B** | **PSYC C1000**（Intro to Psychology）、SOCIO 015（Intro to Sociology）、POLS C1000（American Government）、HIST C1001、ANTHR 005 など | 3 |
+| **UC-E** | **ENGL C1000** (Academic Reading and Writing), **ENGL C1001** (Critical Thinking and Writing), ENGL 230, PHIL 110 | 3 |
+| **UC-M** | **MATH 210** (also MATH 220/230/240/250, STAT C1000) | 4 |
+| **UC-S** | **PHYS 040/041/042**, CHEM 025/026, BIOSC 010/020/021, ASTRO 010 | 3-5 |
+| **UC-H** | ART 005 (The Visual Arts), MUSIC 012 (Popular Music), PHIL 100 (Intro to Philosophy), HUMAN 021, DRAMA 016 | 3 |
+| **UC-B** | **PSYC C1000** (Intro to Psychology), SOCIO 015 (Intro to Sociology), POLS C1000 (American Government), HIST C1001, ANTHR 005 | 3 |
 
-**注意**：`PHIL 210`（Symbolic Logic）は LMC のローカル GE には入っていますが **UC-E ではありません**。`PHIL 110` を使ってください。
+**Watch out**: `PHIL 210` (Symbolic Logic) counts for LMC's local GE but is **not UC-E**. Use `PHIL 110`.
 
-### 3.3 本計画での充当（7科目）
+### 3.3 How the plan fills the seven slots
 
-| 枠 | 科目 | いつ |
+| Slot | Course | When |
 |---|---|---|
-| UC-E ① | ENGL C1000 | 2026秋 |
-| UC-E ② | ENGL C1001 | 2027春 |
-| UC-M | MATH 210 | 2026秋 |
-| UC-S ① | PHYS 040 | 2027秋 |
-| UC-S ② | PHYS 041 | 2028春 |
-| UC-S ③ | PHYS 042 | 2028春 |
-| UC-B | PSYC C1000（または SOCIO 015 など） | 2027春 |
+| UC-E 1 | ENGL C1000 | Spring 2027 |
+| UC-E 2 | ENGL C1001 | Fall 2027 |
+| UC-M | MATH 210 | Fall 2026 |
+| UC-S 1 | PHYS 040 | Fall 2027 |
+| UC-S 2 | PHYS 041 | Spring 2028 |
+| UC-S 3 | PHYS 042 | Spring 2028 |
+| UC-B | PSYC C1000 (or SOCIO 015 etc.) | Spring 2027 |
 
-→ **7科目・エリアは S と B の2つ**で条件を満たします。すべて専攻準備と重複計上できます。
+That is **seven courses across areas S and B**, which satisfies the rule, and every one of them also counts as major preparation.
 
-**注意**：UC のエリア区分は**履修した年度の ASSIST** で決まります。LMC が公開している UC エリア付きの一覧は 2020-21 年度のものが最新なので、**履修前に ASSIST でその年度の区分を確認**してください（`assist.org → Los Medanos College → UC Transferable Courses`）。
+**Watch out**: a course's UC area is fixed by **the ASSIST year you took it**. The newest LMC list with UC areas is from 2020-21, so **check the area in ASSIST for the year you take the course** (`assist.org -> Los Medanos College -> UC Transferable Courses`).
 
 ---
 
-## 4. ドリーム校の条件と、本計画での充足
+## 4. Dream-school requirements and how this plan meets them
 
-### 4.1 コース要件
+### 4.1 Course requirements
 
-| 校 | 公表されている要件 | 本計画 | 追加で必要 |
+| School | Published requirement | This plan | Still needed |
 |---|---|---|---|
-| **Princeton**（B.S.E.） | **専攻別の準備リストは無し**。1年以上の全日制単位、**junior まで**。B.S.E. は「入学前に微積1年＋高校物理」 | ✓ 充足 | なし（ただし編入後に B.S.E. のコアを Davis 同様に取り直す可能性） |
-| **Harvard** | コース指定なし。**1〜2年**の全日制・liberal arts | ✓ 充足 | なし |
-| **Yale** | 工学志望者に「**微積の全系列＋導入物理の全系列**」 | ✓ **完全充足**（MATH 210/220/230＋PHYS 040/041/042） | なし |
-| **MIT** | 推奨：微積（多変数含む）、微積ベース物理、化学、**生物** | 生物のみ不足 | **生物1科目**（BIOSC 010 など・UC-S） |
-| **Cornell ECE** | 応募要件：MATH 1910/1920、PHYS 1112+1110、CHEM 2090+2091、**circuits か digital logic の一方**、CS 1110/1112、FWS 2科目。junior  standing には**もう一方（circuits と digital logic の両方）**、MATH 2930/2940、PHYS 2213/2214、liberal studies 2科目 | 4必須は充足。**digital logic が無い**（LMC に存在しない）、liberal studies も無い | digital logic（無いので **sophomore 入学**になる）、liberal studies 2科目 |
-| **Columbia Engineering** | 微積2学期、物理2学期、化学1学期 | ✓ 充足 | なし |
-| **Brown** | 工学の準備リストなし。**4学期以内** | ✓ | なし（transfer は need-aware） |
-| **Dartmouth** | 数学3＋物理2＋化学1＋CS 1〜2（ENGS 20 か COSC 1+10） | ✓（CS は ENGIN 022 MATLAB が ENGS 20 に近い） | なし |
-| **Penn Engineering** | 化学1、微積ベース物理1（計算機工学は2）、プログラミング1、微積2、人文/社会2 | ✓ | 人文/社会 2科目（7科目パターンの GE で充当可） |
+| **Princeton** (B.S.E.) | **No per-major prep list.** At least one year of full-time study, **up to junior standing**. B.S.E. expects "one year of calculus + high school physics" before entry | Met | None (though the B.S.E. core may still have to be redone, as at Davis) |
+| **Harvard** | No course list. **1-2 years** full-time, liberal arts | Met | None |
+| **Yale** | Engineering applicants: "**the full calculus sequence + the full introductory physics sequence**" | **Fully met** (MATH 210/220/230 + PHYS 040/041/042) | None |
+| **MIT** | Recommended: calculus (including multivariable), calculus-based physics, chemistry, **biology** | Only biology missing | **One biology course** (BIOSC 010, a UC-S) |
+| **Cornell ECE** | Application: MATH 1910/1920, PHYS 1112+1110, CHEM 2090+2091, **one of circuits or digital logic**, CS 1110/1112, two FWS. Junior standing also needs **the other one**, MATH 2930/2940, PHYS 2213/2214, two liberal studies | The four required areas are met. **No digital logic** (LMC has none) and no liberal studies | Digital logic (so **sophomore entry**), two liberal studies |
+| **Columbia Engineering** | Two terms of calculus, two of physics, one of chemistry | Met | None |
+| **Brown** | No engineering prep list. **Within four terms** | Met | None (transfer is need-aware) |
+| **Dartmouth** | Math 3 + physics 2 + chemistry 1 + CS 1-2 (ENGS 20 or COSC 1+10) | Met (ENGIN 022 MATLAB is close to ENGS 20) | None |
+| **Penn Engineering** | Chemistry 1, calculus-based physics 1 (2 for computer engineering), programming 1, calculus 2, two humanities/social science | Met | Two humanities/social science (the 7-course-pattern GE covers it) |
 
-### 4.2 コースより重い2つの壁
+### 4.2 The two walls that matter more than courses
 
-**(1) SAT/ACT が必須になった（2028年秋入学から）**
+**(1) SAT/ACT became required (from Fall 2028 entry)**
 
-| 校 | 要件 |
+| School | Requirement |
 |---|---|
-| Princeton | **2028年秋入学から SAT/ACT 必須**（2026・2027 は test-optional だった） |
-| Harvard | **SAT/ACT 必須**（全 transfer 出願者） |
-| Yale | **SAT/ACT 必須**（2026年5月に test-flexible から変更） |
-| MIT | **SAT/ACT 必須**（3月31日までに受験） |
-| Cornell / Columbia / Brown / Dartmouth / Penn | 各校の条件に従う（Cornell は「不要・想定していない」） |
+| Princeton | **SAT/ACT required from Fall 2028 entry** (2026 and 2027 were test-optional) |
+| Harvard | **Required** for all transfer applicants |
+| Yale | **Required** (changed from test-flexible in May 2026) |
+| MIT | **Required** (test by March 31) |
+| Cornell / Columbia / Brown / Dartmouth / Penn | Per each school (Cornell: "neither required nor expected") |
 
-→ **2027年中に SAT か ACT を1回受けておく**必要があります。**これが計画に無かった最大の追加項目**です。
+**So sit the SAT or ACT once during 2027.** This is the single largest item that was missing from the original plan.
 
-**(2) 在籍年数の上限（Fall 2028 出願の絶対条件）**
+**(2) The enrollment-length limit (an absolute condition for Fall 2028 applications)**
 
-| 校 | 上限 | 本計画（2026秋〜2028春＝4学期） |
+| School | Limit | This plan (Fall 2026 to Spring 2028 = 4 terms) |
 |---|---|---|
-| MIT | **5学期まで** | ✓ 4学期 |
-| Harvard | **2年まで** | ✓ |
-| Yale | 通常 18 クレジット（約2年）まで | ✓ |
-| Princeton | **junior まで**（17 course units） | ✓ |
-| Brown | 4学期まで | ✓（境界） |
-| Columbia | 4学期超は非推奨、8学期で卒業 | ✓（境界） |
+| MIT | **Up to 5 terms** | 4 terms |
+| Harvard | **Up to 2 years** | ok |
+| Yale | Usually up to 18 credits (~2 years) | ok |
+| Princeton | **Up to junior standing** (17 course units) | ok |
+| Brown | Up to 4 terms | ok (at the limit) |
+| Columbia | Beyond 4 terms discouraged; graduate in 8 | ok (at the limit) |
 
-→ **1学期でも余分に取ると出願資格を失う校がある**ため、「編入を1年延ばす」判断はドリーム校を捨てる判断と同義です。
+**One extra term can disqualify an application at some schools**, so "delay transfer by a year" is the same decision as "give up the dream schools".
 
 ---
 
-## 5. v5 プラン（Davis TAG 維持＋ドリーム校併願）
+## 5. The v5 plan (keep the Davis TAG, keep the dream schools)
 
-**2026秋の実際の登録（13単位・確定）**：MATH 210（4）、PHIL 100（3・UC-H）、POLS 043（3・UC-B）、ECE 010（3・UC-B）。
+**Fall 2026 actual registration (13 units, final)**: MATH 210 (4), PHIL 100 (3, UC-H), POLS 043 (3, UC-B), ECE 010 (3, UC-B).
 
-> **この13単位で7科目パターンのエリア要件はすでに充足**（H 1・B 2＋PHYS 040 で4科目・3エリア）。残るのは **UC-E 2科目だけ**。
-> ただし **ENGL C1000 と COMSC 122 が抜けている**ため、2027春に入れる必要がある。
+> **These 13 units already satisfy the 7-course pattern's area requirement** (H 1, B 2, plus PHYS 040 gives four courses across three areas). What remains is **only the two UC-E courses**.
+> But **ENGL C1000 and COMSC 122 are missing**, so they have to go into Spring 2027.
 
-| 学期 | 期間 | 科目 | 単位 | 充当 |
+| Term | Dates | Course | Units | Maps to |
 |---|---|---|---|---|
-| **2026秋**（登録済） | 8/24〜12/11 | MATH 210 | 4 | MAT 21A／**UC-M** |
+| **Fall 2026** (registered) | 8/24-12/11 | MATH 210 | 4 | MAT 21A / **UC-M** |
 | | | PHIL 100 | 3 | **UC-H** |
 | | | POLS 043 | 3 | **UC-B** |
-| | | ECE 010（CHDEV 010） | 3 | **UC-B** |
-| | | **計** | **13** | |
-| **2027春** | 1/26〜5/21 | MATH 220 | 4 | MAT 21B |
-| | | CHEM 025 | 5 | CHE 2A |
-| | | **ENGL C1000** | 3 | **UC-E①** |
-| | | **COMSC 122** | 3 | Penn/Cornell のプログラミング |
-| | | UC-B か UC-H（3単位・対面） | 3 | 30単位の壁／人文 |
-| | | **計** | **18** | |
-| **2027秋** | 8/23〜12/10 | MATH 230 | 4 | MAT 21C＋21D |
+| | | ECE 010 (CHDEV 010) | 3 | **UC-B** |
+| | | **Total** | **13** | |
+| **Spring 2027** | 1/26-5/21 | MATH 220 | 4 | MAT 21B |
+| | | **CHEM 006** *(was CHEM 025 until 2026-11-16)* | 4 | CHE 2A series |
+| | | **ENGL C1000** | 3 | **UC-E 1** |
+| | | **COMSC 122** | 3 | Penn/Cornell programming |
+| | | UC-B or UC-H (3 units, in person) | 3 | the 30-unit wall / humanities |
+| | | **Total** | **17** | |
+| **Summer 2027** | 6 weeks | **CHEM 025** | 5 | CHE 2A series |
+| **Fall 2027** | 8/23-12/10 | MATH 230 | 4 | MAT 21C + 21D |
 | | | PHYS 040 | 4 | PHY 9A |
-| | | CHEM 026 | 5 | CHE 2A 系列 |
-| | | **ENGL C1001** | 3 | **UC-E②** |
-| | | **計** | **16** | |
-| **2028春** | 1/24〜5/19 | PHYS 041 | 4 | PHY 9C |
+| | | CHEM 026 | 5 | CHE 2A series |
+| | | **ENGL C1001** | 3 | **UC-E 2** |
+| | | **Total** | **16** | |
+| **Spring 2028** | 1/24-5/19 | PHYS 041 | 4 | PHY 9C |
 | | | PHYS 042 | 4 | PHY 9B |
 | | | MATH 240 | 3 | MAT 22B |
 | | | MATH 250 | 3 | MAT 22A |
 | | | ENGIN 045 | 4 | ENG 17 |
-| | | **計** | **18** | |
+| | | **Total** | **18** | |
 
-**合計：13＋18＋16＋18＝65単位**
+**Total: 13 + 17 + 5 + 16 + 18 = 69 units.**
 
-### 5.1 検算
+### 5.1 Arithmetic check
 
-| 制約 | 基準 | 本計画 | 判定 |
+| Constraint | Threshold | Plan | Verdict |
 |---|---|---|---|
-| Davis 専攻準備 | 11項目（うち2つは waiver） | 9項目を LMC で完了＋2項目 waiver | ✓ |
-| 7科目パターン | 2E＋1M＋4（2エリア） | MATH 210（M）＋PHIL 100（H）＋POLS 043・ECE 010（B）＋PHYS 040（S）＋ENGL C1000・C1001（E）＝**7科目・3エリア** | ✓ **2027秋で完成**（期限は2028春末） |
-| 編入前の単位数 | ≥60 | **65** | ✓（5単位の余裕） |
-| 夏までに30単位 | ≥30 | 13＋18＝**31** | ✓ |
-| 各学期の上限 | ≤19 | 18・16・18 | ✓ |
-| F-1 | ≥12／対面9／オンライン1科目 | 18・16・18／対面15／オンライン1 | ✓ |
-| 夏に必修を置かない | Davis 規定 | 置いていない | ✓ |
-| 19単位の学期 | — | 0回 | ✓ |
-| 前提条件の連鎖 | — | エラー0（機械検算） | ✓ |
-| ドリーム校の在籍上限 | 4学期（MIT は5） | 4学期 | ✓ |
-| MIT の生物 | 推奨 | **不足**（要れば BIOSC 010 を2028春に追加して22単位は上限超過→不可。**夏のGEで充当**するか、MIT は諦める） | △ |
-| Cornell の digital logic | junior standing に必要 | **不足**（sophomore 入学になる） | △ |
-| PHYS 041/042 の同時履修 | 同一学期に1セクションずつ | 2028春に2本。**時間割が衝突する年がある** | △ §5.3 |
+| Davis major preparation | 11 items (2 waived) | 9 completed at LMC + 2 waived | ok |
+| 7-course pattern | 2E + 1M + 4 (2 areas) | MATH 210 (M) + PHIL 100 (H) + POLS 043, ECE 010 (B) + PHYS 040 (S) + ENGL C1000, C1001 (E) = **7 courses, 3 areas** | ok, **done in Fall 2027** (deadline end of Spring 2028) |
+| Units before transfer | >= 60 | **69** | ok (9 spare) |
+| 30 units by summer | >= 30 | 13 + 17 = **30** | ok, **exactly at the floor** |
+| Units per term | <= 19 | 17, 5, 16, 18 | ok |
+| F-1 | >= 12 total / >= 9 in person / one online course | 17, 5, 16, 18 / 14 in person / one online | ok |
+| No required courses in summer | Davis rule | required courses are in regular terms; the summer carries CHEM 025, which is a **required major** course | **needs written confirmation** (see section 9 below and the calendar reminder) |
+| Terms at 19 units | - | 0 | ok |
+| Prerequisite chain | - | 0 errors (checked mechanically) | ok |
+| Dream-school enrollment limit | 4 terms (MIT 5) | 4 terms | ok |
+| MIT biology | recommended | **missing** (adding BIOSC 010 to Spring 2028 would exceed the cap) | **use a summer GE or drop MIT** |
+| Cornell digital logic | needed for junior standing | **missing** (so sophomore entry) | **Cornell is a long shot** |
+| PHYS 041 + 042 same term | one section each per term | both in Spring 2028; **they clash in some years** | see 5.3 |
 
-### 5.2 夏学期の使い方
+### 5.2 How to use the summer
 
-**必修は置けません**（Davis の規定）。夏に取ってよいのは「単位数を増やすためだけの科目」です。本プランは 2027春を18単位にして**夏に何も置かずに30単位の壁を越えている**ので、夏は RTL と SAT 対策に使えます。
+**Required courses were not supposed to go there** (Davis's rule), and Summer 2027 now carries CHEM 025, so **this is the point to confirm in writing** that a summer required course still counts toward the major preparation and the TAG. Ask both Davis and the LMC counselor, and note the answer in `plan/counselor-email-chem025.md`.
 
-### 5.3 PHYS 041 と 042 を同じ学期に置くリスク
+The summer also removes any need to pad units, since 13 + 17 already reaches the 30-unit floor.
 
-両科目とも**毎学期開講**ですが、**1学期1セクション**のことが多く、同じ学期に取ると**曜日がぶつかる年**があります（Spring 2027 は 041 木12:45–17:00＠Brentwood、042 木14:40–17:50＠Pittsburg で衝突。Spring 2026 は 041 木・042 火で回避）。
+### 5.3 The risk of putting PHYS 041 and 042 in one term
 
-**ここは逃げられません（2026-27 カタログで確認）**：
+Both run every term, but often as **a single section**, so taking them together **clashes in some years** (Spring 2027: 041 Thu 12:45-17:00 at Brentwood, 042 Thu 14:40-17:50 at Pittsburg, a clash. Spring 2026: 041 Thu, 042 Tue, avoided).
 
-| 科目 | 前提 | 同時履修 |
+**This is not avoidable** (confirmed in the 2026-27 catalog):
+
+| Course | Prerequisite | Concurrent |
 |---|---|---|
-| PHYS 040 | **MATH 220（修了が条件）** | 不可 |
-| PHYS 041 | **PHYS 040（修了が条件）**＋MATH 230（Co-Requisite） | MATH 230 のみ可 |
-| PHYS 042 | **PHYS 040（修了が条件）**＋MATH 230（Co-Requisite） | MATH 230 のみ可 |
+| PHYS 040 | **MATH 220 (completed)** | not allowed |
+| PHYS 041 | **PHYS 040 (completed)** + MATH 230 (co-requisite) | MATH 230 only |
+| PHYS 042 | **PHYS 040 (completed)** + MATH 230 (co-requisite) | MATH 230 only |
 
-MATH 220 が2027春なので **PHYS 040 は2027秋が最速**。すると **041 と 042 はどちらも2028春**にしか置けません。
+MATH 220 is Spring 2027, so **PHYS 040 can be no earlier than Fall 2027**, which forces **both 041 and 042 into Spring 2028**.
 
-**衝突した場合の対応**：
+**If they clash**:
 
-| 案 | 内容 | 評価 |
+| Option | What | Verdict |
 |---|---|---|
-| **① TAG 先を UCR へ** | UCR EE は **PHYS 40A（＝PHYS 040）1本＋選択3**で済む | **推奨**。編入時期を遅らせず、TAG 3.00 |
-| ② 2029年秋に延ばす | 2028秋に片方の物理 | **ドリーム校の2年上限を失う** |
-| ③ 夏に他校で PHY 9D | — | **不可**（Davis は夏の履修を数えない） |
+| **1. Move the TAG to UCR** | UCR EE needs **PHYS 40A (= PHYS 040) plus three electives** | **Recommended.** No delay to transfer, TAG at 3.00 |
+| 2. Push to Fall 2029 | Take one physics in Fall 2028 | **Loses the dream schools' two-year limits** |
+| 3. Take PHY 9D elsewhere in summer | - | **Not possible** (Davis does not count summer coursework) |
 
-**⇒ Davis 一本勝負にせず、UCR を保険として並行準備する。**
+**So do not bet everything on Davis: prepare UCR in parallel as insurance.**
 
 ---
 
-## 6. 残る2つの数値リスク
+## 6. The two remaining numeric risks
 
-**(1) TAG の「夏までに30単位」**
+**(1) TAG's "30 units by summer"**
 
-Davis の TAG は「**編入前の夏までに30 semester units**」を要求します。本計画では **2026秋13＋2027春15＝28** で2単位足りません。
+Davis's TAG requires **30 semester units by the summer before transfer**. Under this plan **Fall 2026 (13) + Spring 2027 (17) = 30**, which is exactly the floor, so **not one spring course may be dropped**.
 
-- **対策A**：2026秋を **15単位**にする（今学期にあと1科目。追加履修の期限に注意）。
-- **対策B**：2027夏に1科目取り、その単位が30単位の計算に入るか確認する（「入学要件」ではないので数えられる可能性が高いが、要確認）。
-- **対策C**：2027春を17単位にする（GE を1科目追加）。
+- **Option A**: raise Fall 2026 to 15 units (one more course this term; watch the add deadline).
+- **Option B**: take one course in Summer 2027 and confirm that it counts toward the 30 (it is not an "admission requirement" course, so it probably does, but confirm).
+- **Option C**: raise Spring 2027 to 18 by adding one GE (currently 17 with CHEM 006).
 
-**(2) 編入後の卒業学期**
+**(2) Graduation term after transfer**
 
-waiver で先送りした `EEC 007`・`EEC 010`・`EEC 018`・`ECS 036B`（計17単位）を4学期に収める必要があります。**2030年6月を目標、2030年12月を許容**に置いてください。
+The waived courses (`EEC 007`, `EEC 010`, `EEC 018`, `ECS 036B`, 17 units total) must fit into four terms. **Target June 2030, allow December 2030.**
 
 ---
 
-## 7. 2027年にやる追加タスク（新規）
+## 7. Additional tasks for 2027
 
-| 時期 | やること |
+| When | Task |
 |---|---|
-| 2026/11 | ASSIST のスクショ保存、Davis アドバイザーへ waiver の書面確認を依頼 |
-| 2026/12 | 2026秋を15単位にできるか確認（30単位の壁） |
-| 2027/1〜3 | **SAT か ACT の対策を開始**（ドリーム校4校が必須）。9月までに1回受験 |
-| 2027/6 | waiver の回答を書面で受領。無ければ他コミカレ調達（Bakersfield のオンライン等）へ切替 |
-| 2027/8 | TAG 条件の更新確認、SAT/ACT の2回目（必要なら） |
-| 2027/9 | TAG 申請（Davis）＋コメント欄に EEC 7・9D の注記 |
-| 2027/10〜11 | UC 出願（Davis／Berkeley／UCR／UCSC など）＋Cal State Apply（SJSU） |
-| 2028/1 | TAU で同じ注記を維持 |
-| 2028/3 | 私立（Princeton・Cornell・Columbia・MIT・Yale ほか）。**Cornell は 3/15 が aid の期限** |
+| 2026/11 | Save the ASSIST screenshots; ask the Davis advisor for the waiver in writing |
+| 2026/12 | Confirm CHEM 025 runs in Summer 2027 and that it counts (the 30-unit wall is already met) |
+| 2027/1-3 | **Start SAT or ACT prep** (required by four dream schools). Sit it once by September |
+| 2027/4 | Check the Summer 2027 schedule when it appears (calendar reminder set) |
+| 2027/6 | Receive the waiver answer in writing. If denied, switch to sourcing elsewhere (Bakersfield online etc.) |
+| 2027/8 | Re-check TAG conditions; second SAT/ACT sitting if needed |
+| 2027/9 | TAG application (Davis) + the EEC 7 / 9D note in the comments |
+| 2027/10-11 | UC application (Davis, Berkeley, UCR, UCSC) + Cal State Apply (SJSU) |
+| 2028/1 | Keep the same note in the TAU |
+| 2028/3 | Private schools (Princeton, Cornell, Columbia, MIT, Yale). **Cornell's aid deadline is 3/15** |
 
 ---
 
-## 8. リスク
+## 8. Risks
 
-| リスク | 兆候 | 対策 |
+| Risk | Warning sign | Response |
 |---|---|---|
-| **waiver が今年は適用されない** | アドバイザーの返答が曖昧 | Bakersfield のオンライン（EEC 7）＋De Anza ハイブリッド（9D）で調達。DSO の承認を12月までに |
-| **30単位に届かない** | 2027夏時点で28 | 2026秋を15単位に、または2027春を17単位に |
-| **SAT/ACT が間に合わない** | 2027/9 に未受験 | ドリーム校を Princeton/Harvard/Yale/MIT から Columbia/Cornell 中心に組み替え |
-| **Cornell が junior standing を認めない** | digital logic が無い | sophomore 入学（3年）を許容するか、Cornell を外す |
-| **MIT の生物が無い** | 2028春に GE を生物にしない | BIOSC 010 を2028春に入れて19単位にする |
-| **編入後5学期** | 2029春に判明 | 2030年12月卒を許容。日本就活は「2031年卒」で準備 |
+| **The waiver does not apply this year** | An ambiguous reply from the advisor | Source it elsewhere: Bakersfield online (EEC 7) + De Anza hybrid (9D). DSO approval by December |
+| **Short of 30 units** | The total is 30 exactly, so a dropped course breaks it | Do not drop a spring course; or add a GE in Spring 2027 |
+| **SAT/ACT too late** | No sitting by 2027/9 | Shift the dream list from Princeton/Harvard/Yale/MIT toward Columbia/Cornell |
+| **Cornell will not grant junior standing** | No digital logic | Accept sophomore entry (3 years) or drop Cornell |
+| **MIT's biology is missing** | No biology GE in Spring 2028 | Use a summer GE, or drop MIT |
+| **Five terms after transfer** | Discovered in Spring 2029 | Accept December 2030 graduation |
+| **Summer CHEM 025 does not count** | Davis says summer does not count | Switch to Plan 2 (UCR, 62 units) |
 
 ---
 
-## 付録：根拠
+## Appendix: sources
 
-- waiver の文言：<https://www.ucdavis.edu/sites/default/files/media/documents/F25-Transfer-Admissions-Brochure.pdf>／<https://www.deanza.edu/articulation/documents/tag-questionnaire-dac-ucd.pdf>
-- TAG FAQ（別の CCC で取る場合）：<https://www.ucdavis.edu/admissions/undergraduate/transfer/transfer-admission-guarantee/faq>
-- 夏学期を数えない規定：<https://www.ucdavis.edu/admissions/undergraduate/transfer/selective-major-requirements>
-- Davis 工学部の専攻準備：<https://www.ucdavis.edu/admissions/transfer/major-requirements-college-engineering>
-- 7科目パターン：<https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/preparing-to-transfer/basic-requirements.html>
-- LMC の UC エリア付き一覧（2020-21 の ASSIST 生成PDF）：<https://www.losmedanos.edu/transfer/howtoapply/LMC-UC-Transferrable-Classes.pdf>
-- LMC Cal-GETC 2026-27：<https://www.losmedanos.edu/transfer/2627CalGETC.pdf>
-- Princeton（transfer・SAT 必須・aid）：<https://admission.princeton.edu/transfer-students>／<https://admissions.princeton.edu/apply/standardized-testing>
-- Harvard：<https://college.harvard.edu/admissions/apply/transfer-applicants>
-- Yale（工学の履修期待・SAT/ACT 必須）：<https://admissions.yale.edu/transfer-details>
-- MIT（推奨履修・5学期上限）：<https://mitadmissions.org/apply/transfer/before-applying>
-- Cornell ECE の準備：<https://www.duffield.cornell.edu/admissions/transfer-applicants/requirements>
-- Columbia：<https://undergrad.admissions.columbia.edu/apply/transfer>
-- Dartmouth：<https://engineering.dartmouth.edu/undergraduate/pre-engineering-advising>
-- Penn Engineering：<https://admissions.upenn.edu/how-to-apply/transfer-applicants/penn-engineering>
-- F-1 の CVC Exchange 禁止：<https://www.cvc.edu/students/international>
-- Bakersfield ENGR B19C（オンライン）：<http://coursequest.org/bakersfield/catalog/ENGR/B19C>
-- De Anza PHYS 4D（Spring 2027 ハイブリッド）：<https://www.deanza.edu/schedule/listings.html?dept=PHYS&t=S2027>
+- Waiver wording: <https://www.ucdavis.edu/sites/default/files/media/documents/F25-Transfer-Admissions-Brochure.pdf> and <https://www.deanza.edu/articulation/documents/tag-questionnaire-dac-ucd.pdf>
+- TAG FAQ (taking courses at another CCC): <https://www.ucdavis.edu/admissions/undergraduate/transfer/transfer-admission-guarantee/faq>
+- Summer does not count: <https://www.ucdavis.edu/admissions/undergraduate/transfer/selective-major-requirements>
+- Davis College of Engineering major preparation: <https://www.ucdavis.edu/admissions/transfer/major-requirements-college-engineering>
+- 7-course pattern: <https://admission.universityofcalifornia.edu/admission-requirements/transfer-requirements/preparing-to-transfer/basic-requirements.html>
+- LMC list with UC areas (2020-21 ASSIST PDF): <https://www.losmedanos.edu/transfer/howtoapply/LMC-UC-Transferrable-Classes.pdf>
+- LMC Cal-GETC 2026-27: <https://www.losmedanos.edu/transfer/2627CalGETC.pdf>
+- Princeton (transfer, SAT required, aid): <https://admission.princeton.edu/transfer-students> and <https://admissions.princeton.edu/apply/standardized-testing>
+- Harvard: <https://college.harvard.edu/admissions/apply/transfer-applicants>
+- Yale (engineering expectations, SAT/ACT required): <https://admissions.yale.edu/transfer-details>
+- MIT (recommended coursework, 5-term limit): <https://mitadmissions.org/apply/transfer/before-applying>
+- Cornell ECE preparation: <https://www.duffield.cornell.edu/admissions/transfer-applicants/requirements>
+- Columbia: <https://undergrad.admissions.columbia.edu/apply/transfer>
+- Dartmouth: <https://engineering.dartmouth.edu/undergraduate/pre-engineering-advising>
+- Penn Engineering: <https://admissions.upenn.edu/how-to-apply/transfer-applicants/penn-engineering>
+- F-1 and the CVC Exchange: <https://www.cvc.edu/students/international>
+- Bakersfield ENGR B19C (online): <http://coursequest.org/bakersfield/catalog/ENGR/B19C>
+- De Anza PHYS 4D (Spring 2027 hybrid): <https://www.deanza.edu/schedule/listings.html?dept=PHYS&t=S2027>
