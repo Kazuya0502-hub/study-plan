@@ -1,0 +1,21 @@
+What does jal write into r31?	The return address, PC+4	unit12 procedures
+Why must the return address be saved in the frame when a procedure makes another call?	The callee overwrites r31 with its own return address, so the caller's return address would be lost	unit12 procedures
+What are the four things a stack frame can hold?	Arguments, the return address, saved registers, and locals	unit12 procedures
+In which direction does the stack grow, and what does SP point to?	Downward (toward lower addresses); SP points at the top of the current frame	unit12 procedures
+What must happen to SP before pushing a value?	SP is decremented first (SP = SP - 4), then the value is stored	unit12 procedures
+What does a procedure's prologue do?	Decrements SP to allocate the frame and saves the return address and any callee-used registers	unit12 procedures
+What does a procedure's epilogue do?	Restores saved registers, restores SP, and returns via the saved return address	unit12 procedures
+What is the difference between caller-saved and callee-saved registers?	The caller must save caller-saved registers (the call may destroy them); the callee must preserve callee-saved registers	unit12 procedures
+Why is a leaf procedure allowed to keep the return address only in r31?	It makes no further calls, so nothing overwrites r31 before it returns	unit12 procedures
+What happens to SP when a procedure returns?	SP is increased by the frame size, releasing the frame	unit12 procedures
+16 registers means how many bits per register field?	4 bits, because 2^4 = 16	unit09 isa bits
+32 registers means how many bits per register field?	5 bits, because 2^5 = 32	unit09 isa bits
+A 32-bit instruction has a 6-bit opcode and 16 registers, with fields opcode + rs + rd. How wide is the immediate?	18 bits: 32 - 6 - 4 - 4	unit09 isa bits
+The same instruction also needs a third register field (rt). How wide is the immediate now?	14 bits: 32 - 6 - 4 - 4 - 4	unit09 isa bits
+What do you give up when you widen the immediate field?	Bits for the opcode or for register specifiers, so fewer instructions or fewer registers	unit09 isa bits
+Which order do you use to budget instruction bits?	Write out every field and its width first, then subtract from the instruction length	unit09 isa bits
+What improves and what worsens when a ripple-carry adder becomes a carry-lookahead adder?	The critical path shortens, so latency falls; area and power rise because there are more gates per bit	unit08 tradeoffs
+In a direct-mapped cache, what happens when two addresses share an index?	A conflict miss: they evict each other on every access, so almost every access goes to the next level of the hierarchy	unit14 caches
+For ADD, what feeds the register file write port?	The ALU output	unit13 beta
+For LD, what feeds the register file write port?	The data read from memory	unit13 beta
+What is the general name for the signal that chooses between ALU output and memory data on a write?	The write-back source (a mux selected by control)	unit13 beta
