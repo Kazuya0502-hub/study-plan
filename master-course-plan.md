@@ -1,7 +1,7 @@
-# 履修計画 最終版（2026年11月13日）
+# Master course plan (2026-11-13)
 
-**現在地**：2026秋 13単位（登録済）／目標：**2028年秋 UC Davis EE に TAG で編入**
-**この1枚が履修の正**です。他文書の履修表はこれに従います。
+**Where you are**: Fall 2026, 13 units registered. **Goal: TAG into UC Davis Electrical Engineering for Fall 2028.**
+**This page is the source of truth for coursework.** Every other document's schedule follows it.
 
 ---
 
@@ -23,256 +23,268 @@
 
 ---
 
-## 0. 結論
+## 0. Conclusions
 
-1. **夏学期は使わない**。標準は **18科目・65単位**（§1 の案1）。
-2. **19単位の学期はゼロ**。`CHEM 006` が必須なら、**UCR に切り替えて 62単位**（案2）か **5学期・72単位**（案3）。
-3. **物理は `040 → 041 → 042` の微積ベースのみ**。`PHYS 015`・`PHYS 035/036`・`ENGIN 036` は**不要**。
-4. **Davis の `EEC 007` と `PHY 009D` は waiver**（ASSIST に No Course Articulated のため、編入後に Davis で履修）。
-5. **7科目パターンは2027秋で完成**（期限は2028春末）。
-
----
-
-## 1. 夏学期を使わない3案
-
-### 案1（推奨）Davis・4学期・65単位
-
-**条件：`CHEM 025` を2027春に直接取れること**（高校化学1年で前提を満たす、またはカウンセラーの前提クリアランス）。
-
-| 学期 | 科目 | 単位 |
-|---|---|---|
-| **2026秋**（登録済） | MATH 210／PHIL 100／POLS 043／ECE 010 | **13** |
-| **2027春** | MATH 220／**CHEM 025**／ENGL C1000／COMSC 122／GE | **18** |
-| **2027秋** | MATH 230／PHYS 040／CHEM 026／ENGL C1001 | **16** |
-| **2028春** | PHYS 041／PHYS 042／MATH 240／MATH 250／ENGIN 045 | **18** |
-| | **合計** | **65** |
-
-- ✓ 4学期で完結、夏なし、19単位の学期ゼロ
-- ✓ 春末までに **31単位**（TAG の30単位要件）
-- ✓ 7科目パターンは2027秋完成／Davis 専攻準備は waiver 2件を除き充足
-- **唯一の条件は `CHEM 006` を飛ばせること**。これが通ればこれ以上ない形。
-
-### 案2 UCR・4学期・62単位（化学を全部外す）
-
-**`CHEM 006` が必要だった場合の本命。** UCR EE は**化学を要求しません**（MATH 9A/9B/9C ＋ 10科目から3つ）。
-
-| 学期 | 科目 | 単位 |
-|---|---|---|
-| **2026秋**（登録済） | MATH 210／PHIL 100／POLS 043／ECE 010 | **13** |
-| **2027春** | MATH 220／ENGL C1000／COMSC 122／GE／GE（4単位） | **17** |
-| **2027秋** | MATH 230／PHYS 040／ENGL C1001／MATH 240／GE | **17** |
-| **2028春** | PHYS 041／PHYS 042／MATH 250／ENGIN 045 | **15** |
-| | **合計** | **62** |
-
-- ✓ 4学期、夏なし、**前提エラーゼロ**、すべての学期が17単位以下
-- ✓ 春末までに **ちょうど30単位**（TAG の下限ぴったり。**春の科目を1つも落とせない**）
-- ✓ UCR EE の専攻準備（PHYS 40A/40B/40C で3つ）を充足
-- ✗ **Davis は不可**（CHEM 025/026 が必須）
-
-### 案3 Davis・5学期・72単位（`CHEM 006` が必要で、夏も使わない場合）
-
-| 学期 | 科目 | 単位 |
-|---|---|---|
-| **2026秋**（登録済） | MATH 210／PHIL 100／POLS 043／ECE 010 | **13** |
-| **2027春** | MATH 220／**CHEM 006**／ENGL C1000／COMSC 122／GE | **17** |
-| **2027秋** | MATH 230／PHYS 040／**CHEM 025**／ENGL C1001 | **16** |
-| **2028春** | PHYS 041／**CHEM 026**／MATH 240／MATH 250 | **15** |
-| **2028秋** | PHYS 042／ENGIN 045／GE | **11** |
-| | **合計** | **72** |
-
-- ✓ 前提エラーゼロ、Davis 準備充足
-- ✗ **編入が2029年秋に1年遅れる**（ドリーム校の2年上限を失う／就職は2032年卒）
-
-### 比較
-
-| | 案1 | 案2 | 案3 |
-|---|---|---|---|
-| 編入先 | **Davis** | UCR | Davis |
-| 編入時期 | **2028秋** | **2028秋** | 2029秋 |
-| 学期数 | **4** | **4** | 5 |
-| 単位数 | **65** | 62 | 72 |
-| 夏学期 | なし | なし | なし |
-| 化学 | CHEM 025・026 | なし | 006・025・026 |
-| 条件 | 高校化学で前提クリア | なし | なし |
+1. **No summer term.** The standard is **18 courses, 65 units** (Plan 1 in section 1). *(Superseded: one summer term is now required - see the decision above.)*
+2. **Zero 19-unit terms.** If `CHEM 006` is required, either **switch to UCR for 62 units** (Plan 2) or take **five terms and 72 units** (Plan 3). *(Plan 1' now exists: one summer term keeps Davis at four terms.)*
+3. **Physics is the calculus track only: `040 -> 041 -> 042`.** `PHYS 015`, `PHYS 035/036`, and `ENGIN 036` are **not needed**.
+4. **Davis waives `EEC 007` and `PHY 009D`** (ASSIST shows No Course Articulated, so they are taken at Davis after transfer).
+5. **The 7-course pattern completes in Fall 2027** (the deadline is the end of Spring 2028).
 
 ---
 
-## 2. 各学期の中身と前提
+## 1. The three no-summer plans
 
-### 2026秋（13単位・登録済）
+### Plan 1 (recommended) Davis, 4 terms, 65 units
 
-| 科目 | 単位 | 前提 | 役割 |
+**Condition: `CHEM 025` can be taken directly in Spring 2027** (one year of high school chemistry satisfies the prerequisite, or a counselor clears it). *This condition failed on 2026-11-16.*
+
+| Term | Courses | Units |
+|---|---|---|
+| **Fall 2026** (registered) | MATH 210 / PHIL 100 / POLS 043 / ECE 010 | **13** |
+| **Spring 2027** | MATH 220 / **CHEM 025** / ENGL C1000 / COMSC 122 / GE | **18** |
+| **Fall 2027** | MATH 230 / PHYS 040 / CHEM 026 / ENGL C1001 | **16** |
+| **Spring 2028** | PHYS 041 / PHYS 042 / MATH 240 / MATH 250 / ENGIN 045 | **18** |
+| | **Total** | **65** |
+
+- Done in four terms, no summer, zero 19-unit terms
+- **31 units by the end of spring** (the TAG 30-unit requirement)
+- 7-course pattern complete in Fall 2027; Davis major preparation complete except the two waivers
+- **The only condition was skipping `CHEM 006`.** That is what failed.
+
+### Plan 1' Davis, 4 terms + one summer, 69 units *(the plan in force)*
+
+| Term | Courses | Units |
+|---|---|---|
+| Fall 2026 (registered) | MATH 210 / PHIL 100 / POLS 043 / ECE 010 | **13** |
+| Spring 2027 | MATH 220 / **CHEM 006** / ENGL C1000 / COMSC 122 / GE | **17** |
+| **Summer 2027** | **CHEM 025** | **5** |
+| Fall 2027 | MATH 230 / PHYS 040 / CHEM 026 / ENGL C1001 | **16** |
+| Spring 2028 | PHYS 041 / PHYS 042 / MATH 240 / MATH 250 / ENGIN 045 | **18** |
+| | **Total** | **69** |
+
+- Still four terms and Fall 2028 transfer; **Spring 2028 stays at 18 units**, under the 19-unit cap
+- The risk is the summer term itself: CHEM 025 is 5 units in six weeks with a 108-hour lab
+
+### Plan 2 UCR, 4 terms, 62 units (chemistry removed entirely)
+
+**The main alternative when `CHEM 006` is required.** UCR EE **does not require chemistry** (MATH 9A/9B/9C plus 3 of 10 courses).
+
+| Term | Courses | Units |
+|---|---|---|
+| **Fall 2026** (registered) | MATH 210 / PHIL 100 / POLS 043 / ECE 010 | **13** |
+| **Spring 2027** | MATH 220 / ENGL C1000 / COMSC 122 / GE / GE (4 units) | **17** |
+| **Fall 2027** | MATH 230 / PHYS 040 / ENGL C1001 / MATH 240 / GE | **17** |
+| **Spring 2028** | PHYS 041 / PHYS 042 / MATH 250 / ENGIN 045 | **15** |
+| | **Total** | **62** |
+
+- Four terms, no summer, **zero prerequisite errors**, every term at 17 units or below
+- **Exactly 30 units by the end of spring** (right on the TAG floor, so **not a single spring course can be dropped**)
+- Covers UCR EE major preparation (PHYS 40A/40B/40C count as three)
+- **Davis is impossible** on this plan (CHEM 025/026 are required)
+
+### Plan 3 Davis, 5 terms, 72 units (`CHEM 006` required and no summer)
+
+| Term | Courses | Units |
+|---|---|---|
+| **Fall 2026** (registered) | MATH 210 / PHIL 100 / POLS 043 / ECE 010 | **13** |
+| **Spring 2027** | MATH 220 / **CHEM 006** / ENGL C1000 / COMSC 122 / GE | **17** |
+| **Fall 2027** | MATH 230 / PHYS 040 / **CHEM 025** / ENGL C1001 | **16** |
+| **Spring 2028** | PHYS 041 / **CHEM 026** / MATH 240 / MATH 250 | **15** |
+| **Fall 2028** | PHYS 042 / ENGIN 045 / GE | **11** |
+| | **Total** | **72** |
+
+- Zero prerequisite errors, Davis preparation complete
+- **Transfer slips to Fall 2029**, a year late (loses the two-year limits at dream schools; graduation 2032)
+
+### Comparison
+
+| | Plan 1 | Plan 1' | Plan 2 | Plan 3 |
+|---|---|---|---|---|
+| Transfer to | Davis | **Davis** | UCR | Davis |
+| Transfer when | Fall 2028 | **Fall 2028** | Fall 2028 | Fall 2029 |
+| Terms | 4 | **4** | 4 | 5 |
+| Units | 65 | **69** | 62 | 72 |
+| Summer | none | **1 term** | none | none |
+| Chemistry | 025, 026 | **006, 025, 026** | none | 006, 025, 026 |
+| Condition | high school chemistry clears the prerequisite | **summer CHEM 025 runs** | none | none |
+
+---
+
+## 2. What each term contains, and the prerequisites
+
+### Fall 2026 (13 units, registered)
+
+| Course | Units | Prerequisite | Role |
 |---|---|---|---|
-| MATH 210 Calculus I | 4 | MATH 155（済） | **UC-M**／Davis MAT 21A |
-| PHIL 100 Intro to Philosophy | 3 | なし | **UC-H** |
-| POLS 043 International Relations | 3 | なし | **UC-B** |
-| ECE 010 Child Growth & Development | 3 | なし | **UC-B** |
+| MATH 210 Calculus I | 4 | MATH 155 (done) | **UC-M** / Davis MAT 21A |
+| PHIL 100 Intro to Philosophy | 3 | none | **UC-H** |
+| POLS 043 International Relations | 3 | none | **UC-B** |
+| ECE 010 Child Growth & Development | 3 | none | **UC-B** |
 
-### 2027春（18 or 17単位）
+### Spring 2027 (17 units)
 
-| 科目 | 単位 | 前提 | 状態 |
+| Course | Units | Prerequisite | Status |
 |---|---|---|---|
-| MATH 220 Calculus II | 4 | MATH 210 | ✓ |
-| CHEM 025（分岐A）／CHEM 006（分岐B） | 5／4 | 高校化学 or CHEM 006 | **要確認** |
-| ENGL C1000 Academic Reading & Writing | 3 | プレースメントのみ | ✓ |
-| COMSC 122 Programming Concepts I | 3 | なし | ✓ |
-| UC-B か UC-H の3単位 | 3 | なし | ✓ |
+| MATH 220 Calculus II | 4 | MATH 210 | ok |
+| **CHEM 006** Intro to Inorganic & Physical Chemistry | 4 | placement only | **decided** |
+| ENGL C1000 Academic Reading & Writing | 3 | placement only | ok |
+| COMSC 122 Programming Concepts I | 3 | none | ok |
+| 3 units of UC-B or UC-H | 3 | none | ok |
 
-### 2027夏（分岐Bのみ・5単位）
+### Summer 2027 (5 units)
 
-| 科目 | 単位 | 前提 |
+| Course | Units | Prerequisite |
 |---|---|---|
 | CHEM 025 General College Chemistry I | 5 | CHEM 006 |
 
-### 2027秋（16単位）
+### Fall 2027 (16 units)
 
-| 科目 | 単位 | 前提 | 状態 |
+| Course | Units | Prerequisite | Status |
 |---|---|---|---|
-| MATH 230 Calculus III | 4 | MATH 220 | ✓ |
-| PHYS 040 Physics I（力学） | 4 | **MATH 220 のみ** | ✓ |
-| CHEM 026 General Chemistry II | 5 | CHEM 025 | ✓ |
-| ENGL C1001 Critical Thinking & Writing | 3 | ENGL C1000 | ✓ |
+| MATH 230 Calculus III | 4 | MATH 220 | ok |
+| PHYS 040 Physics I (mechanics) | 4 | **MATH 220 only** | ok |
+| CHEM 026 General Chemistry II | 5 | CHEM 025 | ok |
+| ENGL C1001 Critical Thinking & Writing | 3 | ENGL C1000 | ok |
 
-### 2028春（18単位・最重量学期）
+### Spring 2028 (18 units, the heaviest term)
 
-| 科目 | 単位 | 前提 | 状態 |
+| Course | Units | Prerequisite | Status |
 |---|---|---|---|
-| PHYS 041 Physics II（電磁気） | 4 | PHYS 040 修了 ＋ MATH 230（**共修可**） | ✓ |
-| PHYS 042 Physics III（波・熱・光学・量子） | 4 | PHYS 040 修了 ＋ MATH 230（**共修可**） | ✓ |
-| MATH 240 Differential Equations | 3 | MATH 220 | ✓ |
-| MATH 250 Linear Algebra | 3 | MATH 220 | ✓ |
-| ENGIN 045 Circuit Analysis | 4 | **MATH 240（共修可）**、**春のみ開講** | ✓ 同一学期 |
+| PHYS 041 Physics II (E&M) | 4 | PHYS 040 completed + MATH 230 (**may run concurrently**) | ok |
+| PHYS 042 Physics III (waves, heat, optics, quantum) | 4 | PHYS 040 completed + MATH 230 (**may run concurrently**) | ok |
+| MATH 240 Differential Equations | 3 | MATH 220 | ok |
+| MATH 250 Linear Algebra | 3 | MATH 220 | ok |
+| ENGIN 045 Circuit Analysis | 4 | **MATH 240 (concurrent ok)**, **spring only** | ok, same term |
 
 ---
 
-## 3. なぜこの順番しかないのか（動かせない3点）
+## 3. Why this order is forced (three hard constraints)
 
 ```
-MATH 155 → MATH 210 → MATH 220 ─┬→ MATH 230 ─┬→ PHYS 041（共修可）
-             （済）     （済）     │            └→ PHYS 042（共修可）
-                                  ├→ PHYS 040 ─┘
-                                  ├→ MATH 240 → ENGIN 045（共修・春のみ）
-                                  └→ MATH 250
-CHEM（006 or 高校）→ CHEM 025 → CHEM 026
-プレースメント → ENGL C1000 → ENGL C1001
+MATH 155 -> MATH 210 -> MATH 220 --+-> MATH 230 --+-> PHYS 041 (concurrent ok)
+              (done)     (done)     |               +-> PHYS 042 (concurrent ok)
+                                    +-> PHYS 040 ---+
+                                    +-> MATH 240 --> ENGIN 045 (concurrent, spring only)
+                                    +-> MATH 250
+CHEM (006 or high school) -> CHEM 025 -> CHEM 026
+Placement -> ENGL C1000 -> ENGL C1001
 ```
 
-1. **`MATH 220` が2027春 → `PHYS 040` は2027秋が最速** → `PHYS 041`／`042` は2028春に同居。
-2. **`ENGIN 045` は春のみ開講**＄`MATH 240` 共修 → 2028春固定。
-3. **`ENGL C1001` は `C1000` の後** → 2027春→2027秋固定。
+1. **`MATH 220` is Spring 2027, so `PHYS 040` cannot be before Fall 2027**, which forces `PHYS 041` and `042` into Spring 2028 together.
+2. **`ENGIN 045` runs only in spring** and needs `MATH 240` concurrently, so it is fixed in Spring 2028.
+3. **`ENGL C1001` comes after `C1000`**, so Spring 2027 -> Fall 2027 is fixed.
 
 ---
 
-## 4. 物理・化学のトラック（間違えやすい）
+## 4. The physics and chemistry tracks (easy to get wrong)
 
-| トラック | 科目 | 単位 | 前提 | 対象 | 使う？ |
+| Track | Courses | Units | Prerequisite | For | Use it? |
 |---|---|---|---|---|---|
-| 一般教養 | PHYS 015 Introduction to Physics | 4 | Intermediate Algebra | 全学部 | **不要** |
-| 代数ベース | PHYS 035 → 036 College Physics I→II | 4＋4 | MATH 155 | 生物・健康科学 | **不要**（Davis 非対応） |
-| **微積ベース** | **PHYS 040 → 041 → 042** | 4＋4＋4 | **MATH 220** | **工学・物理・化学** | **これを使う** |
-| 工学 | ENGIN 036 Engineering Statics | 4 | — | 機械・土木 | **不要** |
+| General education | PHYS 015 Introduction to Physics | 4 | Intermediate Algebra | any major | **No** |
+| Algebra-based | PHYS 035 -> 036 College Physics I -> II | 4 + 4 | MATH 155 | biology, health science | **No** (does not map to Davis) |
+| **Calculus-based** | **PHYS 040 -> 041 -> 042** | 4 + 4 + 4 | **MATH 220** | **engineering, physics, chemistry** | **This one** |
+| Engineering | ENGIN 036 Engineering Statics | 4 | - | mechanical, civil | **No** |
 
-`PHYS 036` は「電磁気＋光学＋量子＋核」を1本にした科目（C-ID PHYS 110）なので、Davis の `PHY 009B` と `009C` の**どちらにも対応しません**。
+`PHYS 036` bundles electromagnetism, optics, quantum, and nuclear into one course (C-ID PHYS 110), so it maps to **neither** Davis `PHY 009B` nor `009C`.
 
-**化学の入口**：`CHEM 025` のカタログ上の前提は **`CHEM 006`**。時間割の表記には「または高校化学1年＋Intermediate Algebra」の代替があります。ここが分岐A／Bの分かれ目です。
+**The chemistry entrance**: the catalog lists **`CHEM 006`** as the prerequisite for `CHEM 025`. The schedule adds an alternative, "or one year of high school chemistry with Intermediate Algebra". That is where Branches A and B split. *(Resolved 2026-11-16: the alternative cannot be used.)*
 
 ---
 
-## 5. 7科目パターン（UC 入学の絶対要件）
+## 5. The 7-course pattern (an absolute UC admission requirement)
 
-| 枠 | 科目 | 取得 |
+| Slot | Course | Taken |
 |---|---|---|
-| UC-E ① | ENGL C1000 | 2027春 |
-| UC-E ② | ENGL C1001 | 2027秋 |
-| UC-M | MATH 210 | **2026秋（済）** |
-| UC-H | PHIL 100 | **2026秋（済）** |
-| UC-B | POLS 043 | **2026秋（済）** |
-| UC-B | ECE 010 | **2026秋（済）** |
-| UC-S | PHYS 040 | 2027秋 |
+| UC-E 1 | ENGL C1000 | Spring 2027 |
+| UC-E 2 | ENGL C1001 | Fall 2027 |
+| UC-M | MATH 210 | **Fall 2026 (done)** |
+| UC-H | PHIL 100 | **Fall 2026 (done)** |
+| UC-B | POLS 043 | **Fall 2026 (done)** |
+| UC-B | ECE 010 | **Fall 2026 (done)** |
+| UC-S | PHYS 040 | Fall 2027 |
 
-**4科目・3エリア**（H・B・S）を満たす。**2027秋で完成**。各3単位以上・C以上。
+That satisfies **4 courses across 3 areas** (H, B, S), **complete in Fall 2027**. Each at 3 units or more with a C or better.
 
-**`COMM C1000`（Intro to Public Speaking・3単位）は不要。** 7科目パターンの4科目は **H／B／S** から取るので、Oral Communication（Cal-GETC **Area 1C**）はそもそも入りません。Davis EE の専攻準備11項目にもありません。
+**`COMM C1000` (Intro to Public Speaking, 3 units) is not needed.** The pattern's four courses come from **H/B/S**, so Oral Communication (Cal-GETC **Area 1C**) is not part of it at all, and it is not among the 11 Davis EE major-preparation items either.
 
-必要になるのは次の3つの場合だけです。
+It is only needed in these cases:
 
-| 場合 | 必要？ |
+| Case | Needed? |
 |---|---|
-| **UC 編入（Davis EE）** | **不要** |
-| Cal-GETC／IGETC の取得 | 必要（Area 1C）。ただし**工学は IGETC 非推奨** |
-| LMC の AA/AS 学位を取る | 必要（LMC Local GE Area 1B） |
-| **CSU に fallback する** | 必要（Golden Four の **A1 Oral Communication**） |
+| **UC transfer (Davis EE)** | **No** |
+| Earning Cal-GETC / IGETC | Yes (Area 1C), but **IGETC is not advised for engineering** |
+| Earning an LMC AA/AS | Yes (LMC Local GE Area 1B) |
+| **Falling back to a CSU** | Yes (Golden Four **A1 Oral Communication**) |
 
 ---
 
-## 6. 検算
+## 6. Arithmetic check
 
-| 制約 | 基準 | 分岐A | 分岐B |
+| Constraint | Threshold | Branch A | Branch B (in force) |
 |---|---|---|---|
-| 合計単位数 | ≥60 | **65** | **69** |
-| 夏を除いた単位数 | ≥60 | 65 | **64** |
-| 各学期の単位 | ≤19 | 18／16／18 | 17／5／16／18 |
-| 19単位以上の学期 | — | **0回** | **0回** |
-| 夏までに30単位（Davis TAG） | ≥30 | **31** | **35** |
-| 前提・共修エラー | 0 | **0**（CHEM 入口を除く） | **0** |
-| 7科目パターン | 2E+1M+4 | **2027秋** | **2027秋** |
-| Davis 専攻準備 | waiver 2件を除く11項目 | **充足** | **充足** |
-| F-1 | ≥12／対面9 | ✓ | ✓ |
+| Total units | >= 60 | **65** | **69** |
+| Units excluding summer | >= 60 | 65 | **64** |
+| Units in any term | <= 19 | 18/16/18 | 17/5/16/18 |
+| Terms at 19 units or more | - | **0** | **0** |
+| 30 units by summer (Davis TAG) | >= 30 | **31** | **35** |
+| Prerequisite / co-requisite errors | 0 | **0** (apart from the chemistry entrance) | **0** |
+| 7-course pattern | 2E + 1M + 4 | **Fall 2027** | **Fall 2027** |
+| Davis major preparation | 11 items minus 2 waivers | **met** | **met** |
+| F-1 | >= 12 total, >= 9 in person | ok | ok |
 
 ---
 
-## 7. 2028春が重い（唯一の弱点）
+## 7. Spring 2028 is heavy (the only weak point)
 
-`PHYS 041`（実験72h）＋`PHYS 042`（実験72h）＋`ENGIN 045`（実験54h）＝**実験3本・18単位**。ここが GPA 3.50 の正念場です。
+`PHYS 041` (72 lab hours) + `PHYS 042` (72 lab hours) + `ENGIN 045` (54 lab hours) = **three labs, 18 units**. That is where the 3.50 GPA is decided.
 
-- 2027秋のうちに `PHYS 040` を確実に通す（落とすと2028春が崩れる）。
-- 2028春は RTL 学習を止める。
-- **PHYS 041 と 042 は1学期1セクションのことが多く、同じ曜日に来る年がある**（2027春は木曜どうしで衝突、2026春は火と木で回避）。**2027年11月に Spring 2028 の時間割が出たら、最初にこの2科目の曜日を確認**。衝突した場合は **TAG 先を UCR EE に切り替え**（UCR は PHYS 40A 1本＋選択3で足りる）。
+- Pass `PHYS 040` cleanly in Fall 2027 (failing it wrecks Spring 2028).
+- Stop RTL study during Spring 2028.
+- **PHYS 041 and 042 often run a single section per term and sometimes land on the same day** (Spring 2027: both Thursday, clash; Spring 2026: Tuesday and Thursday, avoided). **When the Spring 2028 schedule appears in November 2027, check those two days first.** If they clash, **switch the TAG target to UCR EE** (UCR needs `PHYS 40A` plus three electives).
 
 ---
 
-## 8. 今週やること
+## 8. This week
 
-| # | やること | 期限 |
+| # | Task | Deadline |
 |---|---|---|
-| 1 | カウンセラーに「**高校化学1年で CHEM 025 の前提を満たせるか**」を確認（分岐A／Bの決定） | 11/15 |
-| 2 | **11/24 優先登録**：MATH 220（7411）→ **CHEM 006（9524）**→ ENGL C1000（0312）→ COMSC 122（6944）→ GE（計17単位） | **11/24** |
-| 3 | **ASSIST の「EEC 007／PHY 009D：No Course Articulated」画面をスクショ保存** | 11/20 |
-| 4 | Davis の転入アドバイザーに **waiver 適用の可否を書面で**確認 | 11/30 |
-| 5 | 分岐Bなら「2027夏の CHEM 025 が TAG の必修として認められるか」も同じメールで確認 | 11/30 |
-| 6 | SAT か ACT の対策開始（**UC は不要**。私立併願なら必要。§8.1） | 12月 |
+| 1 | Confirm with a counselor whether **one year of high school chemistry clears the CHEM 025 prerequisite** (the Branch A/B decision) | 11/15 - **answered: it does not** |
+| 2 | **11/24 priority registration**: MATH 220 (7411) -> **CHEM 006 (9524)** -> ENGL C1000 (0312) -> COMSC 122 (6944) -> GE (17 units) | **11/24** |
+| 3 | **Screenshot ASSIST's "EEC 007 / PHY 009D: No Course Articulated" page** | 11/20 |
+| 4 | Get **written** confirmation of the waiver from a Davis transfer advisor | 11/30 |
+| 5 | Ask in the same email whether **a Summer 2027 CHEM 025** counts toward the TAG requirements | 11/30 |
+| 6 | Start SAT or ACT prep (**not needed for UC**; needed for private schools - see 8.1) | December |
 
 ---
 
----
+## 8.1 Where SAT/ACT are required (Fall 2028 transfer)
 
-## 8.1 SAT/ACT はどこで必要か（2028年秋・転入）
-
-| 進学先 | 転入での SAT/ACT |
+| Destination | SAT/ACT for transfer |
 |---|---|
-| **UC（Davis など）** | **不要。UC は test-free で、提出しても「考慮しない」** |
-| **Princeton** | **必須**（2028年秋入学から） |
-| **Harvard** | **必須** |
-| **Yale** | **必須（SAT か ACT のみ）** |
-| **MIT** | **必須** |
-| **Columbia** | **必須**（2028年秋から） |
-| **Dartmouth** | **必須**（免除申請可） |
-| **Penn** | **必須**（transfer にも明記） |
-| **Cornell** | **不要**（transfer は “neither required nor expected”） |
-| **Brown** | 2026-27 サイクルまでは任意。**2028年秋は未公表** |
+| **UC (Davis and others)** | **Not needed. UC is test-free and will not consider a score even if submitted** |
+| **Princeton** | **Required** (from Fall 2028 entry) |
+| **Harvard** | **Required** |
+| **Yale** | **Required (SAT or ACT only)** |
+| **MIT** | **Required** |
+| **Columbia** | **Required** (from Fall 2028) |
+| **Dartmouth** | **Required** (waiver possible) |
+| **Penn** | **Required** (stated for transfers too) |
+| **Cornell** | **Not needed** ("neither required nor expected" for transfer) |
+| **Brown** | Optional through the 2026-27 cycle; **Fall 2028 not yet announced at the time of writing** |
 
-**Davis 一本なら SAT は不要。**私立を併願するなら **2027年中に1回**受験（Penn の受付は2〜3月が最終）。
+**If Davis is the only target, skip the SAT.** If private schools stay in play, sit it **once during 2027** (Penn's window closes in February-March).
 
 ---
 
-## 9. 未確認
+## 9. Unconfirmed
 
-| 項目 | 状態 |
+| Item | Status |
 |---|---|
-| 高校化学による CHEM 025 前提の免除 | カタログは CHEM 006 のみ記載。**要確認** |
-| 2027夏の CHEM 025 開講 | Summer 2025・2026 の実績から推定。**2027年春に確定** |
-| Davis の waiver が現行サイクルで有効か | F25 ブローシュアにのみ文言あり。**要書面確認** |
-| 2027夏の必修科目が TAG に数えられるか | 文言が2通り。**要書面確認** |
-| Spring 2028 の PHYS 041／042 の曜日 | 2027年11月公開。**その時点で確認** |
-| CHEM 006（9524）の曜日・時刻 | 時間割PDFから抽出できず。**登録画面で確認** |
-| LMC の UC エリア区分の2026-27年度版 | ASSIST が動的描画。**履修前に ASSIST で確認** |
+| High school chemistry clearing the CHEM 025 prerequisite | **Resolved 2026-11-16: it does not clear** |
+| CHEM 025 offered in Summer 2027 | Inferred from Summer 2025 and 2026. **Confirmed when the schedule appears in April 2027** |
+| Whether Davis's waiver is valid in the current cycle | Wording appears only in the Fall 2025 brochure. **Needs written confirmation** |
+| Whether Summer 2027 required courses count toward TAG | Two different wordings exist. **Needs written confirmation** |
+| Spring 2028 days for PHYS 041 and 042 | Published November 2027. **Check then** |
+| Days and times for CHEM 006 (9524) | Not extractable from the schedule PDF. **Check in the registration screen** |
+| The 2026-27 version of LMC's UC area list | ASSIST renders dynamically. **Check ASSIST before registering** |
