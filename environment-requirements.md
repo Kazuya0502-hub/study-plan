@@ -1,36 +1,36 @@
-# 実際に必要になる環境 — 一式
+# The environment you actually need - one list
 
-「いつ・何が要るか」を6層に分けて1枚にまとめました。前半（第1〜3層）は**今日から必要**、後半（第4〜5層）は**編入後・就職後**に必要になります。第6層は手続きと費用です。
+Six layers, one page: what you need and when. Layers 1-3 are **needed now**, layers 4-5 are **needed after transfer and after hiring**, and layer 6 is paperwork and cost.
 
-- 対象：2026年11月13日時点
-- 前提：Windows 11 + WSL2(Ubuntu) を使っている（計画書の前提どおり）
-- 結論：**自習環境はすべて無料の OSS で足ります。** 有料なのは Tiny Tapeout（€385）と、試験料・出願料・ビザ関連だけです。
+- Scope: as of 2026-11-13
+- Assumes Windows 11 + WSL2 (Ubuntu), as in the plan
+- Bottom line: **the whole self-study environment is free open-source software.** The only paid items are Tiny Tapeout (EUR 385) and exam, application, and visa fees.
 
 ---
 
-## 第1層：今すぐ必要（W1〜W9／2026年11月〜2027年1月）
+## Layer 1: needed now (W1-W9, November 2026 to January 2027)
 
-### 1.1 ハードウェア
+### 1.1 Hardware
 
-| 項目 | 最低 | 推奨 | 理由 |
+| Item | Minimum | Recommended | Why |
 |---|---|---|---|
-| RAM | 8 GB | **16 GB（新規購入なら32 GB）** | Verilator のビルドと OpenROAD は 16 GB を超えると楽 |
-| CPU | 4 コア | 6〜8 コア | シミュレーションと合成はシングルスレッド寄り。コア数より**シングル性能** |
-| ストレージ | 空き 30 GB | **空き 100 GB（SSD）** | WSL2 の仮想ディスクは自動で肥大化する。OpenLane/PDK で 40 GB 使う |
-| GPU | 不要 | 不要 | 論理設計に GPU は要らない |
-| OS | Windows 11（WSLg 必須） | 同左 | GTKWave などの GUI を WSL から出すのに WSLg が要る |
+| RAM | 8 GB | **16 GB (32 GB if buying new)** | Building Verilator and running OpenROAD get comfortable above 16 GB |
+| CPU | 4 cores | 6-8 cores | Simulation and synthesis are mostly single-threaded. Single-core speed beats core count |
+| Storage | 30 GB free | **100 GB free (SSD)** | The WSL2 virtual disk grows on its own. OpenLane plus the PDK uses 40 GB |
+| GPU | Not needed | Not needed | Logic design does not use one |
+| OS | Windows 11 (WSLg required) | Same | WSLg is how GUI tools like GTKWave reach the screen |
 
-> **買い足しの判断**：今の PC で WSL2 が動き、RAM が 8 GB 以上なら**買わない**。8 GB で詰まったら RAM 増設（ノートなら買い替え）を検討。**FPGA ボードは今は不要**です（第3層の任意項目）。
+> **Should you buy anything?** If WSL2 already runs and you have 8 GB or more, **do not buy**. If 8 GB becomes the bottleneck, add RAM (or replace the laptop). **An FPGA board is not needed yet** (it is an optional item in layer 3).
 
-### 1.2 WSL2 の設定（最初にやる3つ）
+### 1.2 WSL2 setup (three things, first)
 
 ```bash
-# Windows 側（PowerShell・管理者）
+# On the Windows side (PowerShell, as administrator)
 wsl --install -d Ubuntu-24.04
 wsl --set-default-version 2
 ```
 
-`C:\Users\<name>\.wslconfig`（メモリ上限を明示。放置すると Windows 側が固まる）:
+`C:\Users\<name>\.wslconfig` (cap the memory explicitly, or Windows will freeze):
 ```ini
 [wsl2]
 memory=8GB
@@ -38,15 +38,15 @@ processors=4
 swap=4GB
 ```
 
-`/etc/wsl.conf`（Docker を使う第3層で systemd が要る）:
+`/etc/wsl.conf` (systemd is needed for Docker in layer 3):
 ```ini
 [boot]
 systemd=true
 ```
 
-**重要**：プロジェクトは `~/work` に置く。`/mnt/c/...` は I/O が 5〜10倍遅く、`iverilog` のビルドが体感で壊滅します。
+**Important**: keep projects in `~/work`. `/mnt/c/...` is 5-10x slower on I/O, and building `iverilog` there is painful.
 
-### 1.3 インストールするもの（すべて無料）
+### 1.3 What to install (all free)
 
 ```bash
 sudo apt update && sudo apt install -y \
@@ -56,230 +56,230 @@ sudo apt update && sudo apt install -y \
   jq ripgrep
 ```
 
-| ツール | 用途 | 代替 |
+| Tool | Use | Alternative |
 |---|---|---|
-| **Icarus Verilog** | 高速な機能シミュレーション、初心者向け | Verilator（速いが制約が多い） |
-| **Verilator 5.x** | lint（`-Wall`）＋高速シミュレーション | — |
-| **Yosys** | 論理合成、面積・セル数の測定、ラッチ推論の検出 | — |
-| **GTKWave** | 波形閲覧 | **Surfer**（Rust 製。UX が良く、大きい波形に強い） |
-| **Verible** | SystemVerilog の lint・format（CHIPS Alliance） | — |
-| **OSS CAD Suite**（YosysHQ） | yosys / sby / yosys-smtbmc / nextpnr / gtkwave を**バージョン固定で一括**導入 | apt 版は版差で synth スクリプトが壊れやすい |
+| **Icarus Verilog** | Fast functional simulation, beginner friendly | Verilator (faster but stricter) |
+| **Verilator 5.x** | Lint (`-Wall`) and fast simulation | - |
+| **Yosys** | Logic synthesis, area and cell counts, latch detection | - |
+| **GTKWave** | Waveform viewer | **Surfer** (Rust, nicer UX, handles large waveforms) |
+| **Verible** | SystemVerilog lint and format (CHIPS Alliance) | - |
+| **OSS CAD Suite** (YosysHQ) | yosys, sby, yosys-smtbmc, nextpnr, gtkwave **at pinned versions**, in one download | The apt versions drift and break synthesis scripts |
 
-**推奨**：`yosys` と `sby`（形式検証）は **OSS CAD Suite** から入れる。apt の Yosys は古く、`read_verilog -sv` の挙動が版で変わります。
+**Recommendation**: install `yosys` and `sby` (formal verification) from **OSS CAD Suite**. The apt Yosys is old and `read_verilog -sv` behaviour changes between versions.
 <https://github.com/YosysHQ/oss-cad-suite-build/releases>
 
-### 1.4 エディタとアカウント
+### 1.4 Editor and accounts
 
-| 項目 | 内容 |
+| Item | Detail |
 |---|---|
-| エディタ | **VS Code + WSL 拡張**（`ms-vscode-remote.remote-wsl`） |
-| 拡張 | `mshr-h.veriloghdl`（Verilator を lint に接続）、`Surfer` または WaveTrace |
-| アカウント | **GitHub**（SSH 鍵を登録）、**ASSIST**（編入要件の確認に必須）、UC／Cal State Apply は2027年に作成 |
-| リポジトリ規約 | `rtl/ tb/ syn/ docs/ notes/` と `Makefile`（`lint / sim / wave / syn / test` の5ターゲット） |
-| `.gitattributes` | `* text=auto eol=lf`（Windows 側の CRLF 混入を防ぐ） |
+| Editor | **VS Code + the WSL extension** (`ms-vscode-remote.remote-wsl`) |
+| Extensions | `mshr-h.veriloghdl` (wires Verilator into lint), `Surfer` or WaveTrace |
+| Accounts | **GitHub** (with an SSH key), **ASSIST** (required to check transfer requirements); UC and Cal State Apply accounts come in 2027 |
+| Repo layout | `rtl/ tb/ syn/ docs/ notes/` plus a `Makefile` with five targets: `lint / sim / wave / syn / test` |
+| `.gitattributes` | `* text=auto eol=lf` (stops CRLF creeping in from Windows) |
 
-### 1.5 点検
+### 1.5 Check
 
-このリポジトリの `env/setup-check.sh` を実行すると、上のツールが入っているかと版数が一覧で出ます。
+Run `env/setup-check.sh` from this repo to list which tools are present and at what version.
 
 ```bash
 bash env/setup-check.sh
 ```
 
-**W1（11/12）の「環境の版数記録」はこのスクリプトの出力を `notes/env.md` に貼るだけで完了**します。
+**W1's "record the environment versions" task is complete once you paste that output into `notes/env.md`.**
 
 ---
 
-## 第2層：CPU と検証のフェーズ（W10〜W23／2027年1月〜4月）
+## Layer 2: CPU and verification (W10-W23, January to April 2027)
 
-第1層に**追加**するもの。ここで RV32I を書くので、クロスコンパイラが要ります。
+Adds to layer 1. This is where RV32I gets written, so you need a cross compiler.
 
 ```bash
 sudo apt install -y gcc-riscv64-unknown-elf binutils-riscv64-unknown-elf
 ```
 
-| ツール | 用途 | 備考 |
+| Tool | Use | Note |
 |---|---|---|
-| **riscv64-unknown-elf-gcc** | テストプログラム（C/アセンブリ）を機械語に変換、`$readmemh` 用の hex 生成 | `-march=rv32i -mabi=ilp32` |
-| **riscv-tests** | 公式の ISA テスト（W31 で使う） | GitHub から取得。ライセンス確認 |
-| **spike / pk**（任意） | 参照実装。期待値モデルの代わりになる | 無くても Python モデルで足りる |
-| **cocotb**（任意） | Python でテストベンチを書く | Verilator/Icarus と接続。学習コストは中 |
-| **SymbiYosys（sby）+ z3 / yices / boolector** | 形式検証（W21） | OSS CAD Suite に同梱 |
-| **Surfer** | 波形 | GTKWave より快適 |
+| **riscv64-unknown-elf-gcc** | Compile C and assembly test programs, produce hex for `$readmemh` | `-march=rv32i -mabi=ilp32` |
+| **riscv-tests** | The official ISA tests (used in W31) | From GitHub; check the licence |
+| **spike / pk** (optional) | Reference implementation; a stand-in for your expected-value model | A Python model is enough |
+| **cocotb** (optional) | Write testbenches in Python | Connects to Verilator or Icarus. Moderate learning cost |
+| **SymbiYosys (sby) + z3 / yices / boolector** | Formal verification (W21) | Bundled with OSS CAD Suite |
+| **Surfer** | Waveforms | More comfortable than GTKWave |
 
-### SVA（アサーション）の現実
+### The reality of SVA (assertions)
 
-- **Icarus の SVA 対応は限定的**（同時アサーションの一部のみ）。
-- **Verilator 5 はサブセット対応**（`--assert` が必要）。
-- 本格的な SVA（`|->`、`##`、プロパティ）は**商用（VCS / Questa）**の領域。
-- **代替**：①即時アサーション（`assert (...)`）で書く、②SymbiYosys で性質を証明する、の2つで代替できます。
+- **Icarus supports very little SVA** (some concurrent assertions only).
+- **Verilator 5 supports a subset** (needs `--assert`).
+- Full SVA (`|->`, `##`, properties) is **commercial tool** territory (VCS, Questa).
+- **Substitutes**: immediate assertions (`assert (...)`), and proving properties with SymbiYosys.
 
-> この制約を知らずに「SVA を書け」と言われると詰まります。**「OSS では即時アサーション＋形式検証で代替した」と説明できることが、むしろ面接で強い**です。
+> Not knowing this gets you stuck the first time someone says "write an SVA". Being able to say **"in open source I substituted immediate assertions plus formal verification"** is actually a strong interview answer.
 
 ---
 
-## 第3層：合成・タイミング・tapeout（W24〜W41／2027年4月〜8月）
+## Layer 3: synthesis, timing, tapeout (W24-W41, April to August 2027)
 
-| ツール | 用途 | 導入方法 | 目安容量 |
+| Tool | Use | How | Typical size |
 |---|---|---|---|
-| **Yosys + abc** | 論理合成、面積・段数 | OSS CAD Suite | 1 GB |
-| **OpenSTA** | 静的タイミング解析（単体で動く。軽い） | ビルド or OSS CAD Suite | 1 GB |
-| **OpenROAD** | フロアプラン〜配置配線〜STA の一気通貫 | ビルド（重い） | 10 GB+ |
-| **OpenLane 2 + sky130 PDK** | 実務に近いフローを Docker で再現 | `pip install openlane` + `volare`（PDK 取得） | **40 GB** |
-| **Docker Desktop** | OpenLane の実行 | WSL2 バックエンド＋systemd | 5 GB |
-| **magic / klayout / netgen** | DRC・LVS・GDS 閲覧 | OpenLane のイメージに同梱 | — |
-| **GitHub Actions** | Tiny Tapeout の GDS ビルド（クラウドで実行） | 無料枠で足りる | — |
+| **Yosys + abc** | Logic synthesis, area and depth | OSS CAD Suite | 1 GB |
+| **OpenSTA** | Static timing analysis (works standalone, light) | Build or OSS CAD Suite | 1 GB |
+| **OpenROAD** | Floorplan to place-and-route to STA in one flow | Build (heavy) | 10 GB+ |
+| **OpenLane 2 + sky130 PDK** | A production-shaped flow in Docker | `pip install openlane` + `volare` for the PDK | **40 GB** |
+| **Docker Desktop** | Runs OpenLane | WSL2 backend plus systemd | 5 GB |
+| **magic / klayout / netgen** | DRC, LVS, GDS viewing | Inside the OpenLane image | - |
+| **GitHub Actions** | Build the Tiny Tapeout GDS in the cloud | The free tier is enough | - |
 
-### Tiny Tapeout に必要なもの
+### What Tiny Tapeout needs
 
-| 項目 | 内容 |
+| Item | Detail |
 |---|---|
-| アカウント | <https://app.tinytapeout.com> |
-| テンプレート | Verilog 提出用（`ttsky-verilog-template` / `ttgf-verilog-template`）を fork |
-| 費用 | **1タイル €70 ＋ DevKit €300 ＋ 送料 €15 ＝ €385**（補助 PCB が出る回は安くなる） |
-| 締切の目安 | シャトルは2〜3か月ごと。**2027年3月（TTIHP27a）／4月（TTGF27a）**が候補 |
-| 提出物 | GitHub リポジトリ＋GDS（Actions が生成）＋ドキュメント（README、ピン配置、動作説明） |
+| Account | <https://app.tinytapeout.com> |
+| Template | Fork the Verilog submission template (`ttsky-verilog-template` or `ttgf-verilog-template`) |
+| Cost | **1 tile EUR 70 + DevKit EUR 300 + shipping EUR 15 = EUR 385** (cheaper when the shuttle includes a carrier PCB) |
+| Shuttle timing | Every 2-3 months. **March 2027 (TTIHP27a) and April 2027 (TTGF27a)** are the candidates |
+| Deliverables | A GitHub repo, the GDS (built by Actions), and docs (README, pinout, how it works) |
 
-### 任意（無くても計画は成立する）
+### Optional (the plan works without them)
 
-- **FPGA ボード**：Tang Nano 9K（¥2,000〜3,000）や DE10-Lite。実機で動かす体験は面接で話せるが、**ASIC の代替にはならない**。
-- **Vivado / Quartus（無料の WebPACK 版）**：FPGA をする場合のみ。インストールが数十 GB なので**後回し**。
+- **FPGA board**: Tang Nano 9K (about JPY 2,000-3,000) or DE10-Lite. Running on real hardware is a good interview story but **is not a substitute for ASIC work**.
+- **Vivado / Quartus (free WebPACK)**: only if you go the FPGA route. Tens of GB to install, so **later**.
 
-### リソースの現実
+### Resource reality
 
-- OpenROAD は **16 GB RAM を要求**します。8 GB だと落ちます。
-- 手元が厳しければ、**大学のクラスタ（編入後）**か **GitHub Codespaces** で回す。今は「Yosys＋OpenSTA まで」で十分。
+- OpenROAD wants **16 GB of RAM**. At 8 GB it dies.
+- If your machine cannot do it, use the **university cluster (after transfer)** or **GitHub Codespaces**. For now, "Yosys plus OpenSTA" is enough.
 
 ---
 
-## 第4層：編入後の大学環境（2028年9月〜）
+## Layer 4: the university environment after transfer (from September 2028)
 
-ここは**自分で買うものではありません**。大学が提供するものを「使い倒す」対象です。
+These are **not things you buy**. They are things you use hard.
 
-| 環境 | 中身 | いつ使うか |
+| Environment | Contents | When |
 |---|---|---|
-| **Linux クラスタ** | SSH、VPN、`module load`、Slurm/LSF のバッチ投入、ストレージ割当 | 授業の課題、研究、大きい合成 |
-| **商用 EDA ライセンス**（大学プログラム経由） | Cadence（Virtuoso、Genus、Innovus、Tempest）、Synopsys（VCS、Design Compiler、PrimeTime、IC Compiler）、Siemens（Questa、Calibre）、Ansys、MATLAB | 授業・研究。**ライセンスは学内限定で持ち出せない** |
-| **FPGA / 測定器** | Xilinx・Intel のボード、オシロ、ロジックアナライザ、電源 | 実験科目、卒研 |
-| **論文** | IEEE Xplore、ACM DL（図書館契約） | 卒研、面接の下調べ |
-| **教室・研究室** | 教員のオフィスアワー、研究グループ | 推薦状、研究参加 |
+| **Linux cluster** | SSH, VPN, `module load`, Slurm/LSF batch jobs, storage quotas | Classwork, research, large synthesis |
+| **Commercial EDA licences** (via the university programme) | Cadence (Virtuoso, Genus, Innovus, Tempest), Synopsys (VCS, Design Compiler, PrimeTime, IC Compiler), Siemens (Questa, Calibre), Ansys, MATLAB | Classes and research. **Licences are campus-only and cannot leave** |
+| **FPGA boards and instruments** | Xilinx and Intel boards, scopes, logic analysers, supplies | Lab courses, capstone |
+| **Papers** | IEEE Xplore, ACM DL (library subscriptions) | Capstone, interview research |
+| **People** | Office hours, research groups | Recommendation letters, joining a lab |
 
-> **戦略**：商用ツールは「編入後に触れる」ので、**今は OSS で原理を理解しておく**のが正解。OSS で Yosys/OpenSTA を回した経験は、商用ツールに移ったときの理解速度に直結します。逆に、今から Vivado を入れて FPGA だけやると、ASIC のフロー（合成・STA・DFT）が抜けたままになります。
+> **Strategy**: commercial tools arrive **after transfer**, so **learn the principles on open source now**. Having run Yosys and OpenSTA makes the commercial tools much faster to learn. Doing only FPGA work now would leave the ASIC flow (synthesis, STA, DFT) missing.
 
 ---
 
-## 第5層：就職後の実務環境（2030年〜）
+## Layer 5: the professional environment (from 2030)
 
-| 分類 | 具体的なもの |
+| Category | Concrete items |
 |---|---|
-| RTL / 検証 | Verilog、SystemVerilog、UVM、VCS / Xcelium / Questa、Verdi / DVE |
-| lint / CDC / 形式 | SpyGlass / VC SpyGlass、JasperGold / VC Formal |
-| 合成 / STA | Design Compiler / Genus、PrimeTime / Tempus |
-| 物理設計 | Innovus / ICC2、Calibre、StarRC |
-| スクリプト | **Tcl**（ほぼ必須）、Python、Perl、Make、bash |
-| 開発基盤 | Linux CLI の操作、Git / Perforce、Jenkins / CI、Jira、社内 VPN、ライセンスサーバ |
-| 計算基盤 | LSF / Slurm のジョブ投入、大容量ストレージ |
-| 語学 | 英語のレビュー・仕様書・会議（日英併記の現場が多い） |
+| RTL and verification | Verilog, SystemVerilog, UVM, VCS / Xcelium / Questa, Verdi / DVE |
+| Lint, CDC, formal | SpyGlass / VC SpyGlass, JasperGold / VC Formal |
+| Synthesis and STA | Design Compiler / Genus, PrimeTime / Tempus |
+| Physical design | Innovus / ICC2, Calibre, StarRC |
+| Scripting | **Tcl** (effectively mandatory), Python, Perl, Make, bash |
+| Infrastructure | Linux CLI, Git / Perforce, Jenkins / CI, Jira, corporate VPN, licence servers |
+| Compute | LSF / Slurm job submission, large storage |
+| Language | English reviews, specs, and meetings |
 
-**今のうちに効くもの**：Tcl と Make、Linux CLI、Git の規律。この4つは**就職後に一番差がつく**のに、計画に入れると地味で後回しにされがちです。**W22 の合成スクリプトを Tcl/Make で書く**のが最短の投資になります。
+**What pays off now**: Tcl, Make, the Linux CLI, and Git discipline. Those four **separate people the most after hiring**, yet they are the easiest to postpone. **Writing the W22 synthesis script in Tcl and Make** is the shortest route.
 
 ---
 
-## 第6層：手続き・アカウント・費用
+## Layer 6: paperwork, accounts, and cost
 
-### 6.1 アカウント（作る時期つき）
+### 6.1 Accounts (with timing)
 
-| 時期 | 作るもの |
+| When | Create |
 |---|---|
-| 2026/11 | GitHub、ASSIST（要件確認用）、LinkedIn（公開制作物の置き場） |
-| 2027/6〜8 | IELTS または TOEFL の受験アカウント、College Board（Yale 用 SAT が必要な場合） |
-| 2027/9 | UC 出願アカウント、Cal State Apply、Common App（Cornell）、Coalition/Scoir（Columbia）、CSS Profile（Cornell の aid） |
-| 2027/12 | 各校のポータル（推薦状の送付状況の確認） |
-| 2028/4〜6 | I-20 の受領、SEVIS の移管手続き |
-| 2029/1〜 | マイナビ／リクナビ等（日本就活）、各社の採用サイト |
+| 2026/11 | GitHub, ASSIST (requirement checks), LinkedIn (where public artifacts live) |
+| 2027/6-8 | IELTS or TOEFL account, College Board (if Yale needs an SAT) |
+| 2027/9 | UC application, Cal State Apply, Common App (Cornell), Coalition/Scoir (Columbia), CSS Profile (Cornell aid) |
+| 2027/12 | Each school's portal (to track recommendation letters) |
+| 2028/4-6 | I-20 receipt, SEVIS transfer |
+| 2029/1- | Japanese job-hunting sites and company career pages |
 
-### 6.2 ビザ・移民（F-1 を持っている前提）
+### 6.2 Visa and immigration (assuming F-1)
 
-| 項目 | 事実 | 注意 |
+| Item | Fact | Note |
 |---|---|---|
-| **SEVIS I-901** | F-1 は **$350** | **CCC → UC の SEVIS レコード移管なら再納付は不要**（8 CFR 214.13(b)：transfer は新規納付の対象外） |
-| **ビザ申請料（MRV）** | **$185** | 新しいビザが必要なとき（日本に一時帰国して再取得する場合など） |
-| ビザ管理費（キャンパス独自） | 例：UCSD は留学生の初回入学時に**$200**の一回限り | 校ごとに有無と額が違う |
-| 健康保険 | 留学生は SHIP 加入が原則。年 $3,000〜5,000 程度（COA に含まれる） | 免除申請は条件が厳しい |
-| SSN | キャンパス内就労・OPT で必要 | 学内ジョブは F-1 でも可 |
+| **SEVIS I-901** | **$350** for F-1 | **Transferring a SEVIS record from a CCC to a UC does not require paying again** (8 CFR 214.13(b): a transfer is not a new payment) |
+| **Visa application fee (MRV)** | **$185** | Only when a new visa is needed (for example, renewing in Japan) |
+| Campus visa administration fee | e.g. UCSD charges **$200** once, at first enrolment | Varies by campus |
+| Health insurance | SHIP is normally mandatory; about $3,000-5,000 a year (inside the cost of attendance) | Waivers are hard to get |
+| SSN | Needed for on-campus work and OPT | On-campus jobs are allowed on F-1 |
 
-### 6.3 実費（自習そのものは無料）
+### 6.3 Real costs (the self-study itself is free)
 
-| 項目 | 金額 | 時期 |
+| Item | Amount | When |
 |---|---|---|
-| 自習環境（第1〜3層の OSS） | **¥0** | 今すぐ |
-| Tiny Tapeout | **€385**（≒¥60,000） | 2027/5〜7 |
-| IELTS | ¥25,000〜28,000（**要確認**） | 2027/8 |
-| TOEFL iBT | US$200 前後（**要確認**） | 2027/8（Cornell 用） |
-| UC 出願料 | **$95/校**（留学生） × 5校 = **$475** | 2027/10〜11 |
-| Cal State Apply | $70/校 前後（**要確認**）× 2〜3校 | 2027/10〜11 |
-| Cornell 出願料 | $85 | 2028/3 |
-| Columbia / Princeton | $85 / $75 前後（**要確認**） | 2028/3 |
-| CSS Profile（Cornell の aid） | $25 ＋ $16/校（**要確認**） | 2028/2 |
-| SEVIS 再納付 | **$0**（移管のため） | — |
-| ビザ再取得（必要時） | $185 | 2028/夏 |
-| **編入後の学費・生活費** | **2年で $176,000〜$202,000** | 2028/9〜2030/6 |
+| Self-study environment (layers 1-3, open source) | **JPY 0** | Now |
+| Tiny Tapeout | **EUR 385** (about JPY 60,000) | 2027/5-7 |
+| IELTS | JPY 25,000-28,000 (**verify**) | 2027/8 |
+| TOEFL iBT | about US$200 (**verify**) | 2027/8 (for Cornell) |
+| UC application fee | **$95 per campus** (international) x 5 = **$475** | 2027/10-11 |
+| Cal State Apply | about $70 per campus (**verify**) x 2-3 | 2027/10-11 |
+| Cornell application | $85 | 2028/3 |
+| Columbia / Princeton | about $85 / $75 (**verify**) | 2028/3 |
+| CSS Profile (Cornell aid) | $25 + $16 per campus (**verify**) | 2028/2 |
+| SEVIS repeat payment | **$0** (transfer) | - |
+| Visa renewal (if needed) | $185 | Summer 2028 |
+| **Tuition and living costs after transfer** | **$176,000-$202,000 for two years** | 2028/9-2030/6 |
 
-> **学費が桁違い**であることが、この表の唯一の重要点です。**自習環境は6万円で済み、学費は2,700万円**。だから `transfer-strategy-v3.md` §4 の資金計画が最優先になります。
+> **The only point that matters in this table**: the self-study environment costs about JPY 60,000 and the tuition costs about JPY 27 million. That is why the funding plan in `transfer-strategy-v3.md` section 4 is the top priority.
 
 ---
 
-## 最小構成と推奨構成
+## Minimum vs recommended setup
 
-| 構成 | 中身 | 費用 | これで何ができるか |
+| Setup | Contents | Cost | What it enables |
 |---|---|---|---|
-| **最小** | 既存 PC＋WSL2＋apt の OSS のみ | **¥0** | フェーズA〜B のすべて（ALU、FIFO、UART、RV32I、5段パイプライン、Yosys 合成） |
-| **推奨** | 上記＋OSS CAD Suite＋Surfer＋Verible＋16 GB RAM | ¥0〜（RAM 増設時のみ） | 上記＋形式検証＋lint 規律＋波形の快適化 |
-| **tapeout** | 上記＋Docker＋OpenLane＋sky130 PDK＋TT 提出 | **€385＋40 GB** | GDS 生成と実チップ提出 |
-| **贅沢** | 上記＋FPGA ボード＋32 GB RAM | ＋¥10,000〜 | 実機での動作確認（任意） |
+| **Minimum** | Existing PC + WSL2 + apt open source | **JPY 0** | Everything in phases A and B (ALU, FIFO, UART, RV32I, 5-stage pipeline, Yosys synthesis) |
+| **Recommended** | The above + OSS CAD Suite + Surfer + Verible + 16 GB RAM | JPY 0 (unless adding RAM) | The above plus formal verification, lint discipline, and comfortable waveforms |
+| **Tapeout** | The above + Docker + OpenLane + sky130 PDK + a TT submission | **EUR 385 + 40 GB** | GDS generation and a real chip submission |
+| **Luxury** | The above + an FPGA board + 32 GB RAM | + JPY 10,000 or more | Running on real hardware (optional) |
 
-**フェーズAとBは、最小構成で完全に足ります。** 今の環境で足りないのは RAM とディスクだけ、という可能性が高いです。
+**Phases A and B fit entirely within the minimum setup.** Most likely the only things your current machine lacks are RAM and disk.
 
 ---
 
-## つまずきポイント（先に潰しておく）
+## Pitfalls (close these before they bite)
 
-| 症状 | 原因 | 対処 |
+| Symptom | Cause | Fix |
 |---|---|---|
-| シミュレーションが異常に遅い | プロジェクトが `/mnt/c/` にある | `~/work` に移す |
-| `iverilog` が CRLF でエラー | Windows 側のエディタが CRLF 保存 | `.gitattributes` に `* text=auto eol=lf` |
-| GTKWave の窓が出ない | WSLg が無い（Win10 以前） | Windows 11 に上げる、または VcXsrv |
-| `yosys` の挙動が資料と違う | apt 版が古い | OSS CAD Suite に切り替える |
-| SVA がコンパイルできない | Icarus の SVA 対応が限定的 | 即時アサーション＋SymbiYosys で代替 |
-| Docker が起動しない | systemd が無効 | `/etc/wsl.conf` に `systemd=true`、`wsl --shutdown` で再起動 |
-| WSL2 のディスクが肥大化 | 仮想ディスクが自動縮小しない | `wsl --manage <distro> --set-sparse true`、または手動で `diskpart` 圧縮 |
-| Verilator のビルドがメモリ不足 | `-j` を上げすぎ | `-j2`〜`-j4` に落とす、`.wslconfig` の memory を増やす |
+| Simulation is absurdly slow | The project lives in `/mnt/c/` | Move it to `~/work` |
+| `iverilog` fails on CRLF | A Windows editor saved CRLF | `* text=auto eol=lf` in `.gitattributes` |
+| No GTKWave window | No WSLg (Windows 10 or older) | Upgrade to Windows 11, or use VcXsrv |
+| `yosys` behaves differently from the docs | The apt build is old | Switch to OSS CAD Suite |
+| SVA will not compile | Icarus supports very little SVA | Immediate assertions plus SymbiYosys |
+| Docker will not start | systemd is disabled | `systemd=true` in `/etc/wsl.conf`, then `wsl --shutdown` |
+| The WSL2 disk keeps growing | The virtual disk does not shrink | `wsl --manage <distro> --set-sparse true`, or compact manually with `diskpart` |
+| Verilator runs out of memory | `-j` is too high | Drop to `-j2` or `-j4`, raise `memory` in `.wslconfig` |
 
 ---
 
-## 今日やる3コマンド
+## Three commands for today
 
 ```bash
-# 1) 点検（このリポジトリ）
+# 1) Check (this repo)
 bash env/setup-check.sh
 
-# 2) 不足分の導入（Ubuntu）
+# 2) Install what is missing (Ubuntu)
 sudo apt update && sudo apt install -y build-essential git make python3 python3-venv \
   iverilog verilator gtkwave yosys zlib1g-dev libreadline-dev pkg-config
 
-# 3) 出力をそのまま notes/env.md に貼る（W1 のタスクが1つ終わる）
+# 3) Paste the output straight into notes/env.md (finishes one W1 task)
 mkdir -p notes && bash env/setup-check.sh | tee notes/env.md
 ```
 
 ---
 
-## 根拠
+## Sources
 
-- SEVIS I-901 の額と、transfer 時の再納付不要：<https://www.ice.gov/sevis/i901>／<https://www.ecfr.gov/current/title-8/section-214.13>
-- ビザ申請料（MRV）$185：米国国務省の手数料表（2026年10月確認）
-- UC 出願料 $80／留学生 $95：<https://admissions.berkeley.edu/apply-to-berkeley>
-- キャンパス独自のビザ管理費の例（UCSD $200）：<https://students.ucsd.edu/_files/registrar/international-student-visa-admin-fee-2026.pdf>
-- Tiny Tapeout の料金：<https://app.tinytapeout.com/calculator?tiles=1&pcbs=1>／シャトル日程 <https://tinytapeout.com/chips>
-- OSS CAD Suite：<https://github.com/YosysHQ/oss-cad-suite-build/releases>
-- OpenLane 2 / sky130：<https://github.com/efabless/openlane2>
-- Verible：<https://github.com/chipsalliance/verible>
+- SEVIS I-901 amount, and no repeat payment on transfer: <https://www.ice.gov/sevis/i901> and <https://www.ecfr.gov/current/title-8/section-214.13>
+- Visa application fee (MRV) $185: US Department of State fee schedule (checked October 2026)
+- UC application fee $80, $95 for international: <https://admissions.berkeley.edu/apply-to-berkeley>
+- Example campus visa fee (UCSD $200): <https://students.ucsd.edu/_files/registrar/international-student-visa-admin-fee-2026.pdf>
+- Tiny Tapeout pricing: <https://app.tinytapeout.com/calculator?tiles=1&pcbs=1>, shuttle dates <https://tinytapeout.com/chips>
+- OSS CAD Suite: <https://github.com/YosysHQ/oss-cad-suite-build/releases>
+- OpenLane 2 / sky130: <https://github.com/efabless/openlane2>
+- Verible: <https://github.com/chipsalliance/verible>
