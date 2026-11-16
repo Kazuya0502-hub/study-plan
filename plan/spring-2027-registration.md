@@ -1,6 +1,13 @@
-# Spring 2027 registration sheet (priority registration: 11/16-17)
+# Spring 2027 registration sheet (priority registration: Monday 11/24)
 
 Written 2026-11-13. Based on the LMC Spring 2027 schedule (published 2026-11-09).
+
+> **DECIDED 2026-11-16 - Branch B, with one summer.**
+> High school coursework cannot clear the CHEM 025 prerequisite, so:
+> **Spring 2027 = CHEM 006**, **Summer 2027 = CHEM 025 (5 units, 6 weeks)**, Fall 2027 = CHEM 026.
+> Spring 2027 is therefore **17 units**, not 18. Plan: 13 / 17 / 5 / 16 / 18 = **69 units**, transfer Fall 2028.
+> If CHEM 025 is not offered in Summer 2027, fall back to Plan 2 (UCR, 62 units).
+> Branch A below is kept as the record of why the decision went this way.
 
 ---
 
@@ -142,13 +149,13 @@ MATH 220 is Spring 2027, so **PHYS 040 can be no earlier than Fall 2027**. That 
 
 ---
 
-## 5. What to do on 11/16-17 (in order)
+## 5. What to do on 11/24 (in order)
 
 1. **Take MATH 220 (7411).** It fills fastest. Highest priority.
-2. **Take CHEM 025 (7480).** Few lab seats.
+2. **Take CHEM 006 (9524, Brentwood).** Confirm the days and times at the counter.
 3. **Take ENGL C1000 (0312).** Many sections, but UC-E is an absolute requirement.
 4. **Take COMSC 122 (6944).**
-5. **Take one 3-unit UC-B/UC-H course** (in person).
-6. Once registered, confirm the **total is 18 units, at least 15 in person, one online course**.
+5. **Take one 3-unit UC-B/UC-H course** (in person, Friday is easiest).
+6. Once registered, confirm the **total is 17 units, at least 14 in person, one online course**.
 
 After registering: **screenshot ASSIST's "EEC 007 / PHY 009D: No Course Articulated" page** (evidence for the waiver). Send Davis the written waiver confirmation this week.

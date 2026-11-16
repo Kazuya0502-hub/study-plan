@@ -165,7 +165,7 @@ Waiving `EEC 7` and `PHY 9D` removes external sourcing and avoids 19-unit terms.
 | # | Task | Deadline |
 |---|---|---|
 | 1 | **Confirm that Fall 2026 includes MATH 210, ENGL C1000, and COMSC 122** (without COMSC 122, UCSC is lost) | today |
-| 2 | At **priority registration 11/16-17**, secure the four Spring 2027 courses (MATH 220 / CHEM 025 / COMSC 132 / ENGL C1001) | **11/16-17** |
+| 2 | At **priority registration 11/24**, secure the Spring 2027 courses (ultimately MATH 220 / CHEM 006 / ENGL C1000 / COMSC 122 / GE, 17 units) | **11/24** |
 | 3 | **Choose the TAG target** (UCR EE at 3.00 recommended / UCSC depends on the COMSC chain / Merced is lightest) | 11/20 |
 | 4 | On the UCR, UCSC, and Merced TAG pages, confirm the unit and major-preparation deadlines | 11/20 |
 | 5 | **Screenshot ASSIST's "No Course Articulated" page** and get **written confirmation of the waiver** from Davis's transfer advisor (section 1.3) | 11/20 |

@@ -5,6 +5,24 @@
 
 ---
 
+> ## DECISION (2026-11-16) - Branch B, one summer term
+>
+> High school coursework cannot clear the `CHEM 025` prerequisite, so the shape is now fixed:
+>
+> | Term | Chemistry | Units |
+> |---|---|---|
+> | Spring 2027 | **CHEM 006** | 4 |
+> | **Summer 2027** | **CHEM 025** (6 weeks) | 5 |
+> | Fall 2027 | CHEM 026 | 5 |
+> | Spring 2028 | - | 18 |
+>
+> - **Registration is 11/24 (Monday)**, not 11/16.
+> - Total **13 / 17 / 5 / 16 / 18 = 69 units**, four terms, transfer Fall 2028.
+> - If LMC does not offer CHEM 025 in Summer 2027, switch to **Plan 2 (UCR, 62 units)**.
+> - Sections 0 and 1 below predate this decision. They are kept as the record of why it went this way.
+
+---
+
 ## 0. 結論
 
 1. **夏学期は使わない**。標準は **18科目・65単位**（§1 の案1）。
@@ -218,7 +236,7 @@ CHEM（006 or 高校）→ CHEM 025 → CHEM 026
 | # | やること | 期限 |
 |---|---|---|
 | 1 | カウンセラーに「**高校化学1年で CHEM 025 の前提を満たせるか**」を確認（分岐A／Bの決定） | 11/15 |
-| 2 | 11/16 優先登録：MATH 220（7411）→ CHEM 025（7480）または CHEM 006（9524）→ ENGL C1000（0312）→ COMSC 122（6944）→ GE | 11/16-17 |
+| 2 | **11/24 優先登録**：MATH 220（7411）→ **CHEM 006（9524）**→ ENGL C1000（0312）→ COMSC 122（6944）→ GE（計17単位） | **11/24** |
 | 3 | **ASSIST の「EEC 007／PHY 009D：No Course Articulated」画面をスクショ保存** | 11/20 |
 | 4 | Davis の転入アドバイザーに **waiver 適用の可否を書面で**確認 | 11/30 |
 | 5 | 分岐Bなら「2027夏の CHEM 025 が TAG の必修として認められるか」も同じメールで確認 | 11/30 |
