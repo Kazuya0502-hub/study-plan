@@ -1,6 +1,7 @@
 build/
-*.vcd
 *.vvp
+*.vcd
+*.fst
 *.out
 *.log
-!notes/*.log
+!syn/*.log

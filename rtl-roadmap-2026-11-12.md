@@ -1,643 +1,691 @@
-# RTL 設計エンジニアへのロードマップ（改訂版 v2）
+# Roadmap to an RTL design engineer (revision v2)
 
-**起点：2026年11月12日（木）／MIT 6.004 は単元14まで学習済みという前提**
+**Start: Thursday 2026-11-12. Assumes MIT 6.004 has been studied through unit 14.**
 
-コミカレ1年目 → 2028年秋に上位大学へ編入 → 2030年6月卒業 → 2030年新卒で RTL 設計エンジニア、という流れは変えていません。変えたのは **時間の配分と、単元15以降の扱い** です。
+The shape has not changed: first year at community college -> transfer to a four-year university in
+Fall 2028 -> graduate June 2030 -> new-graduate RTL design engineer in 2030. What changed is **how the
+hours are allocated and how unit 15 onward is handled**.
 
 ---
 
-## 0. この版で変えたこと（前版との差分）
+## 0. What changed in this revision
 
-| 項目 | 前版 | この版 | 理由 |
+| Item | Previous | This revision | Why |
 |---|---|---|---|
-| 起点日 | 2026/11/2（月） | **2026/11/12（木）** | 指定。W1 は4日間の短い週として扱う |
-| 理論の現在地 | 単元1〜7 視聴済み・復習未実施 | **単元1〜14 学習済み** | 指定。残る本丸は単元15「Pipelining the Beta」だけ |
-| W1〜W4 | 復習スプリント（理論中心、11h/週） | **復習を「書いて確かめる」に置換＋実装ドリル** | 1〜14 が入っているなら、講義の見直しより手を動かす方が定着する |
-| 技術11h/週の内訳 | 理論6：実装5 | **理論2：実装4：検証3：合成・測定2** | 理論の残量が減った分を、成果物に直結する作業へ移す |
-| フェーズA | 10週（W0〜W10） | **9週（W1〜W9）** | 理論の前倒しが不要になったため1週短縮 |
-| フェーズB 開始 | 2027/1/11、最初の2〜3週が理論の復習 | **2027/1/11、初週から SystemVerilog 実装** | 単元13（Beta 構築）が済んでいるので、実装に入れる |
-| 到達テスト | 90分模試 4回 | **90分模試 6回（G1〜G6）＋各フェーズの入口/出口判定** | 判定基準を日付で固定する |
-| 単元16〜19 | 予定になし | **単元15 は必須、単元18・19 を夏に任意で**（割り込み・同期は RTL に直結） | 単元18＝デバイスと割り込み、単元19＝並行性と同期（CDC・ハンドシェイクの土台） |
+| Start date | 2026-11-02 (Mon) | **2026-11-12 (Thu)** | Given. W1 is a short four-day week |
+| Theory position | Units 1-7 watched, not reviewed | **Units 1-14 studied** | Given. The only remaining core unit is 15, "Pipelining the Beta" |
+| W1-W4 | Review sprint (theory-heavy, 11h/week) | **Review becomes "write it and check it", plus implementation drills** | If 1-14 is in, hands-on beats re-watching lectures |
+| 11h/week breakdown | Theory 6 : implementation 5 | **Theory 2 : implementation 4 : verification 3 : synthesis and measurement 2** | Move the hours freed by less theory into work that produces artifacts |
+| Phase A | 10 weeks (W0-W10) | **9 weeks (W1-W9)** | Theory no longer needs pulling forward |
+| Phase B start | 2027-01-11, first 2-3 weeks reviewing theory | **2027-01-11, SystemVerilog implementation from week one** | Unit 13 (building the Beta) is done, so implementation can start |
+| Gates | Four 90-minute mocks | **Six 90-minute mocks (G1-G6) plus entry/exit judgement per phase** | Pin the criteria to dates |
+| Units 16-19 | Not planned | **Unit 15 mandatory; units 18 and 19 optional in summer** (interrupts and synchronisation feed directly into RTL) | 18 = devices and interrupts, 19 = concurrency and synchronisation (the basis of CDC and handshakes) |
 
 ---
 
-## 1. 前提
+## 1. Assumptions
 
-| 項目 | 前提 |
+| Item | Assumption |
 |---|---|
-| 目標職種 | 新卒 RTL 設計エンジニア。設計意図の定義・検証・設計判断まで担う。物理設計は全体像を知る程度 |
-| 就職先 | 日本を優先、米国も並行して準備 |
-| 編入 | 第1志望群＝上位大学（アイビーリーグ等）、出願 2028年3月。確実枠＝UC Davis（TAG）等 UC、出願 2027年11月。いずれも 2028年秋入学 |
-| 卒業 | 2030年6月（3年次編入・2年で卒業の想定。要確認） |
-| 自習時間 | **学期中 週11〜13時間（上限18）／中間・期末 週4時間／長期休暇 22時間（上限25）** ※v3で修正。学期中18時間は GPA と両立しない |
-| 現在のスキル | Verilog/VHDL を少々。MIT 6.004 単元1〜14 学習済み（＝組み合わせ・順序・FSM・性能指標・トレードオフ・ISA・Beta・キャッシュまで） |
-| 環境 | WSL2(Ubuntu) + Icarus Verilog / Verilator / GTKWave / Yosys（+ 必要に応じて SymbiYosys, OpenSTA） |
-| 週の区切り | 月曜始まり。**W1 = 2026/11/12（木）〜11/15（日）の4日間**、W2 以降は月〜日の7日間 |
-| 最優先 | 授業と宿題、GPA。計画はその上に載る |
+| Target role | New-graduate RTL design engineer: defining design intent, verification, design decisions. Physical design only to the level of knowing the whole picture |
+| Employer | Japan first, the US prepared in parallel |
+| Transfer | First-choice group = top universities (Ivy League etc.), apply March 2028. Safe tier = UC Davis (TAG) and other UCs, apply November 2027. Both start Fall 2028 |
+| Graduation | June 2030 (junior transfer, two years; to be confirmed) |
+| Study hours | **11-13 h/week in term (cap 18) / 4 h/week during midterms and finals / 22 h/week in long breaks (cap 25)**. Corrected in v3: 18 h/week in term does not coexist with GPA |
+| Current skill | Some Verilog/VHDL. MIT 6.004 units 1-14 (combinational and sequential logic, FSM, performance measures, trade-offs, ISA, the Beta, caches) |
+| Environment | WSL2 (Ubuntu) + Icarus Verilog / Verilator / GTKWave / Yosys (+ SymbiYosys, OpenSTA as needed) |
+| Week boundary | Monday. **W1 = 2026-11-12 (Thu) to 11-15 (Sun), four days**; W2 onward is Monday-Sunday |
+| Highest priority | Coursework and GPA. The plan sits on top of that |
 
-### この前提が崩れたときの扱い
+### When these assumptions break
 
-- **単元14までが「視聴しただけ」で定着していない場合** → W3 の診断模試（11/29）で判明します。8割未満なら W4 を「弱点補強」に丸ごと使い、W5 以降を1週ずつ後ろへずらします。フェーズB の開始は 1/18 まで許容（夏の制作物の予備週 W39・W40 で吸収）。
-- **LMC の期末が 12月中旬と重なる場合** → W6（12/14〜12/20）を軽量週（週8時間）に固定済み。前倒しが必要なら W5 を軽くします。
-- **Tiny Tapeout の費用・締切が合わない場合** → 提出は「できれば」に格下げ。設計と GDS 生成までの公開を成果とします（W35 で判断）。
+- **If units 1-14 are only "watched" and not solid** -> the W3 diagnostic (11/29) will show it. Below 80%,
+  spend all of W4 on weak spots and shift W5 onward back one week. Phase B may start as late as 1/18
+  (absorbed by the spare weeks W39-W40 in summer).
+- **If LMC finals collide with mid-December** -> W6 (12/14-12/20) is already fixed as a light week (8 h).
+  If more room is needed, lighten W5.
+- **If the Tiny Tapeout cost or deadline does not fit** -> downgrade submission to "if possible". The
+  artifact is the design plus a generated GDS, published (decided in W35).
 
 ---
 
-## 2. 時間の設計
+## 2. Time design
 
-### 標準週（18時間）
+### Standard week (18 h)
 
-| 曜日 | 時間 | 中身 | その日の成果物 |
+| Day | Hours | Content | Artifact for the day |
 |---|---|---|---|
-| 月 | 2h | 理論：単元15 の講義（スライド＋動画）、または単元16〜19 の概観 | 1ページ要約（資料を見ずに） |
-| 火 | 2h | 実装ドリル：HDLBits、小さなモジュールを仕様→コード | コミット1本＋10分カード |
-| 水 | 2h | 検証：テストベンチ、ランダムテスト、SVA、波形読解 | テストが落ちる→通る記録 |
-| 木 | 2h | プロジェクト：仕様書先行→実装→デバッグ | 仕様書 or 実装の前進 |
-| 金 | 2h | 復習：カード見直し（30分）＋白紙再現（30分）＋誤り集（30分）＋予備（30分） | 白紙再現1枚 |
-| 土 | 5h | プロジェクト長時間 3h ＋ 課外活動 2h | 動くもの／活動ログ1行 |
-| 日 | 3h | 週次テスト45分＋誤り集30分＋来週の計画15分＋編入準備1h＋予備30分 | 週次テスト結果、翌週の計画 |
+| Mon | 2h | Theory: unit 15 lecture (slides + video), or an overview of units 16-19 | One-page summary, written without the material |
+| Tue | 2h | Implementation drill: HDLBits, or a small module from spec to code | One commit + a 10-minute card |
+| Wed | 2h | Verification: testbenches, randomised tests, SVA, reading waveforms | A record of a failing test becoming a passing one |
+| Thu | 2h | Project: spec first -> implementation -> debug | Spec or implementation moved forward |
+| Fri | 2h | Review: cards (30 min) + blank-page recall (30) + error log (30) + spare (30) | One blank-page reproduction |
+| Sat | 5h | Long project block 3h + extracurricular 2h | Something that runs / one line in the activity log |
+| Sun | 3h | Weekly test 45 min + error log 30 + next week's plan 15 + transfer prep 1h + spare 30 | Test result and next week's plan |
 
-**技術 11h の内訳（この版の核心）**：理論 2h ／ 実装 4h ／ 検証 3h ／ 合成・測定 2h。
+**The 11 technical hours break down as: theory 2 / implementation 4 / verification 3 / synthesis and
+measurement 2.** This is the core of the revision.
 
-**■v3 修正（重要）**：この18時間の型は**長期休暇用**です。学期中は技術 6〜8h・復習 2h・課外 2h・計画 1h の **11〜13時間**に落とします。編入審査で効くのは GPA と専攻準備の完成度であり、学期中の RTL 時間ではないためです（詳細は `transfer-strategy-v3.md` §9）。
+**v3 correction (important)**: the 18-hour shape is for **long breaks**. In term, cut to **11-13 hours**:
+6-8 technical, 2 review, 2 extracurricular, 1 planning. What counts in transfer admission is GPA and
+completed major preparation, not RTL hours during term (see `transfer-strategy-v3.md` section 9).
 
-> 前版は理論6hでした。単元1〜14が入っているので、浮いた4時間をそのまま「検証」と「合成・測定」に移します。理由は、**新卒 RTL の選考で差がつくのが「動くもの」より「検証と判断の記録」**だからです。講義を見直す時間は、W3・W8・W19 などの模試の前にまとめて取ります。
+> The previous revision gave theory 6h. With units 1-14 in place, those four hours move directly into
+> verification and synthesis, because **what separates candidates for new-graduate RTL roles is not
+> "it runs" but the record of verification and judgement**. Lecture review is batched before mocks
+> (W3, W8, W19 and similar).
 
-### 軽量週（8時間）
+### Light week (8 h)
 
-中間・期末の週、および体調不良の週。新規学習を止め、次の4つだけ：カード見直し（30分×4日）＋週1回90分の短い演習＋授業。**この版では W6（12/14〜12/20）を軽量週に固定**しています。
+Midterm and finals weeks, and weeks when you are unwell. No new material; only four things: card review
+(30 min x 4 days) + one 90-minute exercise + coursework. **W6 (12/14-12/20) is fixed as a light week.**
 
-### 長期休暇（最大25時間）
+### Long break (up to 25 h)
 
-冬休み（W7・W8）と夏休み（W24〜W41 の一部）。25時間は上限で、毎週25時間を目指す必要はありません。
+Winter break (W7, W8) and summer (parts of W24-W41). 25 is a ceiling, not a weekly target.
 
-### 崩れたときのルール
+### Rules for when it falls apart
 
-1. 2週続けて計画の70%（12.6時間）に届かなければ、翌週から量を3割減らす。**止めないことを優先**。
-2. 授業の課題が48時間以内に締切なら、その日は技術学習を0にして授業に充てる（振替はしない。捨てる）。
-3. 週次テストを落とした週は、翌週の新規を1つ減らして復習に充てる。
+1. If two consecutive weeks fall below 70% of plan (12.6 h), cut the volume by 30% from the next week.
+   **Not stopping is the priority.**
+2. If a course assignment is due within 48 hours, set technical study to zero that day and give it to the
+   course (do not reschedule; drop it).
+3. In a week where the weekly test is failed, remove one new item the following week and spend it on review.
 
 ---
 
-## 3. 全体マップ
+## 3. Overall map
 
-| フェーズ | 期間 | 週 | 主目的 | 主な成果物 | ゲート |
+| Phase | Period | Weeks | Main purpose | Main artifacts | Gates |
 |---|---|---|---|---|---|
-| **A：土台の再確認と実装量** | 2026/11/12〜2027/1/10 | W1〜W9 | 単元1〜14 の定着確認、Verilog を「書ける」に、単元15 の先取り | ALU・レジスタファイル・FIFO・UART Tx・RV32I 部品 | G1（11/29）、G2（1/10） |
-| **B：RV32I CPU と検証・合成** | 2027/1/11〜4/18 | W10〜W23 | シングルサイクル→5段パイプライン、ハザード処理、検証、Yosys、STA | 5段パイプライン RV32I（テスト全通し・合成通過） | G3（1/31）、G4（3/21）、G5（4/18） |
-| **C：夏の公開制作物** | 2027/4/19〜8/22 | W24〜W41 | 公開できる旗艦制作物、Tiny Tapeout、AI 監督レポート | 英語 README 付きリポジトリ、バグ票、トレードオフ表、提出（可能なら） | G6（8/22） |
-| **D：編入出願** | 2027/8/23〜2028/6 | 月次 | TAG・UC 出願・上位大出願、成績維持 | 出願書類一式、PIQ 4本、推薦2通 | 出願完了（2028/3/15） |
-| **E：編入後と新卒就職** | 2028/9〜2030/6 | 四半期 | 上級科目、研究、インターン、新卒選考 | 内定、卒業 | 2030/6 卒業 |
+| **A: re-confirm the foundations, raise implementation volume** | 2026-11-12 to 2027-01-10 | W1-W9 | Confirm units 1-14 stick, make Verilog something you can *write*, get ahead on unit 15 | ALU, register file, FIFO, UART Tx, RV32I parts | G1 (11/29), G2 (1/10) |
+| **B: RV32I CPU, verification, synthesis** | 2027-01-11 to 04-18 | W10-W23 | Single cycle -> 5-stage pipeline, hazards, verification, Yosys, STA | 5-stage pipelined RV32I (all tests passing, synthesises) | G3 (1/31), G4 (3/21), G5 (4/18) |
+| **C: summer public artifacts** | 2027-04-19 to 08-22 | W24-W41 | A flagship artifact that can be published, Tiny Tapeout, AI supervision report | English-README repository, bug tickets, trade-off tables, submission if possible | G6 (8/22) |
+| **D: transfer applications** | 2027-08-23 to 2028-06 | monthly | TAG, UC application, top-university applications, keep grades | Full application set, four PIQs, two letters | Applications complete (2028-03-15) |
+| **E: after transfer and into employment** | 2028-09 to 2030-06 | quarterly | Upper-division courses, research, internship, recruiting | Offer, graduation | Graduation 2030-06 |
 
 ---
 
-## 4. フェーズA：土台の再確認と実装量（W1〜W9／2026/11/12〜2027/1/10）
+## 4. Phase A: re-confirm the foundations and raise implementation volume (W1-W9, 2026-11-12 to 2027-01-10)
 
-### 4.1 このフェーズの目的
+### 4.1 Purpose
 
-単元1〜14 が「入っている」ことを**書いて確かめる**期間です。講義を見直すのではなく、白紙要約と実装で抜けを見つけ、見つかった穴だけ講義に戻ります。同時に、単元15（パイプライン）を12月に先取りして、1月からの CPU 実装で詰まらないようにします。
+A period for confirming by **writing** that units 1-14 are actually in place. Not re-watching lectures:
+blank-page summaries and implementations expose the gaps, and only the gaps go back to lectures. In
+parallel, unit 15 (pipelining) is pulled forward into December so the January CPU work does not stall.
 
-### 4.2 到達基準（G2、2027/1/10）
+### 4.2 Exit criteria (G2, 2027-01-10)
 
-1. 単元1〜15 の90分模試で **85%以上**（1〜14 は学習済みなので前版の8割より高く設定）。
-2. 次の5つを**資料なし・各60分以内**で書ける：4bit 加算器＋テストベンチ／8bit ALU／2R1W レジスタファイル／同期 FIFO（フル・エンプティ付き）／Moore 型 FSM（状態遷移図＋コード）。
-3. ミニ制作3点が GitHub に公開され、それぞれに**仕様書1〜2ページ・自己検査テストベンチ・Yosys 合成結果・英語3〜5文の説明**が付いている。
-4. 合成ログに**ラッチ推論と組み合わせループが0件**。
+1. **85% or better** on a 90-minute mock covering units 1-15 (higher than the previous 80% because 1-14 is already studied).
+2. Write the following five **without notes, each in 60 minutes**: 4-bit adder + testbench / 8-bit ALU /
+   2R1W register file / synchronous FIFO with full and empty / Moore FSM (state diagram + code).
+3. Three mini artifacts published on GitHub, each with a **1-2 page spec, a self-checking testbench, a
+   Yosys synthesis result, and an English explanation of 3-5 sentences**.
+4. **Zero inferred latches and zero combinational loops** in the synthesis log.
 
-### 4.3 週次計画
+### 4.3 Weekly plan
 
-| 週 | 期間 | 理論（2h） | 実装・検証（9h） | 復習・成果 |
+| Week | Period | Theory (2h) | Implementation and verification (9h) | Review and artifacts |
 |---|---|---|---|---|
-| **W1** | 11/12(木)〜11/15(日)・4日 | 単元1〜7 の白紙要約（60分） | 環境の版数記録、リポジトリ規約、半加算器→4bit 加算器を仕様→TB→波形→合成まで一気通貫 | 学習ログとカードの型を確定。W1 は計10hで可 |
-| **W2** | 11/16〜11/22 | 単元1〜6 の弱点だけ講義に戻る | 組み合わせ回路ドリル25問（MUX・デコーダ・優先エンコーダ・加算器・比較器）、各問に10分カード | 日曜に30分ミニテスト（6問）。白紙再現：4bit 加算器 |
-| **W3** | 11/23〜11/29 | 単元7〜9（性能指標・トレードオフ・ISA）の要約 | 順序回路ドリル15問＋FSM 2本（シーケンス検出器、信号機） | **11/29 診断模試#1：単元1〜14、90分、資料なし（G1）**。誤答からカードを作り直す |
-| **W4** | 11/30〜12/6 | 模試の弱点補強（最大2h） | **ミニ制作1：8bit ALU**（加減算・論理・比較・シフト）。仕様書→テスト計画→自己検査TB→実装→Yosys 面積 | README（英語3〜5文）＋面積表。全体像の日：ASIC 設計フロー1本 |
-| **W5** | 12/7〜12/13 | **単元15 前半**（パイプライン化、ステージ分割、データハザード） | **3段パイプライン加算器**。パイプライン化前後でセル数と論理段数を Yosys で測る | **トレードオフ表#1**（面積・段数・概算 fmax）＋選んだ理由を英語3〜5文 |
-| **W6** | 12/14〜12/20 | 軽量週：カードのみ | **2R1W レジスタファイル**（書き込み優先・読み出し組み合わせ）＋単体TB | 軽量モード。期末がなければ通常運転に戻してよい |
-| **W7** | 12/21〜12/27 | **単元15 後半**（制御ハザード、分岐、例外の考え方） | **同期 FIFO**（フル/エンプティ、深さ2案を比較）＋**UART 送信** | FIFO の深さ比較表＋選んだ理由。波形スクショ付き README |
-| **W8** | 12/28〜1/3 | 単元15 の演習（ワークシート） | **RV32I 部品の先取り**：ALU（RV32I 用）・即値生成・デコーダの単体実装 | **90分模試#2：単元1〜15**（資料なし）。誤り集の棚卸し |
-| **W9** | 1/4〜1/10 | 単元16〜19 の**概観だけ**（読み物、各20分） | ミニ制作1〜3 の3割を白紙から書き直す | **到達テスト G2**。8割未満ならフェーズB の初週を復習に充当 |
+| **W1** | 11/12(Thu)-11/15(Sun), 4 days | Blank-page summary of units 1-7 (60 min) | Record tool versions, repository conventions, half adder -> 4-bit adder through spec, testbench, waveform and synthesis in one pass | Learning log and card format fixed. 10h total is fine for W1 |
+| **W2** | 11/16-11/22 | Return to lectures only for weak spots in units 1-6 | 25 combinational drills (MUX, decoder, priority encoder, adder, comparator), one 10-minute card each | 30-minute mini test on Sunday (6 questions). Blank-page recall: 4-bit adder |
+| **W3** | 11/23-11/29 | Summary of units 7-9 (performance, trade-offs, ISA) | 15 sequential drills + 2 FSMs (sequence detector, traffic light) | **11/29 diagnostic mock #1: units 1-14, 90 min, no notes (G1)**. Rebuild cards from the wrong answers |
+| **W4** | 11/30-12/06 | Repair mock weak spots (up to 2h) | **Mini artifact 1: 8-bit ALU** (add/sub, logic, compare, shift). Spec -> test plan -> self-checking TB -> implementation -> Yosys area | README (English, 3-5 sentences) + area table. Whole-picture day: one pass over the ASIC flow |
+| **W5** | 12/07-12/13 | **Unit 15, first half** (pipelining, stage splitting, data hazards) | **3-stage pipelined adder**. Measure cell count and logic depth with Yosys before and after pipelining | **Trade-off table #1** (area, depth, rough fmax) + why it was chosen, in English, 3-5 sentences |
+| **W6** | 12/14-12/20 | Light week: cards only | **2R1W register file** (write-first, combinational read) + unit testbench | Light mode. If there are no finals, return to normal |
+| **W7** | 12/21-12/27 | **Unit 15, second half** (control hazards, branches, the idea of exceptions) | **Synchronous FIFO** (full/empty, compare two depth choices) + **UART transmitter** | FIFO depth comparison table + the reason for the choice. README with a waveform screenshot |
+| **W8** | 12/28-01/03 | Unit 15 exercises (worksheets) | **RV32I parts pulled forward**: ALU for RV32I, immediate generation, decoder as standalone units | **90-minute mock #2: units 1-15** (no notes). Tidy the error log |
+| **W9** | 01/04-01/10 | Units 16-19 **overview only** (reading, 20 min each) | Rewrite 30% of mini artifacts 1-3 from a blank page | **Gate G2**. Below 80%: give Phase B's first week to review |
 
-### 4.4 W1 の日次（そのまま実行できる形）
+### 4.4 W1, day by day
 
-| 日付 | 時間 | 内容 | 終わったと言える条件 |
+| Date | Hours | Content | Definition of done |
 |---|---|---|---|
-| 11/12（木） | 2h | `iverilog -V` / `verilator --version` / `yosys -V` を記録。GitHub に `rtl-journey` を作成。ディレクトリ規約（`rtl/ tb/ syn/ docs/ notes/`）とコミット規約を決める | 版数が `notes/env.md` に、空コミット1本が push 済み |
-| 11/13（金） | 2h | 単元1〜7 の白紙要約（60分）→ 誤答からカード20枚。カードは「説明させる」形で書く | カード20枚が `notes/cards/` に。間隔の初回日を記入 |
-| 11/13（金） | +20分 | **ASSIST で「LMC → Davis の PHY 9D」「LMC → SJSU の Math 30/31・Physics 50・CMPE/EE 30」を確認**（v3で追加。編入の致命点） | 対応表1枚を `notes/admissions/articulation.md` に。無ければ近隣コミカレを調べる |
-| 11/14（土） | 4h | 半加算器→4bit 加算器：入出力表1ページ → TB → 波形 → `yosys` 合成 → README | 4点セット（仕様・TB・波形・合成ログ）が1コミットに |
-| 11/15（日） | 2h | 単元8〜14 は**一覧化のみ**（各単元2行。白紙要約は W2 に回す／v3で修正）→ 来週の計画 → 編入要件の一次整理（1枚） | W2 の予定がカレンダーに入っている |
+| 11/12 (Thu) | 2h | Record `iverilog -V`, `verilator --version`, `yosys -V`. Create `rtl-journey` on GitHub. Fix the directory convention (`rtl/ tb/ syn/ docs/ notes/`) and the commit convention | Versions in `notes/env.md`, one empty commit pushed |
+| 11/13 (Fri) | 2h | Blank-page summary of units 1-7 (60 min) -> 20 cards from the errors. Cards must ask you to *explain* | 20 cards in `notes/cards/`, first interval date written |
+| 11/13 (Fri) | +20 min | **Check ASSIST for "LMC -> Davis PHY 9D" and "LMC -> SJSU Math 30/31, Physics 50, CMPE/EE 30"** (added in v3: the fatal point for transfer) | One mapping table in `notes/admissions/articulation.md`. If absent, look at neighbouring community colleges |
+| 11/14 (Sat) | 4h | Half adder -> 4-bit adder: one-page I/O table -> TB -> waveform -> `yosys` synthesis -> README | The four-part set (spec, TB, waveform, synthesis log) in one commit |
+| 11/15 (Sun) | 2h | Units 8-14 **listed only** (two lines each; blank-page summaries move to W2, corrected in v3) -> next week's plan -> first-pass transfer requirements (one page) | Next week is on the calendar |
 
-### 4.5 単元15 の進め方（W5・W7）
+### 4.5 How to work through unit 15 (W5, W7)
 
-単元15 は「読んで分かる」と「書ける」の差が最も大きい単元です。次の順で進めます。
+Unit 15 has the largest gap between "understood when read" and "can write it". Work in this order:
 
-1. **講義**（月2h）：パイプライン化の動機 → ステージ分割 → パイプラインレジスタ → データハザード（ストール／フォワーディング）→ 制御ハザード（分岐のフラッシュ）。
-2. **要約**（月の残り30分）：資料を見ずに A4 1枚。**パイプライン図を自分で描く**（これが描けなければ未定着）。
-3. **実装で確かめる**（火〜土）：3段パイプライン加算器 → ハザードを意図的に起こすテスト。
-4. **白紙再現**（金）：ステージ間レジスタの位置だけを白紙に描く。
-5. **説明**（日）：2分で口頭説明（録音可）。詰まった箇所を誤り集へ。
+1. **Lecture** (Mon 2h): why pipeline -> stage splitting -> pipeline registers -> data hazards
+   (stall/forwarding) -> control hazards (branch flush).
+2. **Summary** (remaining 30 min on Mon): one A4 page without the material. **Draw the pipeline diagram
+   yourself**; if you cannot, it is not in yet.
+3. **Confirm by building** (Tue-Sat): 3-stage pipelined adder -> a test that deliberately causes a hazard.
+4. **Blank-page recall** (Fri): draw only the positions of the inter-stage registers.
+5. **Explain out loud** (Sun): two minutes, recording allowed. Anything that stalls goes into the error log.
 
-**注意**：6.004 の Beta は講義独自 ISA です。概念は単元15 で学び、実装は RV32I で行います（W8 以降）。Beta の実装課題をなぞる必要はありません。
+**Note**: the Beta in 6.004 is a course-specific ISA. Learn the concept from unit 15, implement it in
+RV32I (W8 onward). There is no need to reproduce the Beta implementation assignments.
 
-### 4.6 このフェーズの詰まりどころ
+### 4.6 Where this phase gets stuck
 
-| 症状 | 原因 | 対処 |
+| Symptom | Cause | Fix |
 |---|---|---|
-| 模試で8割に届かない | 単元4・5（組み合わせ・順序）の timing 用語が曖昧 | tPD/tCD/セットアップ/ホールドを、式と図を白紙で書けるまで戻す（W4 の2h） |
-| ALU は書けるが検証が書けない | テストベンチを「波形を見るため」に使っている | 自己検査（期待値と比較して `$display` で PASS/FAIL）に必ず書き換える |
-| 合成すると動かない | ラッチ推論、非同期リセットの扱い、初期値依存 | `yosys -p "read_verilog ...; synth; stat"` を毎回回し、警告を0にする |
-| 単元15 が重い | ハザードの分類を暗記しようとしている | 「どのステージがどのステージの結果を必要とするか」の表を先に作る（暗記より表） |
+| Mock below 80% | Timing vocabulary in units 4-5 (combinational, sequential) is vague | Go back until tPD/tCD/setup/hold can be written as equations and diagrams on blank paper (2h in W4) |
+| Can write an ALU, cannot write verification | Using testbenches to *look at waveforms* | Always convert to self-checking: compare against an expected value and `$display` PASS/FAIL |
+| Synthesis produces something that does not work | Inferred latches, asynchronous reset handling, dependence on initial values | Run `yosys -p "read_verilog ...; synth; stat"` every time and drive warnings to zero |
+| Unit 15 feels heavy | Trying to memorise the hazard classification | Build the table "which stage needs which stage's result" first; a table beats memory |
 
 ---
 
-## 5. フェーズB：RV32I CPU、パイプライン、検証、合成（W10〜W23／2027/1/11〜4/18）
+## 5. Phase B: RV32I CPU, pipeline, verification, synthesis (W10-W23, 2027-01-11 to 04-18)
 
-### 5.1 目的と到達基準
+### 5.1 Purpose and exit criteria
 
-シングルサイクル → 5段パイプラインへ段階的に作り、**自分のテストが全通しすること**と**Yosys で合成が通ること**の両方を満たします（シミュレーション通過＝合成後も正しい、ではありません）。
+Build single-cycle -> 5-stage pipeline in steps, and satisfy **both** "my tests all pass" and "Yosys
+synthesises it" (simulation passing does not mean it is correct after synthesis).
 
-- G3（1/31）：シングルサイクル RV32I サブセットが、加算ループ・フィボナッチ・`memcpy` の3プログラムを実行できる。
-- G4（3/21）：5段パイプラインが全命令テストを通り、Yosys 合成でラッチ推論0件。
-- G5（4/18）：ランダム命令列テストとアサーションが入り、面積・クリティカルパス候補が表になっている。
+- G3 (1/31): single-cycle RV32I subset executes three programs (sum loop, Fibonacci, `memcpy`).
+- G4 (3/21): 5-stage pipeline passes all instruction tests, and Yosys synthesis shows zero inferred latches.
+- G5 (4/18): randomised instruction tests and assertions are in place, and area and critical-path
+  candidates are in a table.
 
-### 5.2 RV32I サブセット（仕様書 v1.0 の範囲）
+### 5.2 RV32I subset (spec v1.0 scope)
 
-W10 で決めて文書化する範囲（広げすぎない）：
+Decide and document the scope in W10 (do not widen it):
 
-- **R 形式**：add, sub, and, or, xor, sll, srl, sra, slt, sltu
-- **I 形式**：addi, andi, ori, xori, slli, srli, srai, slti, sltiu, lb, lh, lw, lbu, lhu, jalr
-- **S 形式**：sb, sh, sw
-- **B 形式**：beq, bne, blt, bge, bltu, bgeu
-- **U 形式**：lui, auipc
-- **J 形式**：jal
-- **除く**：FENCE / ECALL / EBREAK / CSR 命令、乗除算（M 拡張）、浮動小数点
+- **R-type**: add, sub, and, or, xor, sll, srl, sra, slt, sltu
+- **I-type**: addi, andi, ori, xori, slli, srli, srai, slti, sltiu, lb, lh, lw, lbu, lhu, jalr
+- **S-type**: sb, sh, sw
+- **B-type**: beq, bne, blt, bge, bltu, bgeu
+- **U-type**: lui, auipc
+- **J-type**: jal
+- **Excluded**: FENCE / ECALL / EBREAK / CSR instructions, multiply and divide (M extension), floating point
 
-### 5.3 週次計画
+### 5.3 Weekly plan
 
-| 週 | 期間 | 理論（2h） | 実装・検証（9h） | 成果・判定 |
+| Week | Period | Theory (2h) | Implementation and verification (9h) | Artifact / gate |
 |---|---|---|---|---|
-| **W10** | 1/11〜1/17 | 単元13 の復習（Beta 構築の考え方） | SystemVerilog へ移行（`logic`/`always_ff`/`always_comb`/`enum`/`package`）。HDLBits を SV で書き直し5問 | **命令表＝仕様書 v1.0**、検証計画 v1 |
-| **W11** | 1/18〜1/24 | 単元9（ISA）の復習 | デコーダ＋即値生成（I/S/B/U/J 全形式）。形式ごとの単体TB | 即値の符号拡張テスト全通し |
-| **W12** | 1/25〜1/31 | 単元13 の残り | レジスタファイル＋ALU＋PC＋命令メモリを接続。3プログラム実行 | **G3（1/31）**：シングルサイクル動作 |
-| **W13** | 2/1〜2/7 | 単元13（制御ロジック、分岐） | 制御ユニット、ロード/ストア、分岐。`$readmemh` でメモリ初期化 | 全命令の単体テスト＋プログラム2本追加 |
-| **W14** | 2/8〜2/14 | 復習週（新規なし） | データパスの白紙再実装（機能ごとに分割して） | **AI 監督#1**：自分のデコーダを AI にレビューさせ、指摘の正否を自分で判定して記録 |
-| **W15** | 2/15〜2/21 | 単元14 の復習（キャッシュ） | ダイレクトマップ・キャッシュ（write-through）＋テスト | AMAT の式を自分で導出し、パラメータを振って表に |
-| **W16** | 2/22〜2/28 | 単元15 の再確認 | **5段パイプライン骨格**（ハザード処理なし）：IF/ID/EX/MEM/WB＋ステージ間レジスタ | **トレードオフ表#2**（シングル vs 5段：セル数・論理段数・概算 fmax） |
-| **W17** | 3/1〜3/7 | — | データハザード：フォワーディング＋ストール。ハザード全パターンの表と各パターンのテスト | 金曜に表を見ずにパターンを書き出す |
-| **W18** | 3/8〜3/14 | — | 制御ハザード（分岐フラッシュ）、ロード使用ハザード。全命令テストを通す | **AI 監督#2**：仕様書 v1.1 から AI に5段を実装させ、自分のテストで差分を取る |
-| **W19** | 3/15〜3/21 | 復習週 | 到達テスト準備。設計図だけ見てステージ間レジスタを白紙再実装 | **G4（3/21）**：全テスト＋合成通過 |
-| **W20** | 3/22〜3/28 | — | 検証強化：自己検査TB、Python で期待値モデル、ランダム命令列、命令カバレッジ指標 | カバレッジ表（命令種別×テスト種別） |
-| **W21** | 3/29〜4/4 | SVA の概念（読み物） | Verilator `-Wall` をクリーンに。SymbiYosys で小さな回路（例：FIFO のフル判定）を形式検証 | 形式検証1件のログ |
-| **W22** | 4/5〜4/11 | 静的タイミング解析の概念 | Yosys で合成、ラッチ推論・組み合わせループの実験。OpenSTA / OpenROAD のレポート読解 | 合成レポート＋クリティカルパス候補の表 |
-| **W23** | 4/12〜4/18 | 復習週 | 単元1〜15 の90分模試。フェーズC の仕様書 v2 骨子 | **G5（4/18）**：判定と、夏の計画確定 |
+| **W10** | 01/11-01/17 | Unit 13 review (how the Beta is built) | Move to SystemVerilog (`logic`/`always_ff`/`always_comb`/`enum`/`package`). Rewrite 5 HDLBits exercises in SV | **Instruction table = spec v1.0**, verification plan v1 |
+| **W11** | 01/18-01/24 | Unit 9 (ISA) review | Decoder + immediate generation (all of I/S/B/U/J). Unit testbench per format | Sign-extension tests all pass |
+| **W12** | 01/25-01/31 | Rest of unit 13 | Connect register file + ALU + PC + instruction memory. Run three programs | **G3 (1/31)**: single-cycle works |
+| **W13** | 02/01-02/07 | Unit 13 (control logic, branches) | Control unit, loads and stores, branches. Initialise memory with `$readmemh` | Unit tests for every instruction + two more programs |
+| **W14** | 02/08-02/14 | Review week (no new material) | Re-implement the datapath on blank paper (split by function) | **AI supervision #1**: have an AI review your decoder, decide yourself whether each comment is right, record it |
+| **W15** | 02/15-02/21 | Unit 14 review (caches) | Direct-mapped cache (write-through) + tests | Derive the AMAT formula yourself; sweep the parameters into a table |
+| **W16** | 02/22-02/28 | Unit 15 refresh | **5-stage pipeline skeleton** (no hazard handling): IF/ID/EX/MEM/WB + inter-stage registers | **Trade-off table #2** (single-cycle vs 5-stage: cells, logic depth, rough fmax) |
+| **W17** | 03/01-03/07 | - | Data hazards: forwarding + stalling. A table of every hazard pattern and a test per pattern | On Friday, write the patterns out without the table |
+| **W18** | 03/08-03/14 | - | Control hazards (branch flush), load-use hazard. All instruction tests passing | **AI supervision #2**: have an AI implement the 5-stage from spec v1.1, diff it against your tests |
+| **W19** | 03/15-03/21 | Review week | Gate preparation. Re-implement inter-stage registers on blank paper from the block diagram alone | **G4 (3/21)**: all tests + synthesis pass |
+| **W20** | 03/22-03/28 | - | Verification hardening: self-checking TBs, an expected-value model in Python, randomised instruction streams, instruction coverage metric | Coverage table (instruction type x test type) |
+| **W21** | 03/29-04/04 | SVA concepts (reading) | Get Verilator `-Wall` clean. Formally verify a small circuit with SymbiYosys (e.g. FIFO full detection) | Log of one formal verification |
+| **W22** | 04/05-04/11 | Static timing analysis concepts | Synthesise with Yosys, experiment with latches and combinational loops. Read OpenSTA / OpenROAD reports | Synthesis report + table of critical-path candidates |
+| **W23** | 04/12-04/18 | Review week | 90-minute mock on units 1-15. Skeleton of the Phase C spec v2 | **G5 (4/18)**: judgement and the summer plan fixed |
 
-### 5.4 ハザード表の列（W17 で作る）
+### 5.4 Columns of the hazard table (built in W17)
 
-| 命令i（生産者） | 命令i+1（消費者） | 必要な値 | 供給元 | 対処 | テスト名 |
+| Instruction i (producer) | Instruction i+1 (consumer) | Value needed | Source | Handling | Test name |
 |---|---|---|---|---|---|
-| `lw x1, 0(x2)` | `add x3, x1, x4` | x1 | MEM/WB | 1サイクルストール＋フォワード | `t_load_use` |
-| `add x1, x2, x3` | `sub x4, x1, x5` | x1 | EX/MEM | フォワードのみ | `t_ex_forward` |
-| `beq x1, x2, L` | `add ...`（分岐先） | PC | ID | フラッシュ（1命令） | `t_branch_flush` |
+| `lw x1, 0(x2)` | `add x3, x1, x4` | x1 | MEM/WB | 1-cycle stall + forward | `t_load_use` |
+| `add x1, x2, x3` | `sub x4, x1, x5` | x1 | EX/MEM | Forward only | `t_ex_forward` |
+| `beq x1, x2, L` | `add ...` (target) | PC | ID | Flush (1 instruction) | `t_branch_flush` |
 
-> この表がそのまま README と面接の説明材料になります。「ハザードを暗記した」ではなく「表にして全パターンにテストを付けた」と言える状態を目指します。
+> This table becomes both the README and the interview material. The goal is to be able to say "I turned
+> every hazard into a row and a test", not "I memorised the hazards".
 
 ---
 
-## 6. フェーズC：夏の公開制作物（W24〜W41／2027/4/19〜8/22）
+## 6. Phase C: summer public artifacts (W24-W41, 2027-04-19 to 08-22)
 
-### 6.1 目的
+### 6.1 Purpose
 
-技術の自習と、編入出願の中心になる**公開実績**を同時に作ります。
+Build technical skill and the **public evidence** that anchors the transfer application, at the same time.
 
-1. 5段パイプライン RV32I を、仕様書・検証・合成結果・英語 README 付きで公開する。
-2. 小さな設計を Tiny Tapeout に提出する**準備**をする（費用・締切次第で提出）。
-3. AI 監督レポートを書く（自分の仕様から AI に実装させ、差分を検証した記録）。
+1. Publish the 5-stage pipelined RV32I with a spec, verification, synthesis results and an English README.
+2. **Prepare** a small design for Tiny Tapeout (submit if cost and deadline allow).
+3. Write the AI supervision report (implement from your own spec via an AI, then verify the differences).
 
-### 6.2 週次計画
+### 6.2 Weekly plan
 
-| 週 | 期間 | 制作物の作業 | 学習・課外 | 成果 |
+| Week | Period | Artifact work | Learning / extracurricular | Result |
 |---|---|---|---|---|
-| **W24** | 4/19〜4/25 | 企画：RV32I 整数サブセット（任意でキャッシュ） | フェーズB の積み残しを潰す | 仕様書 v2（1〜2ページ）＋ブロック図 |
-| **W25** | 4/26〜5/2 | マイクロアーキテクチャ設計書（ステージ、信号表、ハザード表） | 分岐の扱いなど2案を比較 | 比較表＋選んだ理由（英語3〜5文） |
-| **W26** | 5/3〜5/9 | IF・ID の実装とテスト | 週1回のコードレビュー | 白紙再現 |
-| **W27** | 5/10〜5/16 | EX・MEM・WB の実装とテスト | 期末が近ければ軽量モード | カード見直し |
-| **W28** | 5/17〜5/23 | 統合、命令単位テスト全通し | 週1回のコードレビュー | 誤り集の整理 |
-| **W29** | 5/24〜5/30 | 復習週（フェーズA〜B の総復習） | 中間レビュー：第三者に設計を説明する会 | 90分模試＋説明メモ |
-| **W30** | 5/31〜6/6 | 検証：自己検査TB、ランダム命令列、カバレッジ指標 | 週1回のコードレビュー | カバレッジ表 |
-| **W31** | 6/7〜6/13 | 公開 RISC-V テスト（`riscv-tests` 等）を入手して実行（入手先は要確認） | バグ票の書式を回す | バグ票3件以上を GitHub に |
-| **W32** | 6/14〜6/20 | 合成：面積（セル数）とクリティカルパス候補 | 全体像の日（物理設計の流れ） | 合成結果の表 |
-| **W33** | 6/21〜6/27 | 性能改善を1つ選び、前後比較（例：分岐処理 or ALU 段の分割） | — | 比較表＋英語3〜5文 |
-| **W34** | 6/28〜7/4 | AI 監督レポート本体（検出バグ数・種類・見抜けなかったもの） | — | レポート下書き |
-| **W35** | 7/5〜7/11 | Tiny Tapeout 準備：テンプレに沿って小型設計（UART Tx 等）を実装、GDS 生成手順を確認 | 公式サイトで締切・費用を確認 | 提出可否の判断メモ |
-| **W36** | 7/12〜7/18 | 復習週 | 模擬面接：RTL 基礎30問を口頭で | 答えられなかった質問を誤り集へ |
-| **W37** | 7/19〜7/25 | 文書化：README（目的、ブロック図、検証結果、合成結果、制約、既知のバグ）を英語で | 図とレポートの整理 | README 完成 |
-| **W38** | 7/26〜8/1 | 公開：GitHub 整理、波形・図・デモ | 記事/LinkedIn で紹介 | 公開URL |
-| **W39** | 8/2〜8/8 | 予備週（遅れの吸収） | エッセイ素材：制作物の要点を日英800字 | 素材保存 |
-| **W40** | 8/9〜8/15 | 予備＋単元18・19 の概観（デバイス・割り込み・同期） | SoC の視野を広げる | 1ページ要約 |
-| **W41** | 8/16〜8/22 | 秋学期の履修計画、TAG 条件の確認（8月更新） | 月次計画へ移行 | **G6（8/22）**：公開物チェックリスト完了 |
+| **W24** | 04/19-04/25 | Planning: RV32I integer subset (optionally cache) | Clear Phase B leftovers | Spec v2 (1-2 pages) + block diagram |
+| **W25** | 04/26-05/02 | Microarchitecture document (stages, signal table, hazard table) | Compare two options (e.g. branch handling) | Comparison table + reason, English 3-5 sentences |
+| **W26** | 05/03-05/09 | IF and ID implementation and tests | One code review per week | Blank-page recall |
+| **W27** | 05/10-05/16 | EX, MEM, WB implementation and tests | Light mode if finals approach | Card review |
+| **W28** | 05/17-05/23 | Integration, all per-instruction tests passing | One code review per week | Error log tidied |
+| **W29** | 05/24-05/30 | Review week (Phases A-B in full) | Mid-review: explain the design to a third party | 90-minute mock + explanation note |
+| **W30** | 05/31-06/06 | Verification: self-checking TBs, randomised instruction streams, coverage metric | One code review per week | Coverage table |
+| **W31** | 06/07-06/13 | Obtain and run public RISC-V tests (`riscv-tests` etc.; source to be confirmed) | Put the bug-ticket format to work | Three or more bug tickets on GitHub |
+| **W32** | 06/14-06/20 | Synthesis: area (cells) and critical-path candidates | Whole-picture day (physical design flow) | Synthesis results table |
+| **W33** | 06/21-06/27 | Pick one performance improvement and compare before/after (e.g. branch handling or splitting the ALU stage) | - | Comparison table + English 3-5 sentences |
+| **W34** | 06/28-07/04 | AI supervision report proper (bugs found, kinds, what it missed) | - | Report draft |
+| **W35** | 07/05-07/11 | Tiny Tapeout preparation: implement a small design (UART Tx etc.) on their template, confirm the GDS generation steps | Check deadline and price on the official site | Note deciding whether to submit |
+| **W36** | 07/12-07/18 | Review week | Mock interview: 30 RTL basics aloud | Unanswered questions into the error log |
+| **W37** | 07/19-07/25 | Documentation: README in English (purpose, block diagram, verification results, synthesis results, constraints, known bugs) | Tidy figures and reports | README complete |
+| **W38** | 07/26-08/01 | Publish: tidy GitHub, waveforms, figures, demo | Announce in an article or LinkedIn | Public URL |
+| **W39** | 08/02-08/08 | Spare week (absorb delays) | Essay material: 800 characters (Japanese and English) on the artifact's key points | Material saved |
+| **W40** | 08/09-08/15 | Spare + overview of units 18-19 (devices, interrupts, synchronisation) | Widen the SoC picture | One-page summary |
+| **W41** | 08/16-08/22 | Autumn course plan, confirm TAG conditions (updated in August) | Switch to monthly planning | **G6 (8/22)**: publication checklist complete |
 
-### 6.3 公開物チェックリスト（G6）
+### 6.3 Publication checklist (G6)
 
-- [ ] リポジトリに `README.md`（英語）、`docs/spec.md`、`docs/verification.md`、`docs/synthesis.md`、`docs/bugs.md`
-- [ ] 仕様書に命令範囲・性能目標・非目標（やらないこと）が書かれている
-- [ ] テストが `make test` 一発で走り、PASS/FAIL が集計される
-- [ ] ランダムテストのシードと再現手順が書かれている
-- [ ] Yosys の合成スクリプトとログがあり、面積・段数が表になっている
-- [ ] トレードオフ表が2つ以上（段数、分岐方式など）あり、選んだ理由が英語で書かれている
-- [ ] バグ票が3件以上（症状・原因・修正・再発防止テスト）
-- [ ] 既知の制限（未実装命令、タイミング制約、未検証の前提）が明記されている
-- [ ] 波形スクリーンショットまたは図が最低3枚
-- [ ] 第三者が30分で追試できる手順（依存パッケージの版数含む）
-
+- [ ] Repository has `README.md` (English), `docs/spec.md`, `docs/verification.md`, `docs/synthesis.md`, `docs/bugs.md`
+- [ ] The spec states instruction scope, performance targets and non-goals (what it will not do)
+- [ ] Tests run with a single `make test` and summarise PASS/FAIL
+- [ ] The random test seed and the reproduction steps are written down
+- [ ] A Yosys synthesis script and log exist, with area and depth in a table
+- [ ] Two or more trade-off tables (stages, branch scheme, etc.) with the reason written in English
+- [ ] Three or more bug tickets (symptom, cause, fix, regression test)
+- [ ] Known limitations are stated (unimplemented instructions, timing constraints, unverified assumptions)
+- [ ] At least three waveform screenshots or figures
+- [ ] Steps a third party can follow in 30 minutes (including dependency versions)
 ---
 
-## 7. フェーズD：編入出願（2027/8/23〜2028/6）
+## 7. Phase D: transfer applications (2027-08-23 to 2028-06)
 
-この期間は **勉強の主役が編入書類に移ります**。RTL は「維持モード」（週4〜6時間）に落とし、成績と書類を優先します。
+In this period **the main work shifts to application documents**. RTL goes into maintenance mode
+(4-6 h/week); grades and documents come first.
 
-### 7.1 月次カレンダー
+### 7.1 Monthly calendar
 
-| 時期 | やること | 完了条件 |
+| Period | To do | Done when |
 |---|---|---|
-| 2027/8/23〜8/31 | 秋学期の履修登録。TAG 条件の更新を確認（毎年8月更新）。ASSIST で必修の対応を最終確認 | 履修表と TAG チェックリスト |
-| 2027/9/1〜9/30 | **TAG 申請（1校のみ。Davis に出す）**。UCSC の Baskin 工学部は TAG 対象外、UCI の TAG は EE/CPE を除外しているため、工学部で使えるのは実質 Davis だけ | 申請完了のスクショ |
-| 2027/10/1〜11/30 | **UC 出願**（Davis、Berkeley 等）。PIQ 4本＋活動欄 | 提出完了 |
-| 2027/12 | 推薦者2名（＋予備1名）に依頼。成績・制作物リンク・志望理由1ページを渡す | 承諾2件 |
-| 2028/1 | 成績更新（TAU、優先期限 1/31）。Columbia エッセイ（400〜600語）初稿 | TAU 提出、エッセイ初稿 |
-| 2028/2 | Columbia / Princeton / Cornell の書類を最終化。Columbia の Curriculum Report は中間成績が出たら提出（4/15まで受付） | 提出待ち状態 |
-| 2028/3/1 | **Columbia、Princeton ほか** 出願 | 提出完了 |
-| 2028/3/15 | **Cornell（工学部）** 出願 | 提出完了 |
-| 2028/4 | UC の結果。Columbia の Curriculum Report 提出期限（4/15） | 結果記録 |
-| 2028/5 | 全結果を比較（費用、単位移行、卒業までの学期数、研究機会） | 比較表1枚 |
-| 2028/6/1 | **UC の入学意思登録（SIR）期限**、Columbia の結果発表期限 | SIR 提出 |
+| 2027-08-23 to 08-31 | Register for autumn courses. Confirm the TAG condition update (revised every August). Final check of required-course articulation in ASSIST | Course table and TAG checklist |
+| 2027-09-01 to 09-30 | **TAG application (one school only: Davis)**. UCSC Baskin does not accept TAG, and UCI's TAG excludes EE/CPE, so in practice Davis is the only engineering TAG available | Screenshot of the completed application |
+| 2027-10-01 to 11-30 | **UC application** (Davis, Berkeley and others). Four PIQs plus the activities section | Submitted |
+| 2027-12 | Ask two recommenders (plus one backup). Give them grades, artifact links and a one-page statement of purpose | Two acceptances |
+| 2028-01 | Update grades (TAU, priority deadline 1/31). Columbia essay (400-600 words) first draft | TAU submitted, essay drafted |
+| 2028-02 | Finalise Columbia / Princeton / Cornell documents. Columbia's Curriculum Report goes in once mid-term grades exist (accepted until 4/15) | Ready to submit |
+| 2028-03-01 | **Columbia, Princeton and others** applications | Submitted |
+| 2028-03-15 | **Cornell (Engineering)** application | Submitted |
+| 2028-04 | UC results. Columbia Curriculum Report deadline (4/15) | Results recorded |
+| 2028-05 | Compare all results (cost, credit transfer, terms to graduation, research access) | One comparison table |
+| 2028-06-01 | **UC Statement of Intent to Register (SIR) deadline**, Columbia decision deadline | SIR submitted |
 
-### 7.2 維持モードの RTL（週4〜6時間）
+### 7.2 Maintenance-mode RTL (4-6 h/week)
 
-出願期に手を止めると、編入後の授業で苦しくなります。**小さく1本だけ**進めます。
+Stopping entirely makes the transfer courses painful. Keep **exactly one small thing** moving.
 
-- 題材：SPI マスタ、I2C マスタ、AXI4-Lite スレーブ、PWM＋デッドタイム生成、のどれか1つ。
-- 条件：仕様書1ページ＋自己検査TB＋Yosys 合成。**2〜3か月かけてよい**。
-- 使い道：編入エッセイの具体例、面接の話題、編入後の授業の予習。
+- Subject: one of SPI master, I2C master, AXI4-Lite slave, PWM with dead-time generation.
+- Conditions: one-page spec + self-checking TB + Yosys synthesis. **Two to three months is fine.**
+- Use: a concrete example for the transfer essay, an interview topic, preparation for transfer courses.
 
 ---
 
-## 8. フェーズE：編入後と新卒就職（2028/9〜2030/6）
+## 8. Phase E: after transfer and into employment (2028-09 to 2030-06)
 
-### 8.1 四半期ごとの焦点
+### 8.1 Quarterly focus
 
-| 時期 | 学业 | RTL／研究 | 就職活動 |
+| Period | Coursework | RTL / research | Recruiting |
 |---|---|---|---|
-| 2028/9〜12 | 上級科目（デジタルシステム設計、計算機アーキテクチャ、VLSI 入門、信号処理など）。**GPA を最優先** | 研究グループへの打診（1〜2件）。RTL は週6〜8時間 | **2029夏インターンの応募が始まる**（米国は前年秋〜冬が出願時期）。履歴書を8月に作る |
-| 2029/1〜3 | 冬学期 | 研究継続。小さい tapeout や OSS 貢献があれば継続 | 日本：新卒広報解禁（例年3月、要確認）。インターン面接 |
-| 2029/4〜6 | 春学期 | 夏のインターン準備 | 日本企業の早期選考、米国インターンの結果 |
-| 2029/7〜9 | 夏 | **インターン（米国 or 日本）**。ここで return offer を狙う | インターン先での評価が最大の選考材料 |
-| 2029/10〜12 | 秋学期 | 卒業研究の着手 | 本選考（日本は秋冬、米国は fall）。修士出願する場合は GRE・推薦 |
-| 2030/1〜3 | 冬学期 | 卒業研究 | 内定確定、条件交渉 |
-| 2030/4〜6 | 春学期 | 卒業研究まとめ | **2030/6 卒業、入社** |
+| 2028-09 to 12 | Upper-division courses (digital system design, computer architecture, intro VLSI, signal processing). **GPA first** | Approach research groups (1-2). RTL 6-8 h/week | **Summer 2029 internship applications open** (US cycle is the previous autumn to winter). Build the resume in August |
+| 2029-01 to 03 | Winter quarter | Continue research; keep small tapeouts or OSS contributions going | Japan: new-graduate recruiting opens (usually March; confirm). Internship interviews |
+| 2029-04 to 06 | Spring quarter | Prepare for the summer internship | Japanese early selection, US internship results |
+| 2029-07 to 09 | Summer | **Internship (US or Japan)**. Aim for a return offer | The internship's assessment is the strongest recruiting material |
+| 2029-10 to 12 | Autumn quarter | Start the senior project | Main recruiting (Japan autumn-winter, US fall). If applying to a master's: GRE and letters |
+| 2030-01 to 03 | Winter quarter | Senior project | Offer fixed, negotiate terms |
+| 2030-04 to 06 | Spring quarter | Write up the senior project | **Graduate June 2030, start work** |
 
-### 8.2 修士に進むかどうかの分岐（2028年12月に判断）
+### 8.2 Whether to do a master's (decide December 2028)
 
-この計画は「2030年6月学士卒・新卒就職」を前提にしていますが、**2028年12月に一度だけ見直します**。判断材料は噂ではなく、その時点の実際の求人票と大学の窓口で取ります。
+This plan assumes **bachelor's in June 2030 and direct entry to industry**, but it is reviewed **once,
+in December 2028**. The inputs are actual job postings and the university's own office, not rumour.
 
-| 論点 | 何を確認するか | どこで |
+| Question | What to check | Where |
 |---|---|---|
-| 日本の設計職の学位要件 | 大手半導体・設計子会社・外資日本拠点の新卒 RTL 求人で「修士以上」がどの程度か（20件サンプル） | 各社採用ページ、就活サイト |
-| 米国で働く場合の就労 | OPT／STEM OPT の期間、H-1B の扱い、学士と修士での違い | 大学の International Office |
-| 研究職・先端設計への入口 | 設計職の上位（アーキテクチャ、DFT、低電力）に修士が要るか | 求人票、教員 |
-| 費用対効果 | 修士2年の学費と、学士卒の初任給・昇進速度 | 大学の費用ページ、OB |
+| Degree requirement for design roles in Japan | How often "master's or above" appears in new-graduate RTL postings at major semiconductor firms, design subsidiaries and foreign companies' Japan sites (sample 20) | Company career pages, job sites |
+| Working in the US | OPT / STEM OPT duration, H-1B treatment, the difference between bachelor's and master's | University International Office |
+| Entry to research or advanced design | Whether master's is needed for architecture, DFT, low power | Postings, faculty |
+| Cost versus benefit | Two years of tuition against starting salary and promotion speed with a bachelor's | University cost pages, alumni |
 
-**この判断を先送りにしないために**、2028年秋学期中に上記4点を1枚にまとめて保存します。
+**So that this decision is not deferred**, put those four points on one page during the autumn 2028 quarter and save it.
 
-### 8.3 職種の分解（新卒で狙う範囲）
+### 8.3 Decomposing the job title (the range to aim at as a new graduate)
 
-「RTL 設計エンジニア」を1つと見ず、隣接職種も含めて狙います。
+Do not treat "RTL design engineer" as one thing; aim at adjacent roles too.
 
-| 職種 | 中身 | この計画で弱い部分 | 補い方 |
+| Role | Content | Weak spot in this plan | How to cover it |
 |---|---|---|---|
-| RTL 設計 | 仕様→マイクロアーキテクチャ→RTL→単体検証 | 大規模設計の経験、制約ファイル | 夏の制作物で規模を上げる |
-| 設計検証（DV） | テストベンチ、UVM、カバレッジ、形式検証 | UVM／SystemVerilog のクラスベース検証 | 編入後の授業 or 自習で UVM 入門 |
-| DFT | スキャン挿入、ATPG、テスト容易化設計 | 未経験 | 座学＋ツールの概念だけ（全体像の日） |
-| 物理設計 | フロアプラン、配置配線、STA | 未経験（意図的に浅く） | OpenROAD のチュートリアル1本だけ |
-| ツール開発／FAE | EDA ベンダ、半導体メーカーの CAD チーム | ソフトウェア工学の訓練 | 編入後の CS 科目を1〜2つ |
-| アーキテクチャ | 性能分析、仕様定義 | 修士・博士が多い | 修士の分岐と合わせて判断 |
+| RTL design | Spec -> microarchitecture -> RTL -> unit verification | Large-design experience, constraint files | Raise the scale with the summer artifact |
+| Design verification (DV) | Testbenches, UVM, coverage, formal | Class-based verification with UVM/SystemVerilog | A UVM introduction after transfer |
+| DFT | Scan insertion, ATPG, design for testability | No experience | Lectures plus tool concepts only (whole-picture day) |
+| Physical design | Floorplan, place and route, STA | No experience (deliberately shallow) | One OpenROAD tutorial, no more |
+| Tool development / FAE | EDA vendors, CAD teams at semiconductor firms | Software engineering training | One or two CS courses after transfer |
+| Architecture | Performance analysis, spec definition | Mostly master's and PhD | Decide together with the master's question |
 
-### 8.4 面接対策（W36 で始め、2029年秋に仕上げる）
+### 8.4 Interview preparation (start W36, finish autumn 2029)
 
-30問の例（口頭で30秒〜2分で答える）：
+Thirty questions (answer aloud in 30 seconds to 2 minutes):
 
-1. セットアップ時間とホールド時間の違いを、タイミング図で説明せよ。
-2. ブロッキング代入とノンボッキング代入の違いと、混ぜたときの危険。
-3. ラッチが推論される書き方と、その回避。
-4. 組み合わせループが生まれる原因。
-5. FSM の Moore と Mealy の違いと使い分け。
-6. ワンホット vs バイナリの状態符号化のトレードオフ。
-7. パイプラインのスループットとレイテンシの違い。
-8. データハザードの3類型と、それぞれの対処。
-9. ロード使用ハザードでストールが1回で済む理由。
-10. 分岐ペナルティを減らす方法を3つ。
-11. クリティカルパスの見つけ方と短縮の手段。
-12. 面積・速度・消費電力のトレードオフを、自分の設計で例示せよ。
-13. 非同期クロック間で信号を渡すときの危険と対策。
-14. FIFO のフル・エンプティ判定を、ポインタだけで行う方法。
-15. メタスタビリティとは何か、なぜ2段フリップフロップで緩和できるか。
-16. リセットの同期／非同期の使い分け。
-17. 合成可能性（synthesizable）でない書き方の例を3つ。
-18. キャッシュの AMAT の式と、各項の意味。
-19. ダイレクトマップとセットアソシアティブの違い。
-20. 自作 CPU で一番苦労したバグと、その原因。
-21. テストベンチで「正しさ」をどう定義したか。
-22. ランダムテストのシードを固定する理由。
-23. カバレッジをどう測ったか（命令種別・ハザード種別）。
-24. アサーションを1つ書くなら何を書くか。
-25. 形式検証とシミュレーションの使い分け。
-26. Yosys の合成結果から何を読むか。
-27. 自分の設計の既知の制限を3つ挙げよ。
-28. 同じ仕様を別案で作るなら、どこを変えるか。
-29. AI に設計させたとき、どこを見抜けなかったか。
-30. この設計を、専門外の人に3分で説明せよ。
+1. Explain the difference between setup time and hold time with a timing diagram.
+2. Blocking versus non-blocking assignment, and the danger of mixing them.
+3. Coding styles that infer a latch, and how to avoid them.
+4. What causes a combinational loop.
+5. Moore versus Mealy FSM, and when to use each.
+6. Trade-offs of one-hot versus binary state encoding.
+7. Throughput versus latency in a pipeline.
+8. The three kinds of data hazard and the handling for each.
+9. Why a load-use hazard needs only one stall cycle.
+10. Three ways to reduce branch penalty.
+11. How to find a critical path and how to shorten it.
+12. Illustrate the area/speed/power trade-off with your own design.
+13. Dangers when passing a signal between asynchronous clocks, and the countermeasures.
+14. How to detect FIFO full and empty using only the pointers.
+15. What metastability is, and why two flip-flops mitigate it.
+16. When to use synchronous versus asynchronous reset.
+17. Three examples of non-synthesizable coding.
+18. The AMAT formula for a cache and what each term means.
+19. Direct-mapped versus set-associative.
+20. The bug in your own CPU that cost you the most, and its cause.
+21. How you defined "correct" in your testbench.
+22. Why fix the seed of a random test.
+23. How you measured coverage (instruction type, hazard type).
+24. If you could write only one assertion, what would it be.
+25. When to use formal verification versus simulation.
+26. What you read from a Yosys synthesis result.
+27. Name three known limitations of your design.
+28. If you built the same spec a different way, what would you change.
+29. When you had an AI implement a design, what did it fail to catch.
+30. Explain this design to a non-specialist in three minutes.
 
 ---
 
-## 9. ゲート一覧と未達時の分岐
+## 9. Gates and what happens if one is missed
 
-| ID | 日付 | 基準 | 未達なら |
+| ID | Date | Criterion | If missed |
 |---|---|---|---|
-| **G1** | 2026/11/29 | 単元1〜14 の90分模試で 75%以上 | W4 を弱点補強に充て、W5 以降を1週後ろへ。フェーズB 開始は 1/18 まで許容 |
-| **G2** | 2027/1/10 | 単元1〜15 で85%以上／5つの回路を白紙60分で／ミニ制作3点公開／合成警告0 | 不足分を W10〜W11 の理論枠で補う。ミニ制作の不足は W14 の復習週で回収 |
-| **G3** | 2027/1/31 | シングルサイクルが3プログラムを実行 | W13 を実装に回し、G4 を 3/28 へ。夏の予備週で吸収 |
-| **G4** | 2027/3/21 | 5段パイプラインが全命令テスト通過＋Yosys 合成通過 | 未通過項目を W20〜W22 の検証週で潰す。夏フェーズの W24〜W25 を延長 |
-| **G5** | 2027/4/18 | ランダムテスト＋アサーション＋面積/クリティカルパス表 | 夏フェーズの W30〜W32 に前倒しで持ち越す（予備週 W39・W40 を削る） |
-| **G6** | 2027/8/22 | 公開物チェックリスト（6.3）全項目 | 9月の出願準備と衝突するため、**W39・W40 を丸ごと使って完成させる**。それでも未完なら「未完であること」を明記して公開（隠さない） |
+| **G1** | 2026-11-29 | 75% or better on a 90-minute mock of units 1-14 | Spend W4 on weak spots, shift W5 onward back one week. Phase B may start as late as 1/18 |
+| **G2** | 2027-01-10 | 85% on units 1-15 / five circuits on blank paper in 60 min / three mini artifacts published / zero synthesis warnings | Cover the shortfall in the W10-W11 theory slots. Missing mini artifacts are recovered in the W14 review week |
+| **G3** | 2027-01-31 | Single-cycle executes three programs | Give W13 to implementation, move G4 to 3/28. Absorbed by the summer spare weeks |
+| **G4** | 2027-03-21 | 5-stage passes all instruction tests + Yosys synthesis | Clear the failures in the W20-W22 verification weeks. Extend W24-W25 of the summer phase |
+| **G5** | 2027-04-18 | Randomised tests + assertions + area/critical-path table | Carry forward into W30-W32 of the summer phase (cut spare weeks W39-W40) |
+| **G6** | 2027-08-22 | Every item of the publication checklist (6.3) | It collides with September application preparation, so **use W39 and W40 entirely** to finish. If still incomplete, publish anyway **stating that it is incomplete** (do not hide it) |
 
 ---
 
-## 10. 復習・記録システム（運用の具体形）
+## 10. Review and recording system (the concrete procedure)
 
-### 10.1 カードの書式
+### 10.1 Card format
 
-1枚1行の表で管理（Markdown で可）。**答えを書くのではなく、説明させる問い**にします。
+One row per card (Markdown is fine). The question must **ask you to explain**, not ask for a definition.
 
-| ID | 単元 | 問い（説明させる形） | 答えの要点（3つまで） | 初回 | +1 | +3 | +7 | +30 | 誤答回数 |
+| ID | Unit | Question (explain) | Key points (max 3) | First | +1 | +3 | +7 | +30 | Wrong count |
 |---|---|---|---|---|---|---|---|---|---|
-| A-012 | 4 | セットアップ時間とホールド時間の違いを、タイミング図を描いて説明せよ | セットアップは clock edge 前の安定期間、ホールドは edge 後の保持期間、違反はそれぞれ別の不具合 | 11/13 | 11/14 | 11/16 | 11/20 | 12/13 | 1 |
-| A-047 | 15 | 5段パイプラインでロード使用ハザードに1サイクルストールが必要な理由を、パイプライン図で説明せよ | データが MEM 終わりで確定するため、EX の先頭に間に合わない | 12/09 | 12/10 | 12/12 | 12/16 | 01/08 | 0 |
-| A-058 | 13 | RV32I の B 形式即値がなぜ12ビットで、最下位ビットが暗黙0なのか | 分岐先は2バイト境界、命令長4バイトで範囲を稼ぐ | 01/27 | 01/28 | 01/30 | 02/03 | 02/26 | 0 |
+| A-012 | 4 | Explain the difference between setup and hold time, drawing the timing diagram | Setup is the stable window before the clock edge, hold is the window after it, and violations are different failures | 11/13 | 11/14 | 11/16 | 11/20 | 12/13 | 1 |
+| A-047 | 15 | With the pipeline diagram, explain why a load-use hazard needs one stall cycle | Data is only final at the end of MEM, so it cannot reach the start of EX in time | 12/09 | 12/10 | 12/12 | 12/16 | 01/08 | 0 |
+| A-058 | 13 | Why is the B-type immediate 12 bits with an implicit zero LSB | Branch targets are 2-byte aligned and instructions are 4 bytes, which buys range | 01/27 | 01/28 | 01/30 | 02/03 | 02/26 | 0 |
 
-**間隔の起点は「学習日」ではなく「復習した日」**。誤答したカードは翌日に戻し、+3/+7/+30 を振り直します。
+**The interval starts from the day you reviewed, not the day you studied.** A wrong card returns the
+next day and its +3/+7/+30 schedule is reset.
 
-### 10.2 週次テストの作り方
+### 10.2 How to build the weekly test
 
-- 45分、6問＝**その週のテーマ3問＋2〜4週前のテーマ3問**。資料なし。
-- 出題元を記録（`W12: 単元15×2, 単元13×1 ／ 2〜4週前: 単元14×2, 単元9×1`）。
-- 採点は「合っていたか」ではなく「**説明が成立していたか**」で見る。式だけ合って図が描けないなら半分。
-- 50%未満なら翌週の新規を1つ減らす。
+- 45 minutes, six questions = **three on this week's topic + three from two to four weeks ago**. No notes.
+- Record where each question came from (`W12: unit 15 x2, unit 13 x1 / 2-4 weeks back: unit 14 x2, unit 9 x1`).
+- Mark on "**was the explanation valid**", not "was the number right". Equations without a diagram is half marks.
+- Below 50%: remove one new item from the following week.
 
-### 10.3 白紙再現（金曜30分）
+### 10.3 Blank-page recall (Friday, 30 minutes)
 
-1. 先週作った回路を1つ選ぶ（例：FIFO）。
-2. 資料を見ずに、紙にブロック図と信号を描く（10分）。
-3. コードを白紙に書く（15分）。
-4. 元のコードと差分を見て、**なぜ忘れたか**を1行書く（5分）。
+1. Pick one circuit from last week (e.g. FIFO).
+2. Without the material, draw the block diagram and signals on paper (10 min).
+3. Write the code on blank paper (15 min).
+4. Diff against the original and write one line on **why you forgot it** (5 min).
 
-### 10.4 誤り集の分類（4分類）
+### 10.4 Error log classification (four classes)
 
-| 分類 | 例 | 対策 |
+| Class | Example | Action |
 |---|---|---|
-| 知識不足 | セットアップ時間の定義が曖昧 | カードを作り直す |
-| 不注意 | ビット幅の取り違え、`<=` と `=` の混在 | チェックリスト（lint 項目）に入れる |
-| 設計ミス | ハザードの見落とし、リセットの非同期化漏れ | 設計レビューの観点表に入れる |
-| **検証漏れ** | テストが通ったが、テストしていない経路があった | カバレッジ指標を作る（この版で追加した分類） |
+| Knowledge gap | The definition of setup time was vague | Rebuild the card |
+| Carelessness | Wrong bit width, mixing `<=` and `=` | Add it to the lint checklist |
+| Design error | Missed hazard, reset not synchronised | Add it to the design review checklist |
+| **Verification gap** | The test passed, but a path was never tested | Build a coverage metric (the class added in this revision) |
 
-月末に30分、「同じ型のミスが2回以上出ていないか」だけを見ます。
+Once a month, spend 30 minutes looking only at "has the same kind of mistake appeared twice or more".
 
-### 10.5 復習週の配置
+### 10.5 Where the review weeks sit
 
-W9、W14、W19、W23、W29、W36。**4〜5週に1回**、新規を止めて総復習・再実装・90分模試に充てます。
+W9, W14, W19, W23, W29, W36. **Every four to five weeks**, stop new material and use the week for full
+review, re-implementation and a 90-minute mock.
 
 ---
 
-## 11. 制作物の型（毎回同じ形にする）
+## 11. The artifact template (the same shape every time)
 
-### 11.1 リポジトリ構成
+### 11.1 Repository layout
 
 ```
 repo/
-├── README.md              # 英語。目的・構成・動かし方・結果・制限
+├── README.md              # English: purpose, structure, how to run, results, limitations
 ├── docs/
-│   ├── spec.md            # 仕様書（1〜2ページ）
-│   ├── verification.md    # テスト計画と結果
-│   ├── synthesis.md       # 面積・段数・制約
-│   ├── tradeoffs.md       # 比較表と選定理由
-│   └── bugs.md            # バグ票
-├── rtl/                   # 合成対象のみ
-├── tb/                    # テストベンチ（合成対象外）
-├── syn/                   # Yosys スクリプトとログ
-├── sw/                    # テストプログラム、期待値モデル（Python可）
+│   ├── spec.md            # spec, 1-2 pages
+│   ├── verification.md    # test plan and results
+│   ├── synthesis.md       # area, depth, constraints
+│   ├── tradeoffs.md       # comparison tables and the reason for the choice
+│   └── bugs.md            # bug tickets
+├── rtl/                   # synthesisable files only
+├── tb/                    # testbenches (not synthesised)
+├── syn/                   # Yosys scripts and logs
+├── sw/                    # test programs, expected-value models (Python allowed)
 └── Makefile               # lint / sim / wave / syn / test
 ```
 
-`make test` 一発で全テストが走り、最後に `PASS n / FAIL m` を出す形にします。
+A single `make test` runs everything and prints `PASS n / FAIL m` at the end.
 
-### 11.2 仕様書テンプレ（見出し）
+### 11.2 Spec template (headings)
 
-1. 目的（何のために作るか、誰が使うか）
-2. 機能要件（入出力、レジスタマップ、命令範囲）
-3. 非機能要件（目標周波数、面積の目安、レイテンシ）
-4. **非目標（今回やらないこと）** ← これが一番大事
-5. 前提と仮定（未確定のもの）
-6. 検証方針（何をもって正しいとするか）
+1. Purpose (what it is for, who uses it)
+2. Functional requirements (I/O, register map, instruction scope)
+3. Non-functional requirements (target frequency, area budget, latency)
+4. **Non-goals (what this version will not do)** <- the most important one
+5. Assumptions and open questions
+6. Verification approach (what counts as correct)
 
-### 11.3 バグ票テンプレ
+### 11.3 Bug ticket template
 
-| 項目 | 内容 |
+| Field | Content |
 |---|---|
-| 症状 | 何が起きたか（再現手順つき） |
-| 期待 | 本来どうなるべきか |
-| 原因 | コードのどこが、なぜ |
-| 修正 | 何を変えたか |
-| 再発防止テスト | 追加したテスト名 |
-| 分類 | 設計ミス／検証漏れ／不注意 |
+| Symptom | What happened (with reproduction steps) |
+| Expected | What should have happened |
+| Cause | Where in the code, and why |
+| Fix | What was changed |
+| Regression test | Name of the test added |
+| Class | Design error / verification gap / carelessness |
 
-### 11.4 トレードオフ表テンプレ
+### 11.4 Trade-off table template
 
-| 案 | 面積（セル数） | 論理段数 | 概算 fmax | 複雑さ（主観1〜5） | 検証のしやすさ |
+| Option | Area (cells) | Logic depth | Rough fmax | Complexity (subjective 1-5) | Ease of verification |
 |---|---|---|---|---|---|
-| A：1段 ALU | | | | | |
-| B：2段に分割 | | | | | |
+| A: single-stage ALU | | | | | |
+| B: split into two stages | | | | | |
 
-**選定理由（英語3〜5文）** を必ず添えます。数値は Yosys で測り、測れない項目は「測れない」と書きます。
+Always add **the reason for the choice in English, 3-5 sentences**. Measure with Yosys, and write
+"not measurable" for anything you cannot measure.
 
 ---
 
-## 12. AI 監督プロトコル
+## 12. AI supervision protocol
 
-### 12.1 手順（毎回同じ）
+### 12.1 Procedure (the same every time)
 
-1. 自分の仕様書（v を固定）を用意する。
-2. **先に自分で実装する**（AI の出力を見る前）。
-3. 同じ仕様書を AI に渡して実装させる。プロンプトも記録する。
-4. 自分のテストベンチを両方に当てる。
-5. 差分を分類する（機能差／面積差／可読性／検証していない前提）。
-6. **AI の出力から学んだ点**と、**見抜けなかった点**を書く。
-7. バグを見つけたらバグ票にする。
+1. Prepare your own spec (fix the version).
+2. **Implement it yourself first**, before looking at the AI's output.
+3. Give the same spec to an AI and have it implement. Record the prompt too.
+4. Run your own testbench against both.
+5. Classify the differences (function, area, readability, unverified assumptions).
+6. Write down **what you learned from the AI's output** and **what it failed to catch**.
+7. Turn any bug found into a bug ticket.
 
-### 12.2 記録表
+### 12.2 Record table
 
-| 日付 | 仕様の版 | 対象 | AI の出力 | 自分のテスト結果 | 見つけたバグ（種類） | 見抜けなかったもの | 判定 |
+| Date | Spec version | Target | AI output | My test result | Bugs found (kind) | What it missed | Verdict |
 |---|---|---|---|---|---|---|---|
 
-### 12.3 ルール
+### 12.3 Rules
 
-- 授業の課題には**授業ごとの AI 利用ルール**に従う。AI を使う練習は個人の制作物に限る。
-- 「AI が書いたから正しい」を排除するため、**必ず自分のテストで判定**する。
-- AI の指摘を採否するときは、理由を1行残す（採否の判断そのものが練習）。
+- Coursework follows **the course's own AI policy**. AI practice is limited to personal artifacts.
+- To eliminate "the AI wrote it, so it is correct", **always judge with your own tests**.
+- When accepting or rejecting an AI comment, leave one line of reasoning (the decision itself is the practice).
 
-### 12.4 レポート構成（W34）
+### 12.4 Report structure (W34)
 
-1. 目的と方法（仕様の固定、テストの同一性）
-2. 対象にした設計（3〜4件）
-3. 結果：検出したバグの数と種類、自分が見抜けなかったもの
-4. 考察：AI が得意だった領域／苦手だった領域（自分のテストで裏づけた範囲で）
-5. 限界：サンプル数、対象の規模、一般化できない点
+1. Purpose and method (fixed spec, identical tests)
+2. Designs covered (three or four)
+3. Results: number and kinds of bugs found, and what you failed to catch
+4. Discussion: where the AI was strong and weak (only where your tests support it)
+5. Limitations: sample size, scale, what does not generalise
 
 ---
 
-## 13. 編入パッケージ
+## 13. Transfer package
 
-> 以下の要件は **2026年10月時点の調査**に基づきます。2027年8月に必ず公式ページで再確認してください（特に TAG 条件は毎年8月更新）。
+> The following is based on research as of **October 2026**. Re-check the official pages in
+> **August 2027**, especially the TAG conditions, which are revised every August.
 
-### 13.1 校別の要点
+### 13.1 Key points by school
 
-| 大学 | 出願 | 確認できた要件 | 費用面（留学生） |
+| University | Application | Verified requirements | Cost (international) |
 |---|---|---|---|
-| UC Davis（EE） | UC 出願 10/1〜11/30／TAG 9/1〜9/30 | 必修：CHE 2A、ENG 17、EEC 7、MAT 21A/B/C/D、MAT 22A/B、PHY 9A/B/C/D。レターグレード C 以上、春学期末までに完了（夏学期は数えない）。GPA 最低 2.80。TAG は累積・専攻準備 3.50、TAG なしは累積 3.10・専攻準備 3.20 | 未確認 |
-| UC Berkeley（工学部） | UC 出願 | カリフォルニアのコミカレ出身者を最優先。工学部の最低 GPA 3.5。2022年編入の GPA 中央50%は 3.62〜3.95、96.3% がカリフォルニアのコミカレ出身 | 未確認 |
-| Cornell（工学部） | 3/15（秋のみ） | 授業内容・難度・成績を最も重視。必須4科目＝微積2相当、多変数微積、力学（実験付き）、工学向け一般化学（実験付き）。ECE は回路またはデジタル論理、プログラミング、英作文2科目など。合格者の大学 GPA は一般に 3.3 以上 | 未確認 |
-| Columbia（工学部） | 3/1（Coalition） | 24単位必要。大学教員2名の推薦（研究指導者・雇用主は不可）。400〜600語の転学理由エッセイ。最低 GPA 3.5、工学は数学・理科も 3.5 を強く推奨。8学期で卒業できる計画が前提。出願年の春学期成績は原則考慮しない。合格率は通常10%未満 | 留学生への支援は「極めて限られる」 |
-| Princeton | 3/1 | コミカレ出身者を積極的に歓迎（2024年は26人）。EE の必須科目は未確認 | 経済的必要性が認められれば留学生も支給と公式 |
-| Harvard / Yale / Brown / Dartmouth / Penn | 多くが 3/1、Penn は 3/15（第三者情報） | 合格率は Harvard 1%未満、Yale 約1〜2%、Brown 約3.5〜7.5%、Dartmouth 約5〜7%、Penn 約3〜5%（第三者集計） | 未確認 |
+| UC Davis (EE) | UC application 10/1-11/30, TAG 9/1-9/30 | Required: CHE 2A, ENG 17, EEC 7, MAT 21A/B/C/D, MAT 22A/B, PHY 9A/B/C/D. Letter grade C or better, completed by the end of spring (summer does not count). Minimum GPA 2.80. TAG needs 3.50 cumulative and major preparation; without TAG, 3.10 cumulative and 3.20 major preparation | Not confirmed |
+| UC Berkeley (Engineering) | UC application | California community college students prioritised. Engineering minimum GPA 3.5. For 2022 transfers the middle 50% was 3.62-3.95, and 96.3% came from California community colleges | Not confirmed |
+| Cornell (Engineering) | 3/15 (fall only) | Weighs course content, rigour and grades most. Four required subjects: two calculus courses, multivariable calculus, mechanics with lab, and general chemistry for engineers with lab. ECE also wants circuits or digital logic, programming, and two English composition courses. Admitted students generally have a 3.3+ college GPA | Not confirmed |
+| Columbia (Engineering) | 3/1 (Coalition) | 24 credits required. Two letters from **college faculty** (research supervisors and employers do not count). A 400-600 word essay on why you are transferring. Minimum GPA 3.5; for engineering, 3.5 in maths and science strongly recommended. A plan to graduate in eight terms is assumed. Spring grades of the application year are normally not considered. Admit rate usually below 10% | Support for international students is "extremely limited" |
+| Princeton | 3/1 | Actively welcomes community college students (26 in 2024). EE required courses not confirmed | Officially: aid is available to international students if need is demonstrated |
+| Harvard / Yale / Brown / Dartmouth / Penn | Mostly 3/1; Penn 3/15 (third-party) | Admit rates: Harvard under 1%, Yale about 1-2%, Brown about 3.5-7.5%, Dartmouth about 5-7%, Penn about 3-5% (third-party aggregates) | Not confirmed |
 
-**単位の扱い（v3で修正）**：Cornell は**合計66単位（AP/IB込み）**まで認定し、**Cornell で最低60単位**の在籍が必要。**年間上限は公式に存在しません**（前版の「年間33単位」は誤り）。ECE の学位は126単位なので 66＋60＝126 で4学期が算術上ちょうど成立します（履修順序次第で延びる）。Columbia は最大68ポイント（うち標準化試験は16ポイントまで）、UC は**全UC共通で下位division 70 semester units が上限**（超過分も科目単位としては要件に使える）。**MOOC は単位にならない**ので、MIT 6.004 の自習は実力の証明にとどまります。
+**Credit treatment (corrected in v3)**: Cornell accepts **up to 66 credits including AP/IB** and requires
+**at least 60 credits taken at Cornell**. **There is no official per-year cap** (the previous revision's
+"33 credits per year" was wrong). The ECE degree is 126 credits, so 66 + 60 = 126 works out exactly in
+four terms on paper (course sequencing can still extend it). Columbia allows up to 68 points (of which
+up to 16 from standardised tests). The UC system has a **system-wide cap of 70 lower-division semester
+units** (excess units can still satisfy subject requirements). **MOOCs carry no credit**, so self-study
+of MIT 6.004 is only evidence of ability.
 
-**UC の一般教養（v3で追加）**：UC は **7科目パターン（英作文2＋数学1＋人文/社科/自然科学から4）が必須**で、**IGETC は工学部では非推奨**。Berkeley 工学部は IGETC を breadth の完成として**受理しません**（Davis は B.S. に非推奨、UCSC Baskin も非推奨）。**IGETC を追わず、7科目パターン＋専攻準備を優先**してください。
+**UC general education (added in v3)**: UC requires the **seven-course pattern (two English composition,
+one maths, four from arts/humanities, social sciences, or physical/biological sciences)**, and **IGETC is
+not advised for engineering**. Berkeley Engineering does **not accept IGETC** as completing breadth
+(Davis does not advise it for a B.S.; UCSC Baskin neither). **Do not chase IGETC; prioritise the
+seven-course pattern plus major preparation.**
 
-**英語要件（v3で追加）**：UC は CCC の英作文2科目を C 以上（UCLA/UCSD は B 以上）で取れば TOEFL/IELTS 不要。**Cornell は免除されず、TOEFL 100／IELTS 7.5／Duolingo 130 が必要**（免除は「過去4年間 English が教授言語」等に限る）。→ 2027年8〜9月に1回受験します。
+**English requirement (added in v3)**: UC waives TOEFL/IELTS if you take two transferable English
+composition courses with C or better (B or better at UCLA/UCSD). **Cornell does not waive it: TOEFL 100 /
+IELTS 7.5 / Duolingo 130 is required** (exemptions are limited to cases such as four years of
+English-medium instruction). -> Sit it once in **August-September 2027**.
 
-### 13.2 成績目標
+### 13.2 Grade targets
 
-累積・専攻準備ともに **3.8以上**を目標、**3.5を下限**。Columbia は出願年の春学期を見ないため、評価の中心は 2026秋・2027春・2027秋の3学期。数学は A を狙う（Cornell は MATH 1910/1920/2930/2940 相当を A- 以上でないと認定しない書式があった。最新は要確認）。
+Aim for **3.8 or above** in both cumulative and major preparation, with **3.5 as the floor**. Columbia
+does not look at the spring of the application year, so the grades that count are autumn 2026, spring
+2027 and autumn 2027. Aim for A in maths (Cornell has had wording that does not accept maths transfer
+credit below A- for MATH 1910/1920/2930/2940 equivalents; confirm the current version).
 
-### 13.3 課外活動（週2時間以内、3〜4個に絞る）
+### 13.3 Extracurriculars (two hours a week or less, three or four activities)
 
-| 時期 | 活動 | 記録する数字 |
+| Period | Activity | Numbers to record |
 |---|---|---|
-| 2026/11〜2027/1 | クラブ・チュータリング・学術団体の有無を調査。オフィスアワーで教員と関係を作る。GitHub 公開開始 | 候補一覧、訪問した教員名と日付 |
-| 2027/2〜4 | 研究の打診（制作物リンク付きで3〜5件）。勉強会の企画書 | 連絡件数と返信、企画書 |
-| 2027/5〜8 | 勉強会を月1回（Verilog とデジタル回路の入門）。パイプライン CPU 公開 | 開催回数、参加人数、公開資料 |
-| 2027/9〜2028/2 | 勉強会 or チュータリング継続。研究参加があれば週数と成果。推薦候補2名に進捗共有 | 継続期間、回数 |
-| 2028/2〜3 | Activities 欄を英語で（期間、週あたり時間、成果の数字） | 英文の活動説明 |
+| 2026-11 to 2027-01 | Survey clubs, tutoring and academic societies. Build relationships with faculty in office hours. Start publishing on GitHub | Candidate list, names of faculty visited and dates |
+| 2027-02 to 04 | Approach research groups (three to five, with artifact links). Write a study-group proposal | Contacts made and replies, the proposal |
+| 2027-05 to 08 | Study group once a month (introductory Verilog and digital circuits). Publish the pipelined CPU | Sessions held, attendance, published material |
+| 2027-09 to 2028-02 | Continue the study group or tutoring. If involved in research, hours per week and output. Share progress with the two recommenders | Duration, number of sessions |
+| 2028-02 to 03 | Write the Activities section in English (period, hours per week, output numbers) | English activity descriptions |
 
-**記録の型（毎週日曜1行）**：`2027-05-15 / 2.0h / 勉強会 第1回（Verilog 入門、参加8人）/ 資料スライド12枚を GitHub に公開`
+**Record format (one line every Sunday)**: `2027-05-15 / 2.0h / study group #1 (intro Verilog, 8 attending) / 12 slides published on GitHub`
 
-### 13.4 推薦者（2名＋予備1名）
+### 13.4 Recommenders (two plus one backup)
 
-- 候補は数学・物理・工学の授業教員。Columbia は研究指導者・雇用主を認めないので、**授業の教員から確保**する。
-- 依頼は 2027年12月〜2028年1月。渡すもの：成績、制作物リンク、志望理由1ページ。
-- 期末前に「この授業で一番力を入れたこと」を1回話しておく（推薦文の材料になる）。
+- Candidates are faculty who taught you maths, physics or engineering. Columbia does not accept research
+  supervisors or employers, so **secure course instructors**.
+- Ask in December 2027 to January 2028. Give them: grades, artifact links, a one-page statement of purpose.
+- Before finals, tell each one "what I put the most into in this course" once (it becomes letter material).
 
-### 13.5 エッセイ素材
+### 13.5 Essay material
 
-| 出願先 | 設問 | 素材 |
+| Target | Prompt | Material |
 |---|---|---|
-| Columbia | 転学理由（400〜600語） | LMC で得たもの＋次に必要な環境（研究、設備、同級生）を制作物と結びつける |
-| Cornell | 関心と Cornell Engineering の接点（最新設問は要確認） | パイプライン CPU と ECE の授業・研究室の接点 |
-| UC | PIQ 4本 | 折り紙の折り目と空間の制約 → チップの配置 → 意図を決めて検証する設計、という流れ |
+| Columbia | Why transfer (400-600 words) | What LMC gave you plus the environment you need next (research, facilities, peers), tied to the artifacts |
+| Cornell | Your interests and their connection to Cornell Engineering (confirm the current prompt) | The pipelined CPU and its connection to ECE courses and labs |
+| UC | Four PIQs | Origami creases and spatial constraints -> chip placement -> designing by deciding intent and verifying it |
 
-**共通の物語**：「折り紙の折り目と空間の制約」→「チップの配置と設計」→「意図を決めて検証する RTL 設計」。抽象論で終わらせず、**日付と数字の入った具体場面**で裏づけます。
+**The common narrative**: "origami creases and spatial constraints" -> "chip placement and design" ->
+"RTL design where you decide the intent and verify it". Never leave it abstract: back it with concrete
+scenes containing dates and numbers.
 
 ---
 
-## 14. 週次・月次のチェックリスト
+## 14. Weekly and monthly checklists
 
-### 日曜（15分）
+### Sunday (15 minutes)
 
-- [ ] 週次テストを実施し、点数と出題元を記録した
-- [ ] 誤り集に今週のミスを分類して入れた
-- [ ] カードの翌日・3日後・7日後・30日後の対象を確認した
-- [ ] 来週の7日分の予定をカレンダーに入れた
-- [ ] 活動ログを1行書いた
+- [ ] Ran the weekly test and recorded the score and where the questions came from
+- [ ] Classified this week's mistakes into the error log
+- [ ] Checked which cards are due at +1, +3, +7 and +30 days
+- [ ] Put next week's seven days on the calendar
+- [ ] Wrote one line in the activity log
 
-### 月末（30分）
+### End of month (30 minutes)
 
-- [ ] GitHub の成果を整理し、英語3〜5文の説明を付けた
-- [ ] 同じ型のミスが2回以上出ていないか確認した
-- [ ] 計画の達成率を計算した（70%未満が2週続いたら来月は3割減）
-- [ ] 編入向けの作業を1つ進めた
-- [ ] 翌月の「全体像の日」（月1回）を予定に入れた
+- [ ] Tidied the GitHub artifacts and added an English explanation of 3-5 sentences
+- [ ] Checked whether the same kind of mistake appeared twice or more
+- [ ] Calculated the plan completion rate (below 70% two weeks running -> cut 30% next month)
+- [ ] Moved one transfer-related task forward
+- [ ] Scheduled next month's "whole-picture day" (once a month)
 
-### 四半期（60分）
+### Quarterly (60 minutes)
 
-- [ ] ゲートの判定日を確認し、未達なら分岐ルールを適用した
-- [ ] 求人票を20件サンプルして、求められるスキルの変化を見た（毎年11月は必須）
-- [ ] 使っているツールの版数を更新し、`notes/env.md` を直した
+- [ ] Checked the gate dates and applied the branch rule if one was missed
+- [ ] Sampled 20 job postings to see how the required skills are shifting (every November is mandatory)
+- [ ] Updated tool versions and corrected `notes/env.md`
 
 ---
 
-## 15. リスクと対応
+## 15. Risks and responses
 
-| リスク | 兆候 | 対応 |
+| Risk | Signal | Response |
 |---|---|---|
-| 成績が落ちる | 中間で B 以下 | 技術学習を週8時間に落とし、その学期はゲートを1つ後ろへ。**編入の前提は GPA** |
-| 編入が成立しない | 2028年4月の結果 | UC Davis 等の確実枠に SIR。卒業を優先し、学士で就職するか、卒業後に別ルート（大学院）を検討 |
-| 単元15 で詰まる | パイプライン図が白紙で描けない | 1〜2週間、実装を止めて図と表だけを描く練習に切り替える |
-| 夏の制作物が終わらない | W33 時点でテスト未通し | 機能を削る（キャッシュを落とす、分岐予測をやらない）。**削ったことを明記**して公開 |
-| AI 依存で力が伸びない | AI なしで書けない | 週1回は AI を完全に切る日を作る（木曜）。仕様書を先に書く順序を守る |
-| 課外が重い | 週2時間を超える | 活動を1つ落とす。深さ＞数 |
-| 体調・家庭 | 2週連続で未達 | 「止めない」を優先し、軽量モード（週8時間）に落とす |
-| Tiny Tapeout の費用・締切 | 公式の締切が合わない | 料金は公開済み（**1タイル €70＋DevKit €300＋送料 €15＝€385**）。シャトルは2〜3か月ごとで、**2027年3月（TTIHP27a）・4月（TTGF27a）**が候補。€400 を予算化し、合わなければ GDS 生成と設計公開までを成果にする |
-| **資金が足りない** | 合格しても入学できない | **最大のリスク**。UC は留学生にニード援助なし（Davis 2年で約2,740万円）。Cornell は 3/15 までに aid 申請すれば 100% need 充足。**「合格したが行けない」を防ぐため、2026年12月に資金計画を確定**する（`transfer-strategy-v3.md` §4） |
-| **必修科目が揃わない** | PHY 9D（波動・量子）相当が LMC に無い | TAG の専攻準備が完成せず保険が消える。**2026年12月に ASSIST で確認**し、無ければ近隣コミカレで履修 |
-| **卒業が2030年6月に間に合わない** | 編入後に5学期必要と判明 | UC 編入生の2年以内卒業は約60%。**2030年12月／2031年6月を明示的バッファ**にし、2028年秋の degree audit で4学期完結を確認する |
+| Grades drop | B or below at midterm | Cut technical study to 8 h/week and push one gate back that term. **GPA is the premise of transfer** |
+| Transfer does not happen | April 2028 results | Re-plan: stay at LMC for a third year, or go to a CSU, or apply again the following year. Do not let one rejection end the plan |
+| Extracurriculars get heavy | More than two hours a week | Drop one activity. Depth over count |
+| Health or family | Two consecutive weeks missed | Prioritise **not stopping**: drop to light mode (8 h/week) |
+| Tiny Tapeout cost or deadline | The official deadline does not fit | Prices are published (**1 tile €70 + DevKit €300 + shipping €15 = €385**). Shuttles run every two to three months, with **March 2027 (TTIHP27a) and April 2027 (TTGF27a)** as candidates. Budget €400; if it does not fit, the artifact becomes the GDS plus the published design |
+| **Not enough funding** | Admitted but cannot attend | **The largest risk.** UC gives no need-based aid to international students (about 27.4 million yen for two years at Davis). Cornell meets 100% of need if the aid application is filed by 3/15. **Fix the funding plan in December 2026** to prevent "admitted but unable to go" (see `transfer-strategy-v3.md` section 4) |
+| **A required course is missing** | No LMC equivalent of PHY 9D (waves and quantum) | TAG major preparation stays incomplete and the safety net disappears. **Check ASSIST in December 2026** and take it at a neighbouring community college if absent |
+| **Graduation slips past June 2030** | Five terms turn out to be needed after transfer | Only about 60% of UC transfers graduate within two years. **Make December 2030 / June 2031 an explicit buffer** and confirm the four-term finish in the autumn 2028 degree audit |
 
 ---
 
-## 16. 未確認事項リスト（確認する日付つき）
+## 16. Unconfirmed items (with the date to confirm)
 
-| # | 未確認事項 | 確認する時期 | どこで |
+| # | Item | When | Where |
 |---|---|---|---|
-| 1 | LMC の学期日程（中間・期末の週） | 2026/11月中 | シラバス |
-| 2 | LMC の科目と各校必修の対応（ASSIST） | 2026/12 | ASSIST、カウンセラー |
-| 3 | UC 2028年秋入学向け TAG の条件更新 | 2027/8 | UC 公式（TAG） |
-| 4 | 各校 2028年入学向けの出願日程 | 2027/8 | 各校公式 |
-| 5 | Cornell の数学単位移行の最新条件（A- 以上か） | 2027/8 | Cornell 公式 |
-| 6 | Columbia / Princeton の最新設問と推薦要件 | 2027/10 | 各校公式 |
-| 7 | Tiny Tapeout の2027年の締切・費用 | 2027/5（W24）と W35 | 公式サイトの料金計算 |
-| 8 | 公開 RISC-V テストプログラムの入手先とライセンス | 2027/6（W31 前） | riscv-tests 等 |
-| 9 | 新卒 RTL 求人の学位要件（修士以上か） | 毎年11月、特に 2028/12 | 各社採用ページ |
-| 10 | 2030年卒の日本での就活スケジュール（広報・選考解禁） | 2029/1 | 就職情報サイト、大学のキャリアセンター |
-| 11 | 米国で働く場合の就労資格（OPT/STEM OPT、H-1B） | 2028/12 | 大学 International Office |
-| 12 | 2029夏インターンの応募時期（米国・日本） | 2028/8 | 各社公式、大学のキャリアセンター |
-| 13 | 留学生への経済支援の実際（各校） | 2027/8〜2028/2 | 各校 Financial Aid |
-| 14 | LMC のクラブ・チュータリング制度の有無 | 2026/12 | 学生課 |
+| 1 | LMC term dates (midterm and final weeks) | November 2026 | Syllabus |
+| 2 | Articulation of LMC courses to each school's requirements (ASSIST) | December 2026 | ASSIST, counsellor |
+| 3 | TAG conditions for Fall 2028 entry | August 2027 | UC official TAG pages |
+| 4 | Application dates for Fall 2028 at each school | August 2027 | Each school's site |
+| 5 | Cornell's current maths credit conditions (A- or better) | August 2027 | Cornell official |
+| 6 | Columbia / Princeton current prompts and letter requirements | October 2027 | Each school's site |
+| 7 | Tiny Tapeout 2027 deadlines and prices | May 2027 (W24) and W35 | Official price calculator |
+| 8 | Source and licence of public RISC-V test programs | June 2027 (before W31) | riscv-tests etc. |
+| 9 | Degree requirement in new-graduate RTL postings (master's or not) | Every November, especially December 2028 | Company career pages |
+| 10 | Japanese recruiting schedule for 2030 graduates (when publicity and selection open) | January 2029 | Job sites, university career centre |
+| 11 | Work authorisation if working in the US (OPT/STEM OPT, H-1B) | December 2028 | University International Office |
+| 12 | Summer 2029 internship application timing (US and Japan) | August 2028 | Company sites, career centre |
+| 13 | What financial support for international students actually exists (by school) | August 2027 to February 2028 | Each school's financial aid office |
+| 14 | Whether LMC has clubs and tutoring schemes | December 2026 | Student services |
 
 ---
 
-## 17. 参考（前提の根拠）
+## 17. References (basis for the assumptions)
 
-- MIT 6.004 Computation Structures（Spring 2017）単元一覧：単元14＝Caches and the Memory Hierarchy、単元15＝Pipelining the Beta、単元16＝Virtual Memory、単元18＝Devices and Interrupts、単元19＝Concurrency and Synchronization。<https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/resources/6/>
-- 同カレンダー（単元の並びと Quiz の位置）：<https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/calendar/>
-- 単元15 の講義スライド（Pipelining the Beta、データハザードの3戦略）：<https://computationstructures.org/videos/pipelined_beta/lecture.pdf>
-- 編入要件・日程：前版（2026/10/28 調査）の記載を引き継ぎ。**2027年8月に公式で再確認**。
+- MIT 6.004 Computation Structures (Spring 2017), unit list: unit 14 = Caches and the Memory Hierarchy,
+  unit 15 = Pipelining the Beta, unit 16 = Virtual Memory, unit 18 = Devices and Interrupts,
+  unit 19 = Concurrency and Synchronization. <https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/resources/6/>
+- The same course's calendar (unit order and quiz placement): <https://ocw.mit.edu/courses/6-004-computation-structures-spring-2017/pages/calendar/>
+- Unit 15 lecture slides (Pipelining the Beta, three data-hazard strategies): <https://computationstructures.org/videos/pipelined_beta/lecture.pdf>
+- Transfer requirements and dates: carried over from the previous revision (research of 2026-10-28).
+  **Re-confirm officially in August 2027.**
 
 ---
 
-## 付録：この1か月でやること（2026/11/12〜12/6）
+## Appendix: what to finish this month (2026-11-12 to 12-06)
 
-| 週 | これだけは終わらせる |
+| Week | The only things that must be done |
 |---|---|
-| W1（11/12〜11/15） | 環境とリポジトリ規約、単元1〜7 の白紙要約、加算器の4点セット |
-| W2（11/16〜11/22） | 組み合わせ回路25問、日曜の30分テスト |
-| W3（11/23〜11/29） | 順序回路15問、FSM 2本、**11/29 診断模試#1** |
-| W4（11/30〜12/6） | 8bit ALU を仕様書から公開まで、トレードオフの型を1つ作る |
-
+| W1 (11/12-11/15) | Environment and repository conventions, blank-page summary of units 1-7, the four-part adder set |
+| W2 (11/16-11/22) | 25 combinational problems, Sunday's 30-minute test |
+| W3 (11/23-11/29) | 15 sequential problems, 2 FSMs, **11/29 diagnostic mock #1** |
+| W4 (11/30-12/06) | 8-bit ALU from spec to publication, one trade-off template built |

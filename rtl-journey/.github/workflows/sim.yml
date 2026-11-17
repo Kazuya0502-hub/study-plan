@@ -1,0 +1,21 @@
+name: sim
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  sim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Icarus Verilog
+        run: sudo apt-get update && sudo apt-get install -y iverilog
+      - name: Simulate every testbench
+        run: |
+          set -e
+          for top in $(ls tb/tb_*.v | sed 's|tb/tb_||; s|\.v$||'); do
+            echo "=== $top"
+            make sim TOP="$top" | tee "build-$top.txt"
+            grep -q "ALL PASS" "build-$top.txt"
+          done
