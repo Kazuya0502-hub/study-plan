@@ -32,7 +32,7 @@ hours are allocated and how unit 15 onward is handled**.
 | Transfer | First-choice group = top universities (Ivy League etc.), apply March 2028. Safe tier = UC Davis (TAG) and other UCs, apply November 2027. Both start Fall 2028 |
 | Graduation | June 2030 (junior transfer, two years; to be confirmed) |
 | Study hours | **11-13 h/week in term (cap 18) / 4 h/week during midterms and finals / 22 h/week in long breaks (cap 25)**. Corrected in v3: 18 h/week in term does not coexist with GPA |
-| Current skill | Some Verilog/VHDL. MIT 6.004 units 1-14 (combinational and sequential logic, FSM, performance measures, trade-offs, ISA, the Beta, caches) |
+| Current skill | Some Verilog/VHDL. MIT 6.004 units 1-14 (combinational and sequential logic, FSM, performance measures, trade-offs, ISA, the Beta, caches). **HDLBits completed end to end** - so the implementation drills below are re-derivation from blank paper, not first attempts |
 | Environment | WSL2 (Ubuntu) + Icarus Verilog / Verilator / GTKWave / Yosys (+ SymbiYosys, OpenSTA as needed) |
 | Week boundary | Monday. **W1 = 2026-11-12 (Thu) to 11-15 (Sun), four days**; W2 onward is Monday-Sunday |
 | Highest priority | Coursework and GPA. The plan sits on top of that |
@@ -56,7 +56,7 @@ hours are allocated and how unit 15 onward is handled**.
 | Day | Hours | Content | Artifact for the day |
 |---|---|---|---|
 | Mon | 2h | Theory: unit 15 lecture (slides + video), or an overview of units 16-19 | One-page summary, written without the material |
-| Tue | 2h | Implementation drill: HDLBits, or a small module from spec to code | One commit + a 10-minute card |
+| Tue | 2h | Implementation drill: re-derive a few problems from the completed HDLBits set from blank paper, or a small module from spec to code | One commit + a 10-minute card |
 | Wed | 2h | Verification: testbenches, randomised tests, SVA, reading waveforms | A record of a failing test becoming a passing one |
 | Thu | 2h | Project: spec first -> implementation -> debug | Spec or implementation moved forward |
 | Fri | 2h | Review: cards (30 min) + blank-page recall (30) + error log (30) + spare (30) | One blank-page reproduction |
@@ -128,7 +128,7 @@ parallel, unit 15 (pipelining) is pulled forward into December so the January CP
 | Week | Period | Theory (2h) | Implementation and verification (9h) | Review and artifacts |
 |---|---|---|---|---|
 | **W1** | 11/12(Thu)-11/15(Sun), 4 days | Blank-page summary of units 1-7 (60 min) | Record tool versions, repository conventions, half adder -> 4-bit adder through spec, testbench, waveform and synthesis in one pass | Learning log and card format fixed. 10h total is fine for W1 |
-| **W2** | 11/16-11/22 | Return to lectures only for weak spots in units 1-6 | 25 combinational drills (MUX, decoder, priority encoder, adder, comparator), one 10-minute card each | 30-minute mini test on Sunday (6 questions). Blank-page recall: 4-bit adder |
+| **W2** | 11/16-11/22 | Return to lectures only for weak spots in units 1-6 | 25 combinational problems re-derived from blank paper (MUX, decoder, priority encoder, adder, comparator). The HDLBits set is already complete, so this is recall, one 10-minute card each | 30-minute mini test on Sunday (6 questions). Blank-page recall: 4-bit adder |
 | **W3** | 11/23-11/29 | Summary of units 7-9 (performance, trade-offs, ISA) | 15 sequential drills + 2 FSMs (sequence detector, traffic light) | **11/29 diagnostic mock #1: units 1-14, 90 min, no notes (G1)**. Rebuild cards from the wrong answers |
 | **W4** | 11/30-12/06 | Repair mock weak spots (up to 2h) | **Mini artifact 1: 8-bit ALU** (add/sub, logic, compare, shift). Spec -> test plan -> self-checking TB -> implementation -> Yosys area | README (English, 3-5 sentences) + area table. Whole-picture day: one pass over the ASIC flow |
 | **W5** | 12/07-12/13 | **Unit 15, first half** (pipelining, stage splitting, data hazards) | **3-stage pipelined adder**. Measure cell count and logic depth with Yosys before and after pipelining | **Trade-off table #1** (area, depth, rough fmax) + why it was chosen, in English, 3-5 sentences |
@@ -201,7 +201,7 @@ Decide and document the scope in W10 (do not widen it):
 
 | Week | Period | Theory (2h) | Implementation and verification (9h) | Artifact / gate |
 |---|---|---|---|---|
-| **W10** | 01/11-01/17 | Unit 13 review (how the Beta is built) | Move to SystemVerilog (`logic`/`always_ff`/`always_comb`/`enum`/`package`). Rewrite 5 HDLBits exercises in SV | **Instruction table = spec v1.0**, verification plan v1 |
+| **W10** | 01/11-01/17 | Unit 13 review (how the Beta is built) | Move to SystemVerilog (`logic`/`always_ff`/`always_comb`/`enum`/`package`). Re-implement five exercises from the completed HDLBits set in SV | **Instruction table = spec v1.0**, verification plan v1 |
 | **W11** | 01/18-01/24 | Unit 9 (ISA) review | Decoder + immediate generation (all of I/S/B/U/J). Unit testbench per format | Sign-extension tests all pass |
 | **W12** | 01/25-01/31 | Rest of unit 13 | Connect register file + ALU + PC + instruction memory. Run three programs | **G3 (1/31)**: single-cycle works |
 | **W13** | 02/01-02/07 | Unit 13 (control logic, branches) | Control unit, loads and stores, branches. Initialise memory with `$readmemh` | Unit tests for every instruction + two more programs |
@@ -686,6 +686,6 @@ scenes containing dates and numbers.
 | Week | The only things that must be done |
 |---|---|
 | W1 (11/12-11/15) | Environment and repository conventions, blank-page summary of units 1-7, the four-part adder set |
-| W2 (11/16-11/22) | 25 combinational problems, Sunday's 30-minute test |
+| W2 (11/16-11/22) | 25 combinational problems re-derived from blank paper, Sunday's 30-minute test |
 | W3 (11/23-11/29) | 15 sequential problems, 2 FSMs, **11/29 diagnostic mock #1** |
 | W4 (11/30-12/06) | 8-bit ALU from spec to publication, one trade-off template built |

@@ -5,3 +5,5 @@ build/
 *.out
 *.log
 !syn/*.log
+sim-output.txt
+build-*.txt

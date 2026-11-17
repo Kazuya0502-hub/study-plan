@@ -57,7 +57,7 @@ Each weekday has a **fixed kind of slot**, so filling it in decides the day.
 | Day | Slot | How to write the must (example) | Task examples | Min example |
 |---|---|---|---|---|
 | Mon | Theory | Watch the first half of unit 15, then **draw the pipeline diagram on blank paper** | Turn three terms into cards / reread the relevant slides | Watch one video only (15 min) |
-| Tue | Implementation drill | **7 MUX and decoder problems** (HDLBits) | One card per problem / one commit | Solve 2 problems |
+| Tue | Implementation drill | **7 MUX and decoder problems, re-derived from blank paper** (the HDLBits set is already complete) | One card per problem / one commit | Re-derive 2 problems |
 | Wed | Verification | **Write and pass one self-checking testbench** | Get verilator `-Wall` to zero / one-line waveform note | Just run the linter |
 | Thu | Project | **Write the "non-goals" section of the spec** | I/O table / state diagram | Write the headings only |
 | Fri | Review | **30 minutes of blank-paper recall** (last week's circuit) | Review cards +1/+3/+7 / one error-log entry | Just look at the cards |

@@ -14,7 +14,7 @@
 >
 > I am a Japanese student studying electrical engineering at Los Medanos College in the East Bay. I came to California on a homestay because I wanted to learn this subject where the industry actually is - the companies I am aiming at are Intel and AMD - rather than from a distance.
 >
-> I have been teaching myself from MIT 6.004 (Computation Structures) through unit 15 on pipelining, and I have worked through HDLBits end to end. What that has produced so far is a 4-bit ripple-carry adder of my own, built structurally with no `+` operator, verified by a self-checking testbench that sweeps all 512 combinations of `a`, `b` and `cin`. I work in Icarus Verilog and Verilator, and I am learning to read Yosys synthesis output. My current project is an 8-bit ALU; over the winter break I am taking a FIFO and then a UART through an open-source flow to a clean GDS for a Tiny Tapeout submission.
+> I have been teaching myself from MIT 6.004 (Computation Structures), which I have taken through unit 14, caches; unit 15, pipelining, is next. I have also worked through HDLBits end to end. What that has produced so far is a 4-bit ripple-carry adder of my own, built structurally with no `+` operator, verified by a self-checking testbench that sweeps all 512 combinations of `a`, `b` and `cin`. I work in Icarus Verilog and Verilator, and I am learning to read Yosys synthesis output. My current project is an 8-bit ALU; over the winter break I am taking a FIFO and then a UART through an open-source flow to a clean GDS for a Tiny Tapeout submission.
 >
 > What I do not have is people. Most of my studying happens alone, and that is where it stops: finishing HDLBits taught me the syntax, but it did not teach me what a real project looks like from the inside - how a design is decided, reviewed, and thrown away.
 >
@@ -32,7 +32,7 @@
 >
 > I am a Japanese student studying electrical engineering at Los Medanos College in the East Bay. I came to California on a homestay to learn this near where the industry is - I am aiming at Intel and AMD - but I have no connections here, and most of my studying happens alone.
 >
-> I study from MIT 6.004 (through unit 15, pipelining) and I have worked through HDLBits end to end. On my own I have built a 4-bit ripple-carry adder with no `+` operator, verified against all 512 combinations, and I am now building an 8-bit ALU. Over the winter break I am taking a FIFO and a UART to a clean GDS for Tiny Tapeout.
+> I study from MIT 6.004 (through unit 14, caches; pipelining is next) and I have worked through HDLBits end to end. On my own I have built a 4-bit ripple-carry adder with no `+` operator, verified against all 512 combinations, and I am now building an 8-bit ALU. Over the winter break I am taking a FIFO and a UART to a clean GDS for Tiny Tapeout.
 >
 > What I am missing is the part you cannot get from exercises: I would like to join your community and take part in a real project - attend what is open, take a small piece of work, and be corrected. I am not a Stanford student, so this may not be possible; I would rather ask than assume.
 >
@@ -50,7 +50,7 @@ Update monthly; this is what the message is built from, and it is also what you 
 
 | Area | **Now** | Evidence | **Next** (with date) |
 |---|---|---|---|
-| Materials worked through | **MIT 6.004 through unit 15** (pipelining in progress); **HDLBits end to end** | Cards and notes in `notes/`; HDLBits solutions committed | Units 16-19 as an overview (W9) |
+| Materials worked through | **MIT 6.004 units 1-14** (unit 15, pipelining, is W5/W7 - not yet); **HDLBits end to end** | Cards and notes in `notes/`; HDLBits solutions | Unit 15 (W5, W7); units 16-19 as an overview (W9) |
 | Verilog RTL | Combinational modules with a self-checking testbench each; 4-bit ripple-carry adder passing **512/512** exhaustive vectors | `rtl-journey/rtl/adder4.v` + `tb/tb_adder4.v` | 8-bit ALU (W4, 12/6), FSM, FIFO (W5-W7) |
 | Digital logic theory | Number systems, combinational and sequential basics, performance measures, ISA, the Beta, caches | 6.004 units 1-14; diagnostic 33/50 on units 8-14 | Close the bit-budget gap (W4); unit 15 properly |
 | Verification | Hand-written self-checking testbenches; no cocotb, no formal yet | same repo | cocotb and SymbiYosys via the GhostGate image (winter) |
@@ -65,7 +65,8 @@ Update monthly; this is what the message is built from, and it is also what you 
 
 ## D. Why it is written this way
 
-- **Materials are named because they are shared reference points.** "MIT 6.004 through unit 15" and "HDLBits end to end" let a Stanford reader calibrate you in one second - they know exactly what those cover and what they do not. That is worth more than any adjective about passion.
+- **Materials are named because they are shared reference points.** "MIT 6.004 through unit 14" and "HDLBits end to end" let a Stanford reader calibrate you in one second - they know exactly what those cover and what they do not. That is worth more than any adjective about passion.
+- **The claims must match the roadmap exactly**: units **1-14** (unit 15 is scheduled for W5/W7), HDLBits **complete**. Never write "through unit 15" - it is a claim the plan contradicts, and it would be the first thing a hardware reader tests.
 - **"Finishing HDLBits taught me the syntax, but it did not teach me what a real project looks like"** is the pivot of the whole message. It says: I finished the exercises, I know their ceiling, and I want the thing above them. That is the most credible form of "I want to join".
 - **The wish to join is stated in plain words** ("I would like to join your community and take part in its activities") and then *specified* - attend, take a small piece, be corrected. A vague wish is easy to ignore; three concrete forms of participation are not.
 - **"I am asking directly rather than assuming either answer"** pre-empts the awkwardness. It says you know the rules and are not trying to get around them.
