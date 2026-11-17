@@ -1,15 +1,8 @@
-# OS3 (Open Source Silicon @ Stanford) - outreach (2026-11-17, rev 2)
+# OS3 (Open Source Silicon @ Stanford) - outreach (2026-11-17, rev 3)
 
-**What the site actually offers** (checked 2026-11-17):
+**Site facts** (checked 2026-11-17): Join form asks Name / Email / Year (…/Other) / "core project?" Yes-No / subteams (Digital, Analog, Physical Design, Board Level, Software, PM). Contact form asks Name / Email / Subject (**Sponsorship** or **Other**) / Message. **No email address is published** (`Email: coming soon...`); the only channels are the **web form** and **LinkedIn** (<https://www.linkedin.com/company/open-source-silicon-stanford/>). Slack is Stanford-workspace only. Their wording ties membership to Stanford students, so external participation is unconfirmed. 20 members, 6 subteams, 2 ongoing projects, all projects published.
 
-- Join form fields: Name / Email / **Year** (Freshman ... Master's / PhD / **Other**) / "participate on the core project?" Yes-No / **subteams**: Digital, Analog, Physical Design, Board Level Design, Software, Project Management.
-- Contact form: Name / Email / Subject (**Sponsorship** or **Other**) / Message.
-- **There is no email address on the site** - `Contact Information: Email: coming soon...`. The only channels are the **web form (Subject: Other)** and **LinkedIn** (<https://www.linkedin.com/company/open-source-silicon-stanford/>).
-- Their Slack is `stanford.enterprise.slack.com` (Stanford workspace only), so do not ask for Slack access.
-- Self-description: "We are a community of **Stanford students**" and "give **Stanford students** the opportunity". External participation is **not** stated anywhere. Write so that a no costs them nothing.
-- 20 members, 6 subteams, 2 ongoing projects, funded by Apple and Stanford EE, all projects published publicly.
-
-**What this message is for**: not a membership application. It says who you are, why you came to California, what is missing (people, not information), asks what OS3 actually builds, and offers one small concrete thing.
+**Purpose of the message**: not a membership application. It states the level precisely, states the direction with dates, says what is actually missing (people who would catch mistakes), asks what OS3 builds, and offers one small thing.
 
 ---
 
@@ -21,80 +14,99 @@
 >
 > I am a Japanese student studying electrical engineering at Los Medanos College in the East Bay. I came to California on a homestay because I wanted to learn this subject near where the industry actually is - the companies I am aiming at are Intel and AMD - rather than from a distance.
 >
-> What I did not bring with me is any connection to people doing this work. Most of my studying happens alone, and that has a ceiling: I can get through a tutorial by myself, but I cannot tell whether what I build is any good.
+> Here is exactly where I am, so you can judge it. I write Verilog: combinational RTL, plus a self-checking testbench for each module, and I have a 4-bit ripple-carry adder that passes all 512 exhaustive input vectors. I am working through digital logic properly - datapath and control, performance measures, the ISA layer - and my current project is an 8-bit ALU. I use Icarus Verilog and Verilator at home and I am learning to read synthesis output.
 >
-> I am not a Stanford student, so I am not asking to join your team. What I want is smaller than that, and I am writing to you because you publish your projects openly:
+> Here is where I am going. Over the winter break I am carrying a FIFO and then a UART through an open-source flow - synthesis, floorplan, place and route - until the GDS is clean on DRC and LVS, and submitting the result to Tiny Tapeout. In January I want to be debugging a real design, not reading about one.
+>
+> What I did not bring with me is any connection to people doing this work. Most of my studying happens alone, and that has a ceiling: I can get through a tutorial by myself, but I cannot tell whether what I build is any good, and there is no one to tell me. I am not looking for another course. I am looking for work that can be wrong.
+>
+> I am not a Stanford student, so I am not asking to join your team. What I want is smaller, and I am writing to you because you publish your projects openly:
 >
 > 1. May I follow what you are working on - a public repository, issue tracker, or mailing list?
-> 2. Would you tell me what the projects actually are? I would like to know what a real chip project looks like from the inside, not from a course description.
+> 2. Would you tell me what the projects actually are? I want to know what a real chip project looks like from the inside, not from a course description.
 > 3. If it is useful, may I contribute something small - a testbench, documentation, a reproducibility check - on a published repository?
 >
-> What I have to offer is modest: I am taking a FIFO/UART design through an open-source flow toward a clean GDS for a Tiny Tapeout submission this winter. Verification and documentation are the parts I can do carefully and unsupervised.
->
-> If participation is Stanford-only, that is a fine answer - I would still be glad to know what you are building. Thank you for reading.
+> If participation is Stanford-only, that is a fine answer - I would still be glad to know what you are building. I would rather send this now than wait until my English is perfect. Thank you for reading.
 >
 > <name> | <email> | github.com/<handle>
 
-## A2. Short version, if the form has a character limit (~150 words)
+## A2. Short version (~180 words)
 
 > Hello OS3,
 >
-> I am a Japanese student studying electrical engineering at Los Medanos College in the East Bay. I came to California on a homestay to learn this close to where the industry is - I am aiming at companies like Intel and AMD - but I have no connections here, so most of my studying is done alone.
+> I am a Japanese student studying electrical engineering at Los Medanos College in the East Bay. I came to California on a homestay to learn this near the industry - I am aiming at Intel and AMD - but I have no connections here.
 >
-> I am not a Stanford student, so I am not asking to join. I would like to know what projects OS3 actually works on, and if it is useful, to help with one - a testbench, documentation, a reproducibility check. I am taking a FIFO/UART design to GDS for a Tiny Tapeout submission this winter.
+> Where I am: I write Verilog with a self-checking testbench per module, I have a 4-bit ripple-carry adder passing all 512 exhaustive vectors, and I am building an 8-bit ALU while working through digital logic properly. Where I am going: over the winter break I am taking a FIFO and a UART through an open-source flow to a clean GDS and submitting it to Tiny Tapeout.
 >
-> If it is Stanford-only, that is fine; I would still like to hear what you are building. Thank you.
+> Most of my studying happens alone, and that has a ceiling - I can finish a tutorial, but I cannot tell whether what I build is good, and there is no one to tell me. I am not looking for another course; I am looking for work that can be wrong.
+>
+> I am not a Stanford student, so I am not asking to join. I would like to know what OS3 actually builds, and whether outside contributors can send issues or pull requests on the published repos.
 >
 > <name> | <email> | github.com/<handle>
 
-## B. LinkedIn message (to the OS3 page or a team member)
+## B. LinkedIn message (~110 words)
 
-> Hi - I am a Japanese student studying electrical engineering at Los Medanos College in the East Bay. I came to California on a homestay to be near the industry (I am aiming at Intel and AMD), but I have no connections here and most of my studying is done alone. I am not at Stanford, so I am not asking to join - I would like to know what OS3 is actually building, and whether outside contributors can send issues or pull requests on the published repos. Either answer helps. Thanks.
+> Hi - I am a Japanese student studying electrical engineering at Los Medanos College in the East Bay. I came here on a homestay to be near the industry (I am aiming at Intel and AMD), but I have no connections here. I write Verilog with self-checking testbenches, and I am taking a FIFO/UART design through an open-source flow to a clean GDS for Tiny Tapeout this winter. I am not at Stanford, so I am not asking to join - I want to know what OS3 is actually building, and whether outside contributors can send issues or pull requests on the published repos. Either answer helps. Thanks.
 
 ---
 
-## Why it is written this way
+## C. The skills inventory behind those paragraphs (keep this honest and current)
 
-- **The homestay line does the work of explaining the whole situation in one sentence.** It says *I moved countries for this* without asking for credit for it, and it explains why the next paragraph is true.
-- **"I cannot tell whether what I build is any good"** is the centre of the message. It says *I am already doing the work; I want it checked* - which is a different thing from *I want to be taught*, and it is the only reason a student club would reply.
-- **Intel and AMD are named once, together.** It makes the ambition concrete and gives them a frame for what to tell you about. More than two names reads like a wish list; none reads like no direction.
-- **"I would still be glad to know what you are building"** keeps the door open after a no. It is also honest - the information is worth having on its own.
-- **Nothing about transfer plans, visas, or grades.** None of it changes their answer, and each one invites a "we cannot help with that" reply.
-- **"I will not follow up" was dropped in this revision** because the closing now asks for something they can give for free (tell me what you are building), so there is no need to promise silence. Keep the one-message discipline anyway: send once, and wait.
+Update this every month; it is what the message is built from, and it is also what you paste into the Join form or a README.
 
-## What not to write
+| Area | **Now** | Evidence | **Next** (with date) |
+|---|---|---|---|
+| Verilog RTL | Combinational modules with a self-checking testbench each; 4-bit ripple-carry adder passing **512/512** exhaustive vectors (a x b x cin) | `rtl-journey/rtl/adder4.v` + `tb/tb_adder4.v` | 8-bit ALU (**W4, 12/6**), FSM, FIFO with testbench (**W5-W7**) |
+| Digital logic theory | Number systems, combinational and sequential basics, performance measures, ISA layer; **weak on bit budgeting** (datapath width allocation) | diagnostic 33/50 on units 8-14; bit budgeting 3/10 | close the bit-budget gap (**W4**), units 15-16 |
+| Verification | Hand-written self-checking testbenches; no cocotb, no formal yet | same repo | cocotb and SymbiYosys via the GhostGate image (winter) |
+| EDA tools | Icarus Verilog and Verilator locally, `make`, git | `Makefile`, commit history | **OpenLane in the winter break**, reading timing and area reports |
+| Physical design | **None** | - | FIFO to GDS, clean DRC and LVS (**by 1/10**) |
+| Programming | **No formal course yet** | - | COMSC 122, Spring 2027 |
+| Public work | One small repo, no submissions yet | - | Tiny Tapeout submission, SMACD paper (2/19) |
+
+**How to use this in the mail**: pick **two** rows that are true (RTL + what is next) and one gap (bit budgeting, verification at scale). Naming a real gap makes the rest credible; claiming breadth does the opposite.
+
+---
+
+## D. Why it is written this way
+
+- **Exact level, not adjectives.** "A 4-bit ripple-carry adder passing all 512 exhaustive vectors" is checkable and small - and 512 is the whole input space, not a sample. It tells them you know what done means, which is the actual signal.
+- **The dates do the work of enthusiasm.** "Over the winter break I am carrying a FIFO and then a UART through a flow until the GDS is clean" is heat expressed as a schedule. Adjectives would be weaker and less believable.
+- **"I am not looking for another course. I am looking for work that can be wrong."** This is the whole message in two sentences. It also flatters the reader correctly: it says their work is the thing that can catch you.
+- **"There is no one to tell me"** states isolation as a fact about the work, not a feeling about you.
+- **Intel and AMD are named once, together.** Concrete aim, not a wish list.
+- **"I would rather send this now than wait until my English is perfect."** Turning the language gap into evidence of seriousness is better than apologising for it.
+- **Nothing about visas, grades, or transfer plans.** None of it changes their answer.
+
+## E. What not to write
 
 | Do not write | Why |
 |---|---|
-| "I am passionate about semiconductors" | A claim, not evidence. The FIFO/GDS sentence is the evidence. |
-| "I have no friends here" / "I am lonely" | True, but it makes the reader responsible for your situation. "Most of my studying happens alone" says the same thing as a fact. |
-| Visa, I-20, work authorization | They are a student club, not an employer. |
-| "I will do anything, even for free" | Reads as low value and hands them the work of finding you a task. |
-| Asking for a mentor, a letter, or an introduction | All three are bigger asks than "may I send a pull request". |
-| A long account of moving countries | One sentence is context; a paragraph is a request for sympathy and buries the question. |
+| "I am passionate about semiconductors" | With the FIFO sentence in the same mail, this adds nothing and reads as filler. |
+| "I have no friends here" | Makes the reader responsible for your situation. "There is no one to tell me" says it about the work. |
+| Skills you cannot demonstrate in one sentence | A reader who tests one claim and finds it thin stops reading. |
+| "I will do anything, even for free" | Reads as low value and hands them the task of finding you work. |
+| Asking for a mentor, a letter, or an introduction | Bigger asks than "may I send a pull request". Earn the first. |
+| A long account of moving countries | One sentence is context; a paragraph buries the question. |
 
-## If they say yes - what to put in the Join form
+## F. If yes - Join form answers
 
 | Field | Answer |
 |---|---|
-| Year | **Other** (do not dress up as a Stanford year) |
-| Participate on the core project? | **No** at first - the core project assumes lab access and weekly in-person work |
-| Subteams | **Digital** (first), **Software** (second: CI, scripts, reproducibility) |
+| Year | **Other** |
+| Core project? | **No** at first (lab access and weekly in-person work assumed) |
+| Subteams | **Digital**, then **Software** (CI, scripts, reproducibility) |
 
-Then close one small issue in the first week. Being the person who finishes small tasks is how an outside contributor becomes a known quantity.
+Close one small issue in the first week. That is how an outside contributor becomes a known quantity.
 
-## If they say no
+## G. If no
 
-Do not argue, and do not re-send. The open-to-everyone equivalents are already identified:
-
-- **ASIC Network** - a network of university ASIC/VLSI clubs with a shared Discord (<https://asicnetwork.net/>); ask whether a community college can join as a club.
-- **Tiny Tapeout** - open to individuals; the Discord is where shuttle questions get answered.
-- **YosysHQ Discourse** and **1BitSquared Discord** - toolchain developers answer directly, and a public answer with a reproducible case is itself a portfolio artifact.
-- **FOSSi Foundation** / **CHIPS Alliance** workgroups - open mailing lists and public meetings.
+Do not argue and do not re-send. Open equivalents: **ASIC Network** (<https://asicnetwork.net/>, university ASIC/VLSI club network with a Discord), **Tiny Tapeout** Discord, **YosysHQ Discourse**, **1BitSquared Discord**, **FOSSi Foundation** / **CHIPS Alliance** open mailing lists.
 
 ## Before sending
 
-- [ ] Use the web form (Subject: **Other**) - there is no published email address
+- [ ] Web form, Subject **Other** (no published email address exists)
 - [ ] Replace `<name>`, `<email>`, `<handle>`; the GitHub link matters more than the rest
-- [ ] Send after 12/21, not during finals week - a student club reads mail when the term ends
+- [ ] **Publish the repo first.** `rtl-journey/` is not yet a public GitHub repo; without a link, the only checkable claim in this mail disappears. Move it to its own public repo with `rtl/`, `tb/`, `Makefile` and a README showing `make sim TOP=adder4` and the `ALL PASS (512/512)` line
+- [ ] Send after **12/21**, not during finals week
 - [ ] Log it: `python3 tools/daily.py log "OS3: contact form sent"`
