@@ -42,6 +42,20 @@
 
 ---
 
+## A2. Short version, if the form has a character limit (~150 words)
+
+> Hello OS3,
+>
+> I am a Japanese student who came to California for this. I am at Los Medanos College, transferring to UC Davis EE in Fall 2028, working toward RTL design, and I have taught myself Verilog, testbenches and an open-source flow. Working alone I can finish a tutorial, but I cannot tell whether what I build is any good - I would like to work on a real project with people who would notice if it were wrong.
+>
+> I am not a Stanford student, so I am not asking to join. Do you accept issues or pull requests from outside contributors on your published repositories? Is there a public channel I can follow?
+>
+> I am taking a FIFO/UART design to GDS for a Tiny Tapeout submission this winter. Verification and documentation are what I can do unsupervised.
+>
+> If the answer is Stanford-only, that is fine and I will not follow up. Thank you.
+>
+> <name> | <email> | github.com/<handle>
+
 ## B. LinkedIn message (shorter, to the OS3 page or a team member)
 
 > Hi - I am a Japanese student in the East Bay, at Los Medanos College, transferring to UC Davis EE in Fall 2028. I am teaching myself RTL and taking a FIFO/UART design to GDS for a Tiny Tapeout submission this winter, and I would like to work on something real rather than another tutorial. I am not at Stanford, so I am not asking to join - I am asking whether OS3 takes issues or pull requests from outside contributors on its published repos. Either answer helps. Thanks.
