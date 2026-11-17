@@ -12,32 +12,39 @@
 
 ## A. Message for the contact form (Subject: Other)
 
-> **Subject: Non-Stanford student - may I contribute to your published projects?**
+> **Subject: A student outside Stanford - may I contribute to your published projects?**
 >
 > Hello OS3,
 >
-> I am a community college student at Los Medanos College (Contra Costa district, California), planning to transfer into UC Davis Electrical Engineering in Fall 2028, working toward RTL design. I am not a Stanford student, so I am asking a narrow question rather than applying to join.
+> I am a Japanese student who came to California to study hardware. I am at Los Medanos College in the Contra Costa district, planning to transfer into UC Davis Electrical Engineering in Fall 2028, and I am working toward RTL design.
 >
-> I have read that you publish all projects publicly and contribute back to the open-source ecosystem. Three things, in the order I would hope for them:
+> Most of what I know I have taught myself: Verilog, self-checking testbenches, and now an open-source synthesis and place-and-route flow. That is also the limit of it. Working alone, I can finish a tutorial, but I cannot tell whether what I have built is any good - and I would like to work on a real project with people who would notice if it were wrong.
 >
-> 1. Is there a **public channel** (mailing list, issue tracker, blog feed) I can follow without being a member?
+> I am not a Stanford student, so I am not asking to join your team. I am asking a narrower question, and I have read that you publish every project openly, which is why I am writing to you rather than to anyone else.
+>
+> 1. Is there a **public channel** (issue tracker, mailing list, blog feed) I can follow without being a member?
 > 2. Do you accept **issues and pull requests** from non-Stanford contributors on published repositories - testbenches, documentation, CI, reproducibility checks?
 > 3. Is there any **external or mentored track**, even a remote reading group?
 >
-> What I can actually offer now: Verilog with self-checking testbenches, and a FIFO/UART design I am carrying through an open-source flow to a clean GDS for a Tiny Tapeout submission this winter. Verification and documentation are the parts I can do well and unsupervised.
+> What I can offer now is small and real: I am taking a FIFO/UART design through an open-source flow toward a clean GDS for a Tiny Tapeout submission this winter. Verification and documentation are the parts I can do carefully and unsupervised. I would rather be given one boring task and finish it than a large one I cannot.
 >
-> A one-line "no, we are Stanford-only" is a completely fine answer, and I will not follow up.
+> If the answer is "Stanford students only", that is a fine answer and I will not follow up. Either way, thank you for reading.
 >
-> Thank you,
 > <name> | <email> | github.com/<handle>
 
-**Why it is written this way**: it states the disqualifier first (not a Stanford student) so they do not spend time on it, asks three questions that each allow a cheap no, names a concrete contribution instead of asking to be taught, and promises not to chase them.
+**Why it is written this way**
+
+- **The "came from Japan" line goes first, and the disqualifier second.** The nationality explains the motive in one clause; the very next sentence removes any implication that it is a request for special treatment. Reversed, the mail reads as an appeal. In this order it reads as context.
+- **"I cannot tell whether what I have built is any good"** is the sentence that carries the intent. It says *I am already doing the work, and I want it checked*, which is a different thing from *I want to be taught* - and it is the reason a student club would answer.
+- **Three questions that each allow a cheap no**, so one refusal does not end the conversation.
+- **"one boring task and finish it"** is deliberate: it is the actual shape of the work an outside contributor gets, and saying it out loud shows you know that.
+- **"I will not follow up"** removes the fear of a correspondence.
 
 ---
 
 ## B. LinkedIn message (shorter, to the OS3 page or a team member)
 
-> Hi - I am a community college student in the East Bay (Los Medanos College), transferring to UC Davis EE in Fall 2028, aiming at RTL design. I saw that OS3 publishes its projects openly. Do you accept pull requests or issues from non-Stanford contributors on those repositories, or is participation limited to Stanford students? Either answer is useful - I am trying to work out where an outside student can legitimately plug in. Thanks.
+> Hi - I am a Japanese student in the East Bay, at Los Medanos College, transferring to UC Davis EE in Fall 2028. I am teaching myself RTL and taking a FIFO/UART design to GDS for a Tiny Tapeout submission this winter, and I would like to work on something real rather than another tutorial. I am not at Stanford, so I am not asking to join - I am asking whether OS3 takes issues or pull requests from outside contributors on its published repos. Either answer helps. Thanks.
 
 ---
 
@@ -63,6 +70,16 @@ Do not argue. The equivalent, open-to-everyone options are already identified an
 - **FOSSi Foundation** / **CHIPS Alliance** workgroups - open mailing lists and public meetings.
 
 ---
+
+## E. What not to write
+
+| Do not write | Why |
+|---|---|
+| "I am passionate about semiconductors" | It is a claim, not evidence. The FIFO/GDS sentence is the evidence; one is enough. |
+| Anything about visas, I-20, or work authorization | They are a student club, not an employer. It invites a "we cannot help with that" reply. |
+| "I will do anything, even for free" | It reads as low value and puts the burden of finding work on them. Name the task you can do instead. |
+| A long story about moving countries | One clause is context; a paragraph is a request for sympathy, and it buries the question. |
+| Asking for a mentor, a letter, or an introduction | All three are bigger asks than "may I send a pull request". Earn the first, then ask. |
 
 ## Before sending
 
