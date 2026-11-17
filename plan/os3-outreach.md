@@ -59,7 +59,7 @@
 - **"I cannot tell whether what I build is any good"** is the centre of the message. It says *I am already doing the work; I want it checked* - which is a different thing from *I want to be taught*, and it is the only reason a student club would reply.
 - **Intel and AMD are named once, together.** It makes the ambition concrete and gives them a frame for what to tell you about. More than two names reads like a wish list; none reads like no direction.
 - **"I would still be glad to know what you are building"** keeps the door open after a no. It is also honest - the information is worth having on its own.
-- **Nothing about UC Davis, visas, or grades.** None of it changes their answer, and each one invites a "we cannot help with that" reply.
+- **Nothing about transfer plans, visas, or grades.** None of it changes their answer, and each one invites a "we cannot help with that" reply.
 - **"I will not follow up" was dropped in this revision** because the closing now asks for something they can give for free (tell me what you are building), so there is no need to promise silence. Keep the one-message discipline anyway: send once, and wait.
 
 ## What not to write
