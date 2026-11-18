@@ -30,8 +30,8 @@ This is the only information that changes the plan, and only you can see it.
 | 1.1 | Open InSite in a browser and sign in | The student home page | Password reset takes time - do it now, not on 11/24 |
 | 1.2 | Open the class search (Search for Classes / Register for Classes -> search) | A term selector | If the term defaults to Fall 2026, switch it to **Spring 2027** |
 | 1.3 | Search `MATH 220`. For **7411** write down: status, seats left, waitlist count | Numbers in the margin of the printout | If 7411 is not listed, it was cancelled - move to 7011 |
-| 1.4 | Same for **CHEM 006 0052**, **1789**, **9524**, **1784** | Four lines of numbers | Any section missing = cancelled, cross it out |
-| 1.5 | Same for **ENGL C1000 0312** and **0180**, **9611** | Three lines | - |
+| 1.4 | Same for **CHEM 006** in this order: **0052**, **7480**, **9524**, **1784**, **9542**, **7479** (there is no 1789 - it does not exist) | Six lines of numbers | Any section missing = cancelled, cross it out |
+| 1.5 | Same for **ENGL C1000 0312**, **9611**, **0180** | Three lines | - |
 | 1.6 | Same for **COMSC 122 6944**, and **6940** as backup | Two lines | If 6944 is not "online", tell me - the F-1 count changes |
 | 1.7 | Search your chosen GE on the Friday list: **9579**, **0716**, **0132**, **0034** | Which ones are open | If all four are closed, search GE courses with `F` (Friday) and take the first 3-unit UC-transferable one |
 | 1.8 | Write at the top of the printout: date, time, and the single GE CRN you will take | One CRN circled | - |
@@ -62,9 +62,9 @@ Any Friday-only, in-person, 3+ unit, UC-transferable section is equally acceptab
 |---|---|---|---|
 | 3.1 | Sign in to InSite (already signed in is better) | Home page | Slow login at 08:00 is normal; do not reload repeatedly |
 | 3.2 | Open registration and add **MATH 220 7411** by CRN | "Added" or a green check | Full: add **7011**. Full too: **9605**, then **9575**. Never **7407** (online) |
-| 3.3 | Add **CHEM 006 0052** | Added | Full: **1789**. Then **9524**. Then **1784**. Then the extras on the printout. Note which branch you landed in - it changes step 3.4 |
-| 3.4 | Add the ENGL CRN **for your branch**: 0052 -> 0312; 1789 -> 0180; 9524 -> 9611; 1784 -> 0312 | Added | Full: **0183** (MW 09:35), then **0185**. Never 0301 / 0321 (they clash with MATH 7411) |
-| 3.5 | Add **COMSC 122 6944** | Added | Full: **6940** (asynchronous). This is still your one online course |
+| 3.3 | Add **CHEM 006 0052** | Added | Full: **7480**, then **9524**, then **1784**, then **9542**, then **7479**, then the extras. **Remember which row you landed in - it decides steps 3.4 and 3.5** |
+| 3.4 | Add the ENGL CRN **for your row**: 0052 / 7480 / 1784 / 7479 -> **0312**; 9524 -> **9611**; 9542 -> **0180** | Added | Full: search ENGL C1000 and pick any section clear of TTh 09:35-11:25 and of your CHEM block. Confirm the title on screen |
+| 3.5 | Add **COMSC 122**: **6940 (asynchronous) if your CHEM is 0052 or 9702**, otherwise **6944** | Added | **Never both.** 0052 meets T 12:45-14:10 and 6944 meets TTh 12:45-14:10 - they collide. Full: the other one |
 | 3.6 | Add the GE CRN from step 1.8 | Added | Full: another Friday-only 3-unit section. Not a TTh 14:20+ one if you are in branch 1 |
 | 3.7 | Open your schedule view | Five courses, **17 units** | If it says 14 or 16, a course did not add - check the list |
 | 3.8 | Check each meeting time against the printout | No overlap warnings | Any clash means a wrong branch - drop the ENGL and use the branch's ENGL |
@@ -72,7 +72,7 @@ Any Friday-only, in-person, 3+ unit, UC-transferable section is equally acceptab
 | 3.10 | If any course is waitlisted: open it and screenshot the position number | PNG saved | - |
 
 **If CHEM 006 is completely unavailable**: do not take a placeholder course. Register the other four,
-then join the waitlist for 0052 and 1789, and email the instructors the same day. Bring it to me and we
+then join the waitlist for the first two open-looking sections, and email the instructors the same day. Bring it to me and we
 change the summer chain.
 
 ---

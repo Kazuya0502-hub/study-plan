@@ -250,7 +250,7 @@ It is only needed in these cases:
 | # | Task | Deadline |
 |---|---|---|
 | 1 | Confirm with a counselor whether **one year of high school chemistry clears the CHEM 025 prerequisite** (the Branch A/B decision) | 11/15 - **answered: it does not** |
-| 2 | **11/24 priority registration**: MATH 220 (7411) -> **CHEM 006 (0052**, tree 0052/1789/9524/1784) -> ENGL C1000 (0312) -> COMSC 122 (6944) -> Friday GE (17 units) | **11/24** |
+| 2 | **11/24 priority registration**: MATH 220 (7411) -> **CHEM 006 (0052**, tree 0052/7480/9524/1784/9542/7479) -> ENGL per branch -> COMSC 122 (6940 with 0052, else 6944) -> Friday GE (17 units) | **11/24** |
 | 3 | **Screenshot ASSIST's "EEC 007 / PHY 009D: No Course Articulated" page** | 11/20 |
 | 4 | Get **written** confirmation of the waiver from a Davis transfer advisor | 11/30 |
 | 5 | Ask in the same email whether **a Summer 2027 CHEM 025** counts toward the TAG requirements | 11/30 |
@@ -286,5 +286,5 @@ It is only needed in these cases:
 | Whether Davis's waiver is valid in the current cycle | Wording appears only in the Fall 2025 brochure. **Needs written confirmation** |
 | Whether Summer 2027 required courses count toward TAG | Two different wordings exist. **Needs written confirmation** |
 | Spring 2028 days for PHYS 041 and 042 | Published November 2027. **Check then** |
-| Days and times for CHEM 006 | **Resolved 2026-11-17 from the schedule PDF**: 0052 = T 12:45-14:10 + TH 14:20-15:40 + lab TTh 14:20-17:10 (Pittsburg). CHEM 006 runs 11 sections; only 0052 fits around MATH 220 7411. See `plan/registration-day-2026-11-24.md` |
+| Days and times for CHEM 006 | **Resolved 2026-11-17 from the schedule PDF**: 0052 = T 12:45-14:10 + TH 14:20-15:40 + lab TTh 14:20-17:10 (Pittsburg). CHEM 006 runs **10** sections and **there is no 1789**; 0052 also collides with COMSC 6944, so 0052 forces the asynchronous 6940. See `plan/registration-day-2026-11-24.md` |
 | The 2026-27 version of LMC's UC area list | ASSIST renders dynamically. **Check ASSIST before registering** |
