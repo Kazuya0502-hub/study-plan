@@ -16,3 +16,4 @@ dec2_4 fa2(.en(en_lo), .a(a[1:0]), .y(y[3:0]));
 
 
 endmodule
+

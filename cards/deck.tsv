@@ -19,3 +19,7 @@ In a direct-mapped cache, what happens when two addresses share an index?	A conf
 For ADD, what feeds the register file write port?	The ALU output	unit13 beta
 For LD, what feeds the register file write port?	The data read from memory	unit13 beta
 What is the general name for the signal that chooses between ALU output and memory data on a write?	The write-back source (a mux selected by control)	unit13 beta
+A 4:1 mux built from three 2:1 muxes - what does the third stage select?	The outputs of the first two muxes, using s[1]	rtl combinational
+When does always @(*) infer a latch?	When an output is left unassigned on some path through the block	rtl combinational
+In a 3:8 decoder made from two 2:4 decoders, what enables each half?	en and not a[2] for the low half, en and a[2] for the high half	rtl combinational
+Why must a testbench compute its expected value independently of the DUT?	A shared mistake cancels out and a broken design still passes	rtl combinational
