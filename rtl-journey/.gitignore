@@ -7,3 +7,4 @@ build/
 !syn/*.log
 sim-output.txt
 build-*.txt
+scratch/
